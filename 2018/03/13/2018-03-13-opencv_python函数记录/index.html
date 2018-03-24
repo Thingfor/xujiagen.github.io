@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="之前也学习过c++部分的opencv,但是函数太多了，不好记忆注意：import cv2 as cv      函数名 注释 例子     变量=cv.imread(“文件名称”) 读取将一个图片读入内存 src=cv.imread(“picture.jpg”)   cv.namedWindow(“窗口名称”,窗口设置) 创建一个窗口 cv.namedWindow(“input picture”,">
+<meta name="keywords" content="c++&#x2F;python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/03/13/2018-03-13-opencv_python函数记录/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="之前也学习过c++部分的opencv,但是函数太多了，不好记忆注意：import cv2 as cv      函数名 注释 例子     变量=cv.imread(“文件名称”) 读取将一个图片读入内存 src=cv.imread(“picture.jpg”)   cv.namedWindow(“窗口名称”,窗口设置) 创建一个窗口 cv.namedWindow(“input picture”,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-17T16:05:59.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="之前也学习过c++部分的opencv,但是函数太多了，不好记忆注意：import cv2 as cv      函数名 注释 例子     变量=cv.imread(“文件名称”) 读取将一个图片读入内存 src=cv.imread(“picture.jpg”)   cv.namedWindow(“窗口名称”,窗口设置) 创建一个窗口 cv.namedWindow(“input picture”,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/13/2018-03-13-opencv_python函数记录/"/>
+
+
+
+
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/2018-03-13-opencv_python函数记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xujiagen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T16:13:34+08:00">
+                2018-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="之前也学习过c-部分的opencv-但是函数太多了，不好记忆"><a href="#之前也学习过c-部分的opencv-但是函数太多了，不好记忆" class="headerlink" title="之前也学习过c++部分的opencv,但是函数太多了，不好记忆"></a>之前也学习过c++部分的opencv,但是函数太多了，不好记忆</h3><p><strong>注意：import cv2 as cv</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>注释</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>变量=cv.imread(“文件名称”)</td>
+<td>读取将一个图片读入内存</td>
+<td>src=cv.imread(“picture.jpg”)</td>
+</tr>
+<tr>
+<td>cv.namedWindow(“窗口名称”,窗口设置)</td>
+<td>创建一个窗口</td>
+<td>cv.namedWindow(“input picture”,cv.WINDOW_AUTOSUZE)</td>
+</tr>
+<tr>
+<td>cv.imshow(“窗口名称”,变量)</td>
+<td>将变量放到特定的窗口显示</td>
+<td>cv.imshow(“input picture”,src)</td>
+</tr>
+<tr>
+<td>cv.bitwise_not(变量)</td>
+<td>将变量的进行非操作</td>
+<td>cv.bitwise_not(image)</td>
+</tr>
+<tr>
+<td>cv.bitwise_and(变量1，变量2)</td>
+<td>将两个图片进行与操作</td>
+<td>cv.bitwise_and(image1,image2)</td>
+</tr>
+<tr>
+<td>cv.bitwise_or(变量1，变量2)</td>
+<td>将两张图片进行或操作</td>
+<td>cv.bitwise_or(image1,image2)</td>
+</tr>
+<tr>
+<td>cv.VideoCapture(0)</td>
+<td>调用本机的摄像头</td>
+<td></td>
+</tr>
+<tr>
+<td>变量=cv.VideoCapture(“vedio.avi”)</td>
+<td>调用某一段视频文件</td>
+<td>ret,frame=capture.read()</td>
+</tr>
+<tr>
+<td>ret,frame=capture.read()</td>
+<td>对于一个视频每一次读取一张图片，ret是视频是否结束，frame是保存图片的变量</td>
+</tr>
+<tr>
+<td>image=cv.inRange(变量,lowerb,upperb)</td>
+<td>将标量从RGB空间保存到HSV空间之后，通过inRange函数将需要的颜色过滤出来，首先设置过滤的下边界，然后设置过滤的上边界</td>
+<td></td>
+</tr>
+<tr>
+<td>b,g,r=cv.split(变量)</td>
+<td>变量是RGB空间的彩色图片，通过split函数将三层分解</td>
+<td></td>
+</tr>
+<tr>
+<td>image=cv.merge(b,g,r)</td>
+<td>将三张二维的图片合成一张三维的图片</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>图片逻辑运算</th>
+<th>函数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>将两张图片进行算数相加</td>
+<td>cv.add(image1,image2)</td>
+</tr>
+<tr>
+<td>将两张图片进行算数相减</td>
+<td>cv.substract(image1,image2)</td>
+</tr>
+<tr>
+<td>将两张图片进行算数相乘</td>
+<td>cv.multiply(image1,image2)</td>
+</tr>
+<tr>
+<td>将两张图片进行算数相除</td>
+<td>cv.divide(image1,image2)</td>
+</tr>
+<tr>
+<td>将两张图片进行算数相减</td>
+<td>cv.substract(image1,image2)</td>
+</tr>
+<tr>
+<td>将两张图片进行算数相减</td>
+<td>cv.substract(image1,image2)</td>
+</tr>
+<tr>
+<td>将两张图片进行算数相减</td>
+<td>cv.substract(image1,image2)</td>
+</tr>
+</tbody>
+</table>
+<p>###颜色空间<br>BGR/HSV/YUV/HSI/YCbCr<br>我们平时了解的是RGB色彩空间，RGB色彩空间也可以转换成HSV色彩空间，HSV色彩空间是圆锥形的，同时不同颜色有自己的区域，可以通过选择想要的区域区分我们需要的部分  </p>
+<p>###下面是HSV不同颜色的取值范围  </p>
+<table>
+<thead>
+<tr>
+<th>color</th>
+<th>黑</th>
+<th>灰</th>
+<th>白</th>
+<th>红</th>
+<th>橙</th>
+<th>黄</th>
+<th>绿</th>
+<th>青</th>
+<th>蓝</th>
+<th>紫</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hmin</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0-156</td>
+<td>11</td>
+<td>26</td>
+<td>35</td>
+<td>78</td>
+<td>100</td>
+<td>125</td>
+</tr>
+<tr>
+<td>hmax</td>
+<td>180</td>
+<td>180</td>
+<td>180</td>
+<td>10-180</td>
+<td>25</td>
+<td>34</td>
+<td>77</td>
+<td>99</td>
+<td>124</td>
+<td>155</td>
+</tr>
+<tr>
+<td>smin</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>43</td>
+<td>43</td>
+<td>43</td>
+<td>43</td>
+<td>43</td>
+<td>43</td>
+<td>43</td>
+</tr>
+<tr>
+<td>smax</td>
+<td>255</td>
+<td>43</td>
+<td>30</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+</tr>
+<tr>
+<td>vmin</td>
+<td>0</td>
+<td>46</td>
+<td>221</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+<td>46</td>
+</tr>
+<tr>
+<td>vmax</td>
+<td>46</td>
+<td>220</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+</tr>
+</tbody>
+</table>
+<p><strong>颜色空间转换函数：cv.cvtcolor(变量,空间转换参数)</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>空间转换函数</th>
+<th>解析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cv.cvtColor(src,COLOR_BGR2GRAY)</td>
+<td>COLOR_BGR2GRAY</td>
+<td>将RGB空间图像转换到灰度空间</td>
+</tr>
+<tr>
+<td>cv.cvtColor(src,COLOR_RGB2HSV)</td>
+<td>COLOR_RGB2HSV</td>
+<td>将RGB空间图像转换到HSV空间</td>
+</tr>
+<tr>
+<td>cv.cvtColor(src,COLOR_RGB2YUV)</td>
+<td>COLOR_RGB2YUV</td>
+<td>将RGB空间图像转换到YUV空间</td>
+</tr>
+<tr>
+<td>cv.cvtColor(src,COLOR_RGB2YCrCb)</td>
+<td>COLOR_RGB2YCrCb</td>
+<td>将RGB空间图像转换到YCrCb空间</td>
+</tr>
+</tbody>
+</table>
+<p>opencv Rect矩阵类的用法<br>创建一个Rect对象的rect(100,50,50,100)，会有以下几个功能：<br>仔细看了一下Rect的源码，Rect是一个c++的矩阵类，创建一个矩阵类有很多方式，因为这个类里面有很多重载函数，方面我们用各种方式去创建一个矩阵类<br>Rect(x,y,height,width)，表示矩阵创建的x,y坐标，已经矩阵的宽度和高度<br>其中x,y表示的是左上点的坐标。<br><strong>学会读源码，力量无穷大</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rect.area()</td>
+<td>返回area矩阵的面积</td>
+</tr>
+<tr>
+<td>rect.size()</td>
+<td>返回rect矩阵的尺寸</td>
+</tr>
+<tr>
+<td>rect.tl()</td>
+<td>返回左上定点的坐标</td>
+</tr>
+<tr>
+<td>rect.br()</td>
+<td>返回右下顶点的坐标</td>
+</tr>
+<tr>
+<td>rect.width()</td>
+<td>返回矩阵的宽度</td>
+</tr>
+<tr>
+<td>rect.height()</td>
+<td>返回矩阵的宽度</td>
+</tr>
+<tr>
+<td>rect.contains(Point(x,y))</td>
+<td>返回布尔变量，是否包含某些点</td>
+</tr>
+<tr>
+<td>rect=rect1 &amp; rect2</td>
+<td>求两个矩阵的交集</td>
+</tr>
+<tr>
+<td>rect=rect1 \</td>
+<td>rect2</td>
+<td>求两个矩阵的并集</td>
+</tr>
+<tr>
+<td>rect=rect+Point(-100,100)</td>
+<td>将左上的点移动，x-100,y+100</td>
+</tr>
+<tr>
+<td>rect=rect+size(-100,100)</td>
+<td>左上的定点不变，宽度减少100，高度加上100</td>
+</tr>
+<tr>
+<td>rect1==rect2</td>
+<td>将矩阵进行对比，返回布尔变量</td>
+</tr>
+</tbody>
+</table>
+<p>创建一个图片形式的有点多，后面慢慢理解吧<br>Mat初始化方式：<br>显式的创建Mat对象的七种方法：  </p>
+<table>
+<thead>
+<tr>
+<th>函数形式</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mat(2,2,CV_8UC3,Scalar(0,0,255))</td>
+<td>创建一个三通道的图像，每一层是都2*2的矩阵，。第一层全部都是0，第二层全部都是0，第三层全部都是255</td>
+</tr>
+<tr>
+<td>int sz[3]={2,2,2};Mat L(3,sz,CV_8UC,Scalar::all(0));</td>
+<td>首先指定通道数目</td>
+</tr>
+<tr>
+<td>不知道也罢</td>
+<td></td>
+</tr>
+<tr>
+<td>M.create(4,4,CV_8UC(2));</td>
+<td>创建一个2通道的数据，每一个数组里面都是4*4的矩阵</td>
+</tr>
+<tr>
+<td>Mat E=Mat::eye(4,4,CV_64F)</td>
+<td>按照matlab的形式创建数组</td>
+</tr>
+<tr>
+<td>Mat O=Mat::ones(2,2,CV_32F)</td>
+<td></td>
+</tr>
+<tr>
+<td>Mat Z=Mat::zeors(3,3,CV_8UC1)</td>
+<td></td>
+</tr>
+<tr>
+<td>Mat C=(Mat_<double>(3,3)&lt;&lt;0,-1,0,-1,5,-1,0,-1,0);</double></td>
+<td>创建一个3*3的数组</td>
+</tr>
+<tr>
+<td>Mat RowClone=C.row(1).clone()</td>
+<td>通过某一行创建另外一个Mat对象</td>
+</tr>
+</tbody>
+</table>
+<p>CV_8UC3创建的图像是uint8，channel3形式的图片，其他的可以以此类推</p>
+<p>Mat M(7,7,CV_32FC2,Scalar(1,3)); 创建了一个7*7的数组，float32数据组成，双通道，Scalar说明通道是(1,3)组成的，第一个通道里面全部是1，第二个通道里面全部是3</p>
+<p>如果创建的是多个通道的，同时每一个通道里面是数据都是一样的，可以用Scalar:all(num)向所有的通道里面填充数据</p>
+<p>定义和输出二维点：<br>Point2f p(6,2),通过坐标位置创建二维点<br>cout&lt;&lt;p&lt;&lt;endl;</p>
+<p>Point3f p(8,2,0),通过坐标位置创建三维点<br>cout&lt;&lt;p&lt;&lt;endl;</p>
+<p>vector<float> v;<br>v.pushback(3);<br>v.pushback(5);<br>v.pushback(7);<br>cout&lt;&lt;Mat(v)&lt;&lt;endl; //通过v创建Mat对象</float></p>
+<p>vector<point2f> point；创建一个vector对象，对象的内容是二维点</point2f></p>
+<p>Piont point;<br>point.x=10;point.y=10;<br>创建一个点，选择性的输出点的x坐标和y坐标</p>
+<p>颜色的表示Scalar类<br>Scalar(a,b,c) 颜色顺序是B,G,R</p>
+<p>尺寸的表示：<br>矩阵的表示:Rect</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/12/2018-03-12-opencv_python_1学习/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/15/2018-03-15-opencv基本内容/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="xujiagen" />
+            
+              <p class="site-author-name" itemprop="name">xujiagen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#之前也学习过c-部分的opencv-但是函数太多了，不好记忆"><span class="nav-number">1.</span> <span class="nav-text">之前也学习过c++部分的opencv,但是函数太多了，不好记忆</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xujiagen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

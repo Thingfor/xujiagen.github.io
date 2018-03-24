@@ -79,15 +79,22 @@
 
 
 
+<meta name="description" content="通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层但是在opencv中可以通过颜色空间的处理将我们需要的颜色显示出来这个就需要我们将图像从RGB空间转换到HSV空间">
 <meta name="keywords" content="c++&#x2F;python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/03/12/2018-03-12-opencv_python_1学习/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层但是在opencv中可以通过颜色空间的处理将我们需要的颜色显示出来这个就需要我们将图像从RGB空间转换到HSV空间">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-24T07:36:08.980Z">
+<meta property="og:image" content="http://yoursite.com/images/posts/color_space/HIV_space.jpg">
+<meta property="og:image" content="http://yoursite.com/images/posts/color_space/HIV_space1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/posts/color_space/HIV_space3.png">
+<meta property="og:updated_time" content="2018-03-12T13:10:02.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层但是在opencv中可以通过颜色空间的处理将我们需要的颜色显示出来这个就需要我们将图像从RGB空间转换到HSV空间">
+<meta name="twitter:image" content="http://yoursite.com/images/posts/color_space/HIV_space.jpg">
 
 
 
@@ -117,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/12/2018-03-12-opencv_python_1学习/"/>
 
 
 
 
 
-  <title>categories | Hexo</title>
+  <title> | Hexo</title>
   
 
 
@@ -238,40 +245,143 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/12/2018-03-12-opencv_python_1学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xujiagen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 5 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/opencv/">opencv</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shadowsocks/">shadowsocks</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T10:29:53+08:00">
+                2018-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层"><a href="#通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层" class="headerlink" title="通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层"></a>通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层</h3><p>但是在opencv中可以通过颜色空间的处理将我们需要的颜色显示出来<br>这个就需要我们将图像从RGB空间转换到HSV空间  </p>
+<p><img src="/images/posts/color_space/HIV_space.jpg" alt=""><br><img src="/images/posts/color_space/HIV_space1.jpg" alt=""><br><img src="/images/posts/color_space/HIV_space3.png" alt=""></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/11/2018-03-11-python_review_3/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/13/2018-03-13-opencv_python函数记录/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -304,8 +414,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -331,25 +450,7 @@
             
 
             
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
             
 
           </nav>
@@ -369,6 +470,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层"><span class="nav-number">1.</span> <span class="nav-text">通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
