@@ -253,6 +253,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/python-review/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xujiagen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/python-review/" itemprop="url">python_review</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T16:31:19+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="python-函数复习，最近需要写一写python程序做毕设"><a href="#python-函数复习，最近需要写一写python程序做毕设" class="headerlink" title="python 函数复习，最近需要写一写python程序做毕设"></a>python 函数复习，最近需要写一写python程序做毕设</h3><h3 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h3><p><strong>1.位置参数</strong> (传入一个简单程序的参数，需要多少个，，传入多少个)<br><strong>2.默认参数</strong> (将一些参数设定默认值，如果这些参数没有传入，则使用默认值)<br><strong><em>注意：</em></strong> 默认参数需要注意必须设定成一个不变的对象<br><strong><em>注意：</em></strong> 不变对象,int型数据，str型数据,None型数据  </p>
+<p><strong>3.可变参数</strong> (传进去的参数是可变的)</p>
+<blockquote>
+<blockquote>
+<p>def calc(number):<br>    sum=0<br>    for n in number:<br>        sum+=n<br>    return sum</p>
+</blockquote>
+</blockquote>
+<p>这个函数在调用的时候需要组装一个list或者tuple</p>
+<blockquote>
+<p>calc([1,2,3,4]) #调用的是位置参数</p>
+</blockquote>
+<p>如果需要传入可变参数可以写成</p>
+<blockquote>
+<blockquote>
+<p>def calc(*number):<br>    sum=0;<br>    for n in number:<br>        sum+=n<br>    return sum</p>
+</blockquote>
+</blockquote>
+<p>这个可变参数的函数输入是：</p>
+<blockquote>
+<p>calc(1,2,3,4)</p>
+</blockquote>
+<p>对于想要输入一个list或者是tuple，可以用calc(*number)加上一个星号的形式，传入的参数可以是0个，也可以很多</p>
+<p><strong>4.关键字参数：</strong></p>
+<blockquote>
+<blockquote>
+<p>def person(name,age,**kw):<br>    print(‘name:’,name,’age:’,age,’other:’,kw)</p>
+</blockquote>
+</blockquote>
+<p>关键字参数允许你传入0个或者任意个数的参数，这些参数会组装成一个dict(字典)<br>传入的形式是：</p>
+<blockquote>
+<p>person(‘bob’,35,city=’beijing’)</p>
+</blockquote>
+<p>也可以创建一个dict,然后把该dict转换成关键字传进去</p>
+<blockquote>
+<blockquote>
+<p>extra={‘city’:’beijing’,’job’:’engine’}<br>person(“bob”,35,**extra)</p>
+</blockquote>
+</blockquote>
+<p>直接以字典的形式传进去</p>
+<p><strong>5.命名关键字参数：</strong></p>
+<blockquote>
+<p>限制传入的关键字的名字（命名关键字参数只需要一个*,就可以将其后面的元素设定成命名关键字参数）<br>命名关键字参数必须传入参数名，因为没有传入关键字名称，调用就会出错，但是可以有适当去缺省值</p>
+</blockquote>
+<p><strong>6.组合参数</strong></p>
+<blockquote>
+<p>在定义过程中可以将必选关键字参数，默认关键字参数，可变参数，关键字参数和命名关键字参数相组合，关键字的顺序是：必选参数，默认参数，可变参数，命名关键字参数，和关键字参数</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/09/python-math库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1523,7 +1711,7 @@ return 0;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
