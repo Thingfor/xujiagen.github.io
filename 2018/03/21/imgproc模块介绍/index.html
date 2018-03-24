@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="opencv," />
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="python 函数复习，最近需要写一写python程序做毕设函数的参数1.位置参数 (传入一个简单程序的参数，需要多少个，，传入多少个)2.默认参数 (将一些参数设定默认值，如果这些参数没有传入，则使用默认值)注意： 默认参数需要注意必须设定成一个不变的对象注意： 不变对象,int型数据，str型数据,None型数据   3.可变参数 (传进去的参数是可变的)   def calc(number)">
-<meta name="keywords" content="python">
+<meta name="description" content="imgproc模块是一个很大模块  里面包含的内容有：三种线性滤波：方框滤波、均值滤波、高斯滤波两种非线性滤波：中值滤波、双边滤波七种图像处理形态学：腐蚀、膨胀、开运算、闭运算、形态学梯度、顶帽、黑帽漫水填充图像缩放图像金字塔阈值化      首先需要说明得是平滑处理：  平滑处理就是模糊处理，是一种在图像处理前期非常常见的一种现象。主要是减少图像上面的噪点和失真。处理的方法是使用图像滤波器：">
+<meta name="keywords" content="opencv">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python_review">
-<meta property="og:url" content="http://yoursite.com/2018/03/10/python-review/index.html">
+<meta property="og:title" content="imgproc模块介绍">
+<meta property="og:url" content="http://yoursite.com/2018/03/21/imgproc模块介绍/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="python 函数复习，最近需要写一写python程序做毕设函数的参数1.位置参数 (传入一个简单程序的参数，需要多少个，，传入多少个)2.默认参数 (将一些参数设定默认值，如果这些参数没有传入，则使用默认值)注意： 默认参数需要注意必须设定成一个不变的对象注意： 不变对象,int型数据，str型数据,None型数据   3.可变参数 (传进去的参数是可变的)   def calc(number)">
+<meta property="og:description" content="imgproc模块是一个很大模块  里面包含的内容有：三种线性滤波：方框滤波、均值滤波、高斯滤波两种非线性滤波：中值滤波、双边滤波七种图像处理形态学：腐蚀、膨胀、开运算、闭运算、形态学梯度、顶帽、黑帽漫水填充图像缩放图像金字塔阈值化      首先需要说明得是平滑处理：  平滑处理就是模糊处理，是一种在图像处理前期非常常见的一种现象。主要是减少图像上面的噪点和失真。处理的方法是使用图像滤波器：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-24T08:44:30.692Z">
+<meta property="og:image" content="http://yoursite.com/images/posts/opencv_imgproc/imgproc1.jpg">
+<meta property="og:updated_time" content="2018-03-24T08:58:51.825Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python_review">
-<meta name="twitter:description" content="python 函数复习，最近需要写一写python程序做毕设函数的参数1.位置参数 (传入一个简单程序的参数，需要多少个，，传入多少个)2.默认参数 (将一些参数设定默认值，如果这些参数没有传入，则使用默认值)注意： 默认参数需要注意必须设定成一个不变的对象注意： 不变对象,int型数据，str型数据,None型数据   3.可变参数 (传进去的参数是可变的)   def calc(number)">
+<meta name="twitter:title" content="imgproc模块介绍">
+<meta name="twitter:description" content="imgproc模块是一个很大模块  里面包含的内容有：三种线性滤波：方框滤波、均值滤波、高斯滤波两种非线性滤波：中值滤波、双边滤波七种图像处理形态学：腐蚀、膨胀、开运算、闭运算、形态学梯度、顶帽、黑帽漫水填充图像缩放图像金字塔阈值化      首先需要说明得是平滑处理：  平滑处理就是模糊处理，是一种在图像处理前期非常常见的一种现象。主要是减少图像上面的噪点和失真。处理的方法是使用图像滤波器：">
+<meta name="twitter:image" content="http://yoursite.com/images/posts/opencv_imgproc/imgproc1.jpg">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/10/python-review/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/21/imgproc模块介绍/"/>
 
 
 
 
 
-  <title>python_review | Hexo</title>
+  <title>imgproc模块介绍 | Hexo</title>
   
 
 
@@ -253,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/python-review/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/21/imgproc模块介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xujiagen">
@@ -270,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python_review</h1>
+          <h1 class="post-title" itemprop="name headline">imgproc模块介绍</h1>
         
 
         <div class="post-meta">
@@ -282,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T16:31:19+08:00">
-                2018-03-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-21T16:34:12+08:00">
+                2018-03-21
               </time>
             
 
@@ -305,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/opencv/" itemprop="url" rel="index">
+                    <span itemprop="name">opencv</span>
                   </a>
                 </span>
 
@@ -342,53 +344,209 @@
       
 
       
-        <h3 id="python-函数复习，最近需要写一写python程序做毕设"><a href="#python-函数复习，最近需要写一写python程序做毕设" class="headerlink" title="python 函数复习，最近需要写一写python程序做毕设"></a>python 函数复习，最近需要写一写python程序做毕设</h3><h3 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h3><p><strong>1.位置参数</strong> (传入一个简单程序的参数，需要多少个，，传入多少个)<br><strong>2.默认参数</strong> (将一些参数设定默认值，如果这些参数没有传入，则使用默认值)<br><strong><em>注意：</em></strong> 默认参数需要注意必须设定成一个不变的对象<br><strong><em>注意：</em></strong> 不变对象,int型数据，str型数据,None型数据  </p>
-<p><strong>3.可变参数</strong> (传进去的参数是可变的)</p>
+        <h3 id="imgproc模块是一个很大模块"><a href="#imgproc模块是一个很大模块" class="headerlink" title="imgproc模块是一个很大模块"></a>imgproc模块是一个很大模块</h3><blockquote>
 <blockquote>
-<blockquote>
-<p>def calc(number):<br>    sum=0<br>    for n in number:<br>        sum+=n<br>    return sum</p>
+<p>里面包含的内容有：<br>三种线性滤波：方框滤波、均值滤波、高斯滤波<br>两种非线性滤波：中值滤波、双边滤波<br>七种图像处理形态学：腐蚀、膨胀、开运算、闭运算、形态学梯度、顶帽、黑帽<br>漫水填充<br>图像缩放<br>图像金字塔<br>阈值化  </p>
 </blockquote>
 </blockquote>
-<p>这个函数在调用的时候需要组装一个list或者tuple</p>
 <blockquote>
-<p>calc([1,2,3,4]) #调用的是位置参数</p>
-</blockquote>
-<p>如果需要传入可变参数可以写成</p>
+<p>首先需要说明得是平滑处理：</p>
 <blockquote>
-<blockquote>
-<p>def calc(*number):<br>    sum=0;<br>    for n in number:<br>        sum+=n<br>    return sum</p>
+<p>平滑处理就是模糊处理，是一种在图像处理前期非常常见的一种现象。主要是减少图像上面的噪点和失真。<br>处理的方法是使用图像滤波器：  </p>
 </blockquote>
 </blockquote>
-<p>这个可变参数的函数输入是：</p>
 <blockquote>
-<p>calc(1,2,3,4)</p>
+<p>在图像中，图像的能量主要存储在幅值谱的低频和中频段，在较高的频段，有用的信息经常被淹没，因此一个降低高频成分的滤波器能够减弱噪声的影响。  </p>
 </blockquote>
-<p>对于想要输入一个list或者是tuple，可以用calc(*number)加上一个星号的形式，传入的参数可以是0个，也可以很多</p>
-<p><strong>4.关键字参数：</strong></p>
 <blockquote>
+<p>图像处理的目的有两个：</p>
 <blockquote>
-<p>def person(name,age,**kw):<br>    print(‘name:’,name,’age:’,age,’other:’,kw)</p>
+<p>抽出对象的特征作为图像识别的特征模式；<br>另一个是适应出现处理的要求，减低图像中混入的噪声。  </p>
 </blockquote>
 </blockquote>
-<p>关键字参数允许你传入0个或者任意个数的参数，这些参数会组装成一个dict(字典)<br>传入的形式是：</p>
 <blockquote>
-<p>person(‘bob’,35,city=’beijing’)</p>
-</blockquote>
-<p>也可以创建一个dict,然后把该dict转换成关键字传进去</p>
+<p>图像处理的要求也有两个:</p>
 <blockquote>
-<blockquote>
-<p>extra={‘city’:’beijing’,’job’:’engine’}<br>person(“bob”,35,**extra)</p>
+<p>一是不影响图像的轮廓和边缘的特性<br>二是让图像清晰视觉效果好。  </p>
 </blockquote>
 </blockquote>
-<p>直接以字典的形式传进去</p>
-<p><strong>5.命名关键字参数：</strong></p>
+<p><strong>常用的opencv中有五个常用的图像平滑处理的操作：</strong>    </p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>形式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>方框滤波</td>
+<td>BoxBlur函数</td>
+</tr>
+<tr>
+<td>均值滤波</td>
+<td>Blur函数</td>
+</tr>
+<tr>
+<td>高斯滤波</td>
+<td>GaussianBlur函数</td>
+</tr>
+<tr>
+<td>中值滤波</td>
+<td>medianBlur函数</td>
+</tr>
+<tr>
+<td>双边滤波</td>
+<td>bilateraFilter函数  </td>
+</tr>
+</tbody>
+</table>
+<p><strong>线性滤波器:</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>低通滤波器</td>
+<td>允许低频率通过</td>
+</tr>
+<tr>
+<td>高通滤波器</td>
+<td>允许高频率通过</td>
+</tr>
+<tr>
+<td>带通滤波器</td>
+<td>允许一定范围里面的频率通过</td>
+</tr>
+<tr>
+<td>带阻滤波器</td>
+<td>阻止一定频率通过允许其他频率通过</td>
+</tr>
+<tr>
+<td>全通滤波器</td>
+<td>允许所有频率通过，仅仅改变相位关系</td>
+</tr>
+<tr>
+<td>陷波滤波器</td>
+<td>阻止一个狭窄频率范围通过，是一种特殊带阻滤波器  </td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>限制传入的关键字的名字（命名关键字参数只需要一个*,就可以将其后面的元素设定成命名关键字参数）<br>命名关键字参数必须传入参数名，因为没有传入关键字名称，调用就会出错，但是可以有适当去缺省值</p>
-</blockquote>
-<p><strong>6.组合参数</strong></p>
+<p>解释一下滤波和模糊之间的关系</p>
 <blockquote>
-<p>在定义过程中可以将必选关键字参数，默认关键字参数，可变参数，关键字参数和命名关键字参数相组合，关键字的顺序是：必选参数，默认参数，可变参数，命名关键字参数，和关键字参数</p>
+<p>滤波可以分为高通滤波和低通滤波两种，低通就是模糊，高通就是锐化  </p>
 </blockquote>
+</blockquote>
+<blockquote>
+<p>方框滤波函数  </p>
+<blockquote>
+<p>BoxBlur(输入图像，输出图像，深度，卷积核的尺寸，锚点(被平滑的那个点)，内核是否被其局域归一化，用于推断图像像素的边界模式)<br>其中图像的深度ddepth=-1表示图像的深度和原来的深度一样<br>卷积核的尺寸：size(3,3)卷积核的大小是一个3*3的矩阵<br>锚点表示被平滑的那个点，point(-1,-1)表示卷积核中心的那个点  </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>高斯滤波是一种线性平滑滤波，可以消除高斯噪声，广泛应用与图像处理的减噪过程   </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>其他函数调用的方式已经调用的形式基本上是相似的。  </p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>线性滤波:方框滤波、均值滤波、高斯滤波都是线性滤波<br>非线性滤波：中值滤波、双边滤波<br>线性滤波器主要是指两个信号之间的响应和他们各自的响应之和相等<br>非线性滤波对去除脉冲噪声、椒盐噪声有非常好的效果</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>中值滤波器：如果是3*3的窗函数，以点(i,j)为函数的中心，这个9个点的中值作为这个点的值所以在保存边缘还是消除噪声方面都有非常好的效果</p>
+</blockquote>
+<p><strong>腐蚀和膨胀</strong></p>
+<blockquote>
+<p>腐蚀和膨胀的功能在于：</p>
+<blockquote>
+<p>1.消除噪声<br>2.分割出独立的图像元素，在图像中链接相邻元素<br>3.寻找图像中明显的极大值区域和极小值区域<br>4.求出图像梯度  </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>前言：膨胀和腐蚀都是针对图像中的白色区域而不是黑色区域<br>膨胀：相当于图像中白色的区域被膨胀，白色所占有的面积更大了<br>通过一个确定大小的算子计算一个区域的最大值，将这个最大值保存给这个区域的中心，来实现白色区域的膨胀<br>腐蚀：图像中白色的区域被腐蚀，面积更小了<br>通过计算几个区域的最小值，将这个区域的最小值保存在这个区域的中心，实现白色区域的腐蚀。</p>
+</blockquote>
+<p><strong>开运算</strong></p>
+<blockquote>
+<p>就是先腐蚀在膨胀：开运算可以消除小物体，在纤细的点处分离物体，并且平滑在较大物体的边界的同时不明显改变他的面积。</p>
+</blockquote>
+<p><strong>闭运算</strong></p>
+<blockquote>
+<p>先膨胀在腐蚀，闭运算可以排除小型黑洞</p>
+</blockquote>
+<p><strong>形态学梯度</strong></p>
+<blockquote>
+<p>就是膨胀图和腐蚀图只差</p>
+</blockquote>
+<p><strong>顶帽</strong></p>
+<blockquote>
+<p>开运算的结果是放大了裂缝或者局部低亮度的区域</p>
+</blockquote>
+<p><strong>黑帽</strong></p>
+<blockquote>
+<p>是闭运算的结果图与与原图的差</p>
+</blockquote>
+<blockquote>
+<p>在opencv里面因为这几个操作都是输入原图像，输出处理之后的图像，设置矩阵内核的大小，所以通过一个morphologyEx来实现</p>
+</blockquote>
+<p><strong>漫水填充</strong></p>
+<blockquote>
+<p>漫水填充是通过一种特定的颜色填充联通的区域，通过设置联通区域的上下限以及联通方式来达到不同的填充效果。</p>
+</blockquote>
+<h3 id="图像金字塔"><a href="#图像金字塔" class="headerlink" title="图像金字塔"></a>图像金字塔</h3><blockquote>
+<p>以前经常在论文里面看到，今天终于有幸开始制作高斯金字塔了。<br><img src="/images/posts/opencv_imgproc/imgproc1.jpg" alt=""><br>金字塔的底层是最原始的图像，往上则是低分辨率的金字塔</p>
+</blockquote>
+<blockquote>
+<p>论文里面出现的金字塔主要分成两种：</p>
+<blockquote>
+<p>高斯金字塔<br>拉普拉斯金字塔</p>
+</blockquote>
+</blockquote>
+<p><strong>高斯金字塔</strong></p>
+<blockquote>
+<p>1.对图像Gi进行高斯内核卷积<br>2.将所有偶数行和列去除</p>
+</blockquote>
+<p>高斯图像里面有一个resize函数主要用来修改图像的尺寸<br>resize(src,dst,dsize,fx,fy,插值方式)<br>第一个参数是输入的原始图像<br>第二个参数是输出的图像<br>第三个参数是输出的尺寸，这个参数和下面的两个参数是矛盾的，要么填写这个参数，要么填写下面两个蚕食<br>第四个参数：图像在水平方向的缩放系数<br>第五个参数：图像在垂直方向的缩放系数<br>第六个参数：图像的差值方式<br><strong>通过这个程序可以将图像的尺寸增大，减小</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>插值方式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INTER_NEAREST</td>
+<td>最近插值法</td>
+</tr>
+<tr>
+<td>INTER_LINEAR</td>
+<td>线性插值法</td>
+</tr>
+<tr>
+<td>INTER_AREA</td>
+<td>区域插值</td>
+</tr>
+<tr>
+<td>INTER_CUBIC</td>
+<td>区域插值</td>
+</tr>
+<tr>
+<td>INTER_LANCZOS4</td>
+<td>插值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>阈值化</strong><br>阈值化在作用在于在一幅图片上面利用阈值分割出我们想要的物体部分<br>固定阈值操作：典型的是对灰度图像进行阈值操作得到二值化图像，或者去掉噪声。<br>double threshold(输入图像，输出图像，阈值的具体值，不懂)</p>
+<p>自适应与阈值化操作：adaptiveThreshold函数<br>void adaptiveThreshold(输入图像，输出图像，给像素赋满足条件的非零值，用于设置指定的自适应算法)</p>
 
       
     </div>
@@ -406,7 +564,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/opencv/" rel="tag"># opencv</a>
           
         </div>
       
@@ -419,8 +577,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/09/python-math库/" rel="next" title="python_math库">
-                <i class="fa fa-chevron-left"></i> python_math库
+              <a href="/2018/03/17/写论文/" rel="next" title="写论文">
+                <i class="fa fa-chevron-left"></i> 写论文
               </a>
             
           </div>
@@ -429,8 +587,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/10/python-review-2/" rel="prev" title="python_review_2">
-                python_review_2 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/22/图像变换/" rel="prev" title="图像变换">
+                图像变换 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -567,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python-函数复习，最近需要写一写python程序做毕设"><span class="nav-number">1.</span> <span class="nav-text">python 函数复习，最近需要写一写python程序做毕设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的参数"><span class="nav-number">2.</span> <span class="nav-text">函数的参数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#imgproc模块是一个很大模块"><span class="nav-number">1.</span> <span class="nav-text">imgproc模块是一个很大模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像金字塔"><span class="nav-number">2.</span> <span class="nav-text">图像金字塔</span></a></li></ol></div>
             
 
           </div>

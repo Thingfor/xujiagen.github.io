@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="opencv," />
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="python 函数复习，最近需要写一写python程序做毕设函数的参数1.位置参数 (传入一个简单程序的参数，需要多少个，，传入多少个)2.默认参数 (将一些参数设定默认值，如果这些参数没有传入，则使用默认值)注意： 默认参数需要注意必须设定成一个不变的对象注意： 不变对象,int型数据，str型数据,None型数据   3.可变参数 (传进去的参数是可变的)   def calc(number)">
-<meta name="keywords" content="python">
+<meta name="description" content="推荐一个网站opencv2教学网站有很多讲解opencv2的函数以及实例，主要函数部分opencv2和opencv3差别不是很大 图像变换部分的主要内容： 1.基于opencv的边缘检测2.霍夫变换3.重映射4.仿射变换5.直方图均衡    基于opencv的边缘检测  算子：  1.canny算子2.sobel算子3.laplacian算子4.scharr算子    见证canny算子的巨大优势">
+<meta name="keywords" content="opencv">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python_review">
-<meta property="og:url" content="http://yoursite.com/2018/03/10/python-review/index.html">
+<meta property="og:title" content="图像变换">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/图像变换/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="python 函数复习，最近需要写一写python程序做毕设函数的参数1.位置参数 (传入一个简单程序的参数，需要多少个，，传入多少个)2.默认参数 (将一些参数设定默认值，如果这些参数没有传入，则使用默认值)注意： 默认参数需要注意必须设定成一个不变的对象注意： 不变对象,int型数据，str型数据,None型数据   3.可变参数 (传进去的参数是可变的)   def calc(number)">
+<meta property="og:description" content="推荐一个网站opencv2教学网站有很多讲解opencv2的函数以及实例，主要函数部分opencv2和opencv3差别不是很大 图像变换部分的主要内容： 1.基于opencv的边缘检测2.霍夫变换3.重映射4.仿射变换5.直方图均衡    基于opencv的边缘检测  算子：  1.canny算子2.sobel算子3.laplacian算子4.scharr算子    见证canny算子的巨大优势">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-24T08:44:30.692Z">
+<meta property="og:image" content="http://yoursite.com/images/posts/opencv_imgproc/1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/posts/opencv_imgproc/2.jpg">
+<meta property="og:updated_time" content="2018-03-24T08:59:23.457Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python_review">
-<meta name="twitter:description" content="python 函数复习，最近需要写一写python程序做毕设函数的参数1.位置参数 (传入一个简单程序的参数，需要多少个，，传入多少个)2.默认参数 (将一些参数设定默认值，如果这些参数没有传入，则使用默认值)注意： 默认参数需要注意必须设定成一个不变的对象注意： 不变对象,int型数据，str型数据,None型数据   3.可变参数 (传进去的参数是可变的)   def calc(number)">
+<meta name="twitter:title" content="图像变换">
+<meta name="twitter:description" content="推荐一个网站opencv2教学网站有很多讲解opencv2的函数以及实例，主要函数部分opencv2和opencv3差别不是很大 图像变换部分的主要内容： 1.基于opencv的边缘检测2.霍夫变换3.重映射4.仿射变换5.直方图均衡    基于opencv的边缘检测  算子：  1.canny算子2.sobel算子3.laplacian算子4.scharr算子    见证canny算子的巨大优势">
+<meta name="twitter:image" content="http://yoursite.com/images/posts/opencv_imgproc/1.jpg">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/10/python-review/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/22/图像变换/"/>
 
 
 
 
 
-  <title>python_review | Hexo</title>
+  <title>图像变换 | Hexo</title>
   
 
 
@@ -253,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/python-review/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/图像变换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xujiagen">
@@ -270,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python_review</h1>
+          <h1 class="post-title" itemprop="name headline">图像变换</h1>
         
 
         <div class="post-meta">
@@ -282,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T16:31:19+08:00">
-                2018-03-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T16:34:27+08:00">
+                2018-03-22
               </time>
             
 
@@ -305,8 +308,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/opencv/" itemprop="url" rel="index">
+                    <span itemprop="name">opencv</span>
                   </a>
                 </span>
 
@@ -342,53 +345,38 @@
       
 
       
-        <h3 id="python-函数复习，最近需要写一写python程序做毕设"><a href="#python-函数复习，最近需要写一写python程序做毕设" class="headerlink" title="python 函数复习，最近需要写一写python程序做毕设"></a>python 函数复习，最近需要写一写python程序做毕设</h3><h3 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h3><p><strong>1.位置参数</strong> (传入一个简单程序的参数，需要多少个，，传入多少个)<br><strong>2.默认参数</strong> (将一些参数设定默认值，如果这些参数没有传入，则使用默认值)<br><strong><em>注意：</em></strong> 默认参数需要注意必须设定成一个不变的对象<br><strong><em>注意：</em></strong> 不变对象,int型数据，str型数据,None型数据  </p>
-<p><strong>3.可变参数</strong> (传进去的参数是可变的)</p>
+        <h3 id="推荐一个网站"><a href="#推荐一个网站" class="headerlink" title="推荐一个网站"></a>推荐一个网站</h3><p><a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/tutorials.html" target="_blank" rel="noopener">opencv2教学网站</a>有很多讲解opencv2的函数以及实例，主要函数部分opencv2和opencv3差别不是很大</p>
+<h3 id="图像变换部分的主要内容："><a href="#图像变换部分的主要内容：" class="headerlink" title="图像变换部分的主要内容："></a>图像变换部分的主要内容：</h3><blockquote>
+<p>1.基于opencv的边缘检测<br>2.霍夫变换<br>3.重映射<br>4.仿射变换<br>5.直方图均衡  </p>
+</blockquote>
+<p><strong>基于opencv的边缘检测</strong></p>
 <blockquote>
+<p>算子：</p>
 <blockquote>
-<p>def calc(number):<br>    sum=0<br>    for n in number:<br>        sum+=n<br>    return sum</p>
+<p>1.canny算子<br>2.sobel算子<br>3.laplacian算子<br>4.scharr算子</p>
 </blockquote>
 </blockquote>
-<p>这个函数在调用的时候需要组装一个list或者tuple</p>
 <blockquote>
-<p>calc([1,2,3,4]) #调用的是位置参数</p>
+<p>见证canny算子的巨大优势，找到的边缘我连看都看不出来</p>
 </blockquote>
-<p>如果需要传入可变参数可以写成</p>
+<h3 id="处理之前："><a href="#处理之前：" class="headerlink" title="处理之前："></a>处理之前：</h3><p><img src="/images/posts/opencv_imgproc/1.jpg" alt=""></p>
+<h3 id="处理之后"><a href="#处理之后" class="headerlink" title="处理之后"></a>处理之后</h3><p><img src="/images/posts/opencv_imgproc/2.jpg" alt=""></p>
 <blockquote>
+<p>canny(原始图像，输出图像，第一滞后阈值，第二滞后阈值，计算图形梯度幅值)  </p>
 <blockquote>
-<p>def calc(*number):<br>    sum=0;<br>    for n in number:<br>        sum+=n<br>    return sum</p>
-</blockquote>
-</blockquote>
-<p>这个可变参数的函数输入是：</p>
-<blockquote>
-<p>calc(1,2,3,4)</p>
-</blockquote>
-<p>对于想要输入一个list或者是tuple，可以用calc(*number)加上一个星号的形式，传入的参数可以是0个，也可以很多</p>
-<p><strong>4.关键字参数：</strong></p>
-<blockquote>
-<blockquote>
-<p>def person(name,age,**kw):<br>    print(‘name:’,name,’age:’,age,’other:’,kw)</p>
+<p>使用canny算子来遍历全局，输入输出原始图像<br>第三个参数，第一个滞后性阈值<br>第四个参数,第二个滞后性阈值<br>第五个参数，一个计算图形梯度幅值的标识  </p>
 </blockquote>
 </blockquote>
-<p>关键字参数允许你传入0个或者任意个数的参数，这些参数会组装成一个dict(字典)<br>传入的形式是：</p>
 <blockquote>
-<p>person(‘bob’,35,city=’beijing’)</p>
+<p>滞后阈值的含义：输入高阈值，低阈值，一个计算图形梯度赋值的标识<br>如果一个位置的幅值高于高阈值，该像素会被保留为边缘像素<br>如果一个位置的幅值低于低阈值，该像素会被排除<br>如果一个区域的像素值位于高像素与低像素之间的时候，该像素仅仅连接到一个高于像素阈值的时候才会被保留  </p>
 </blockquote>
-<p>也可以创建一个dict,然后把该dict转换成关键字传进去</p>
+<h3 id="sobel算子介绍"><a href="#sobel算子介绍" class="headerlink" title="sobel算子介绍"></a>sobel算子介绍</h3><blockquote>
+<p>sobel(input,out,ddepth,dx,dy,size,计算导数的时候缩放因素，表示在结果存入目标之前detal值，边界模式)<br>参数：  </p>
 <blockquote>
-<blockquote>
-<p>extra={‘city’:’beijing’,’job’:’engine’}<br>person(“bob”,35,**extra)</p>
+<p>第一个参数：输入原始图像<br>    第二个参数：输出处理之后的图像<br>    第三个参数：输出图像处理之后的深度<br>    第四个参数：在x方向的差分阶数<br>    第五个参数：在y方向的差分阶数<br>    第六个参数：sobel卷积核的大小<br>    第七个参数：计算导数值的时候的缩放因子<br>    第八个参数：表示在结果存入目标之前detal的值，（不是很理解这个值的作用，默认值是0）<br>    第九个参数：边界模式  </p>
 </blockquote>
 </blockquote>
-<p>直接以字典的形式传进去</p>
-<p><strong>5.命名关键字参数：</strong></p>
-<blockquote>
-<p>限制传入的关键字的名字（命名关键字参数只需要一个*,就可以将其后面的元素设定成命名关键字参数）<br>命名关键字参数必须传入参数名，因为没有传入关键字名称，调用就会出错，但是可以有适当去缺省值</p>
-</blockquote>
-<p><strong>6.组合参数</strong></p>
-<blockquote>
-<p>在定义过程中可以将必选关键字参数，默认关键字参数，可变参数，关键字参数和命名关键字参数相组合，关键字的顺序是：必选参数，默认参数，可变参数，命名关键字参数，和关键字参数</p>
-</blockquote>
+<h3 id="霍夫变换"><a href="#霍夫变换" class="headerlink" title="霍夫变换"></a>霍夫变换</h3><p>霍夫变换是图像特征提取的一种技术，该过程是在一个参数空间中通过计算累计的结果的局部最大值得到一个符合该特定形状的集合<br>霍夫变换：<br>霍夫线变换<br>霍夫圆变换</p>
 
       
     </div>
@@ -406,7 +394,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/opencv/" rel="tag"># opencv</a>
           
         </div>
       
@@ -419,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/09/python-math库/" rel="next" title="python_math库">
-                <i class="fa fa-chevron-left"></i> python_math库
+              <a href="/2018/03/21/imgproc模块介绍/" rel="next" title="imgproc模块介绍">
+                <i class="fa fa-chevron-left"></i> imgproc模块介绍
               </a>
             
           </div>
@@ -429,8 +417,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/10/python-review-2/" rel="prev" title="python_review_2">
-                python_review_2 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/24/markdown语法/" rel="prev" title="markdown语法">
+                markdown语法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -567,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python-函数复习，最近需要写一写python程序做毕设"><span class="nav-number">1.</span> <span class="nav-text">python 函数复习，最近需要写一写python程序做毕设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的参数"><span class="nav-number">2.</span> <span class="nav-text">函数的参数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐一个网站"><span class="nav-number">1.</span> <span class="nav-text">推荐一个网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像变换部分的主要内容："><span class="nav-number">2.</span> <span class="nav-text">图像变换部分的主要内容：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理之前："><span class="nav-number">3.</span> <span class="nav-text">处理之前：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理之后"><span class="nav-number">4.</span> <span class="nav-text">处理之后</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sobel算子介绍"><span class="nav-number">5.</span> <span class="nav-text">sobel算子介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#霍夫变换"><span class="nav-number">6.</span> <span class="nav-text">霍夫变换</span></a></li></ol></div>
             
 
           </div>
