@@ -349,7 +349,12 @@
           
 opencv方面的知识比较少，同时能够了解每一个参数的含义以及每一个函数的含义是非常重要的。慢慢积累一点这方面的博客：
 
-1.源码分析这个博客里面是一些ope
+1.源码分析这个博客里面是一些opencv源码的分析，对于理解整个opencv的函数非常有意义！
+
+
+
+
+2.opencv教程网站里面有一些历程，对于相关模块的函数如何去编写，
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -499,7 +504,13 @@ opencv方面的知识比较少，同时能够了解每一个参数的含义以�
           
           推荐一个网站opencv2教学网站有很多讲解opencv2的函数以及实例，主要函数部分opencv2和opencv3差别不是很大
 图像变换部分的主要内容：
-1.
+1.基于opencv的边缘检测2.霍夫变换3.重映射4.仿射变换5.直方图均衡  
+
+基于opencv的边缘检测
+
+算子：
+
+1.canny算子
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -649,7 +660,13 @@ opencv方面的知识比较少，同时能够了解每一个参数的含义以�
           
           imgproc模块是一个很大模块
 
-里面包含的内容有：三种线性滤波：方框滤波、均值滤波、高斯滤波两种非线性滤波：中值滤波、双边滤波七种图像处理形态学：腐蚀、膨胀
+里面包含的内容有：三种线性滤波：方框滤波、均值滤波、高斯滤波两种非线性滤波：中值滤波、双边滤波七种图像处理形态学：腐蚀、膨胀、开运算、闭运算、形态学梯度、顶帽、黑帽漫水填充图像缩放图像金字塔阈值化  
+
+
+
+首先需要说明得是平滑处理：
+
+平滑处理就是模糊处理，是一
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -799,7 +816,13 @@ opencv方面的知识比较少，同时能够了解每一个参数的含义以�
           
           ###听从学长的建议，准备去将毕业论文发表出去准备条件：endnote:思维导图
 
-首先是如何正确的看论文，其实如何正确的看论文是非常重要的，每天坚持看一篇论文
+首先是如何正确的看论文，其实如何正确的看论文是非常重要的，每天坚持看一篇论文，长期下来，你就会有非常大的提高，相关的看论文的方法别人已经写成了论文,当然是全英文的，可以看中文注解  
+
+方法
+
+三遍阅读法：
+
+1:鸟
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -948,7 +971,8 @@ opencv方面的知识比较少，同时能够了解每一个参数的含义以�
         
           
           ###visual studio经常使用，有一些需要注意的地方
-在程序运行过程中报错C4996报错：调用的程序是之前已经不使用的废弃的函数，如果想要使用可以通过
+在程序运行过程中报错C4996报错：调用的程序是之前已经不使用的废弃的函数，如果想要使用可以通过：#pragma warning(disable:4996) 来实现  
+实现visual studio自动排版可以通过快捷键Ctrl+A,
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1096,7 +1120,19 @@ opencv方面的知识比较少，同时能够了解每一个参数的含义以�
       
         
           
-          ###opencv基本函数组成opencv函数组成是：opencv、opencv2opencv文件夹下面都是opencv1.0的函数组成opencv2文件夹下面
+          ###opencv基本函数组成opencv函数组成是：opencv、opencv2opencv文件夹下面都是opencv1.0的函数组成opencv2文件夹下面都是opencv2.0的函数组成  
+opencv2组成部分  
+
+
+
+组成
+作用  
+
+
+
+
+calib3d
+相机校准和三维重建相关，主要
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1255,7 +1291,12 @@ opencv方面的知识比较少，同时能够了解每一个参数的含义以�
 
 
 
-变量=cv.imre
+变量=cv.imread(“文件名称”)
+读取将一个图片读入内存
+src=cv.imread(“picture.jpg”)
+
+
+cv.namedWindow(“
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1403,8 +1444,10 @@ opencv方面的知识比较少，同时能够了解每一个参数的含义以�
       
         
           
-          通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层但是在opencv中可以通过颜色空间的处理将我们需要的颜色显示出来这个就需要我们将图像从RGB空间
-          ...
+          通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层但是在opencv中可以通过颜色空间的处理将我们需要的颜色显示出来这个就需要我们将图像从RGB空间转换到HSV空间  
+
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/12/opencv-python-1学习/#more" rel="contents">
@@ -1552,7 +1595,8 @@ opencv方面的知识比较少，同时能够了解每一个参数的含义以�
         
           
           模块 module模块对我我这个常年编程的人来说，再简单不过了
-需要注意的是创建一个python文件的时候，每一个文件都会有一个main函数，通过:if nam
+需要注意的是创建一个python文件的时候，每一个文件都会有一个main函数，通过:if name==’main‘    test()当相当于如果创建的这个python文件是运行的文件，if条件就会被激活，首先运行test()程序
+如果
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1702,7 +1746,7 @@ opencv方面的知识比较少，同时能够了解每一个参数的含义以�
           
           汉罗塔
 
-def hanluota(n,a,b,c):    if n==1:        print(“%s-&gt;%s” % (a,c))    els
+def hanluota(n,a,b,c):    if n==1:        print(“%s-&gt;%s” % (a,c))    else:        hanluota(n-1,a,c,b)        print(“%s-&gt;%s” % (a,c))       
           ...
           <!--noindex-->
           <div class="post-button text-center">
