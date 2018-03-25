@@ -346,19 +346,16 @@
       
         
           
-            <blockquote>
-<p>opencv方面的知识比较少，同时能够了解每一个参数的含义以及每一个函数的含义是非常重要的。<br>慢慢积累一点这方面的博客：</p>
-<blockquote>
-<p>1.<a href="https://blog.csdn.net/zhaocj/article/list/2" target="_blank" rel="noopener">源码分析</a>这个博客里面是一些opencv源码的分析，对于理解整个opencv的函数非常有意义！</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>2.<a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/tutorials.html" target="_blank" rel="noopener">opencv教程网站</a>里面有一些历程，对于相关模块的函数如何去编写，里面的都有详细的讲解。</p>
-</blockquote>
-</blockquote>
-
           
+opencv方面的知识比较少，同时能够
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/24/opencv博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -498,43 +495,15 @@
       
         
           
-            <h3 id="推荐一个网站"><a href="#推荐一个网站" class="headerlink" title="推荐一个网站"></a>推荐一个网站</h3><p><a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/tutorials.html" target="_blank" rel="noopener">opencv2教学网站</a>有很多讲解opencv2的函数以及实例，主要函数部分opencv2和opencv3差别不是很大</p>
-<h3 id="图像变换部分的主要内容："><a href="#图像变换部分的主要内容：" class="headerlink" title="图像变换部分的主要内容："></a>图像变换部分的主要内容：</h3><blockquote>
-<p>1.基于opencv的边缘检测<br>2.霍夫变换<br>3.重映射<br>4.仿射变换<br>5.直方图均衡  </p>
-</blockquote>
-<p>&lt; !–more–&gt;</p>
-<p><strong>基于opencv的边缘检测</strong></p>
-<blockquote>
-<p>算子：</p>
-<blockquote>
-<p>1.canny算子<br>2.sobel算子<br>3.laplacian算子<br>4.scharr算子</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>见证canny算子的巨大优势，找到的边缘我连看都看不出来</p>
-</blockquote>
-<h3 id="处理之前："><a href="#处理之前：" class="headerlink" title="处理之前："></a>处理之前：</h3><p><img src="/images/posts/opencv_imgproc/1.jpg" alt=""></p>
-<h3 id="处理之后"><a href="#处理之后" class="headerlink" title="处理之后"></a>处理之后</h3><p><img src="/images/posts/opencv_imgproc/2.jpg" alt=""></p>
-<blockquote>
-<p>canny(原始图像，输出图像，第一滞后阈值，第二滞后阈值，计算图形梯度幅值)  </p>
-<blockquote>
-<p>使用canny算子来遍历全局，输入输出原始图像<br>第三个参数，第一个滞后性阈值<br>第四个参数,第二个滞后性阈值<br>第五个参数，一个计算图形梯度幅值的标识  </p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>滞后阈值的含义：输入高阈值，低阈值，一个计算图形梯度赋值的标识<br>如果一个位置的幅值高于高阈值，该像素会被保留为边缘像素<br>如果一个位置的幅值低于低阈值，该像素会被排除<br>如果一个区域的像素值位于高像素与低像素之间的时候，该像素仅仅连接到一个高于像素阈值的时候才会被保留  </p>
-</blockquote>
-<h3 id="sobel算子介绍"><a href="#sobel算子介绍" class="headerlink" title="sobel算子介绍"></a>sobel算子介绍</h3><blockquote>
-<p>sobel(input,out,ddepth,dx,dy,size,计算导数的时候缩放因素，表示在结果存入目标之前detal值，边界模式)<br>参数：  </p>
-<blockquote>
-<p>第一个参数：输入原始图像<br>    第二个参数：输出处理之后的图像<br>    第三个参数：输出图像处理之后的深度<br>    第四个参数：在x方向的差分阶数<br>    第五个参数：在y方向的差分阶数<br>    第六个参数：sobel卷积核的大小<br>    第七个参数：计算导数值的时候的缩放因子<br>    第八个参数：表示在结果存入目标之前detal的值，（不是很理解这个值的作用，默认值是0）<br>    第九个参数：边界模式  </p>
-</blockquote>
-</blockquote>
-<h3 id="霍夫变换"><a href="#霍夫变换" class="headerlink" title="霍夫变换"></a>霍夫变换</h3><p>霍夫变换是图像特征提取的一种技术，该过程是在一个参数空间中通过计算累计的结果的局部最大值得到一个符合该特定形状的集合<br>霍夫变换：<br>霍夫线变换<br>霍夫圆变换</p>
-<p>opencv里面的霍夫线变换主要分成三种：<br>标准霍夫变换：standrad hough transform<br>多尺度霍夫变换：multi-scale hough transform<br>累计概率霍夫变换：prograssive probabilistic hough transform</p>
-<p>霍夫圆变换：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-          
+          推荐一个网站opencv2教学网站有很多
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/22/图像变换/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -674,211 +643,17 @@
       
         
           
-            <h3 id="imgproc模块是一个很大模块"><a href="#imgproc模块是一个很大模块" class="headerlink" title="imgproc模块是一个很大模块"></a>imgproc模块是一个很大模块</h3><blockquote>
-<blockquote>
-<p>里面包含的内容有：<br>三种线性滤波：方框滤波、均值滤波、高斯滤波<br>两种非线性滤波：中值滤波、双边滤波<br>七种图像处理形态学：腐蚀、膨胀、开运算、闭运算、形态学梯度、顶帽、黑帽<br>漫水填充<br>图像缩放<br>图像金字塔<br>阈值化  </p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>首先需要说明得是平滑处理：</p>
-<blockquote>
-<p>平滑处理就是模糊处理，是一种在图像处理前期非常常见的一种现象。主要是减少图像上面的噪点和失真。<br>处理的方法是使用图像滤波器：  </p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>在图像中，图像的能量主要存储在幅值谱的低频和中频段，在较高的频段，有用的信息经常被淹没，因此一个降低高频成分的滤波器能够减弱噪声的影响。  </p>
-</blockquote>
-<blockquote>
-<p>图像处理的目的有两个：</p>
-<blockquote>
-<p>抽出对象的特征作为图像识别的特征模式；<br>另一个是适应出现处理的要求，减低图像中混入的噪声。  </p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>图像处理的要求也有两个:</p>
-<blockquote>
-<p>一是不影响图像的轮廓和边缘的特性<br>二是让图像清晰视觉效果好。  </p>
-</blockquote>
-</blockquote>
-<p><strong>常用的opencv中有五个常用的图像平滑处理的操作：</strong>    </p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>形式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>方框滤波</td>
-<td>BoxBlur函数</td>
-</tr>
-<tr>
-<td>均值滤波</td>
-<td>Blur函数</td>
-</tr>
-<tr>
-<td>高斯滤波</td>
-<td>GaussianBlur函数</td>
-</tr>
-<tr>
-<td>中值滤波</td>
-<td>medianBlur函数</td>
-</tr>
-<tr>
-<td>双边滤波</td>
-<td>bilateraFilter函数  </td>
-</tr>
-</tbody>
-</table>
-<p><strong>线性滤波器:</strong></p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>低通滤波器</td>
-<td>允许低频率通过</td>
-</tr>
-<tr>
-<td>高通滤波器</td>
-<td>允许高频率通过</td>
-</tr>
-<tr>
-<td>带通滤波器</td>
-<td>允许一定范围里面的频率通过</td>
-</tr>
-<tr>
-<td>带阻滤波器</td>
-<td>阻止一定频率通过允许其他频率通过</td>
-</tr>
-<tr>
-<td>全通滤波器</td>
-<td>允许所有频率通过，仅仅改变相位关系</td>
-</tr>
-<tr>
-<td>陷波滤波器</td>
-<td>阻止一个狭窄频率范围通过，是一种特殊带阻滤波器  </td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>解释一下滤波和模糊之间的关系</p>
-<blockquote>
-<p>滤波可以分为高通滤波和低通滤波两种，低通就是模糊，高通就是锐化  </p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>方框滤波函数  </p>
-<blockquote>
-<p>BoxBlur(输入图像，输出图像，深度，卷积核的尺寸，锚点(被平滑的那个点)，内核是否被其局域归一化，用于推断图像像素的边界模式)<br>其中图像的深度ddepth=-1表示图像的深度和原来的深度一样<br>卷积核的尺寸：size(3,3)卷积核的大小是一个3*3的矩阵<br>锚点表示被平滑的那个点，point(-1,-1)表示卷积核中心的那个点  </p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>高斯滤波是一种线性平滑滤波，可以消除高斯噪声，广泛应用与图像处理的减噪过程   </p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>其他函数调用的方式已经调用的形式基本上是相似的。  </p>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>线性滤波:方框滤波、均值滤波、高斯滤波都是线性滤波<br>非线性滤波：中值滤波、双边滤波<br>线性滤波器主要是指两个信号之间的响应和他们各自的响应之和相等<br>非线性滤波对去除脉冲噪声、椒盐噪声有非常好的效果</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>中值滤波器：如果是3*3的窗函数，以点(i,j)为函数的中心，这个9个点的中值作为这个点的值所以在保存边缘还是消除噪声方面都有非常好的效果</p>
-</blockquote>
-<p><strong>腐蚀和膨胀</strong></p>
-<blockquote>
-<p>腐蚀和膨胀的功能在于：</p>
-<blockquote>
-<p>1.消除噪声<br>2.分割出独立的图像元素，在图像中链接相邻元素<br>3.寻找图像中明显的极大值区域和极小值区域<br>4.求出图像梯度  </p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>前言：膨胀和腐蚀都是针对图像中的白色区域而不是黑色区域<br>膨胀：相当于图像中白色的区域被膨胀，白色所占有的面积更大了<br>通过一个确定大小的算子计算一个区域的最大值，将这个最大值保存给这个区域的中心，来实现白色区域的膨胀<br>腐蚀：图像中白色的区域被腐蚀，面积更小了<br>通过计算几个区域的最小值，将这个区域的最小值保存在这个区域的中心，实现白色区域的腐蚀。</p>
-</blockquote>
-<p><strong>开运算</strong></p>
-<blockquote>
-<p>就是先腐蚀在膨胀：开运算可以消除小物体，在纤细的点处分离物体，并且平滑在较大物体的边界的同时不明显改变他的面积。</p>
-</blockquote>
-<p><strong>闭运算</strong></p>
-<blockquote>
-<p>先膨胀在腐蚀，闭运算可以排除小型黑洞</p>
-</blockquote>
-<p><strong>形态学梯度</strong></p>
-<blockquote>
-<p>就是膨胀图和腐蚀图只差</p>
-</blockquote>
-<p><strong>顶帽</strong></p>
-<blockquote>
-<p>开运算的结果是放大了裂缝或者局部低亮度的区域</p>
-</blockquote>
-<p><strong>黑帽</strong></p>
-<blockquote>
-<p>是闭运算的结果图与与原图的差</p>
-</blockquote>
-<blockquote>
-<p>在opencv里面因为这几个操作都是输入原图像，输出处理之后的图像，设置矩阵内核的大小，所以通过一个morphologyEx来实现</p>
-</blockquote>
-<p><strong>漫水填充</strong></p>
-<blockquote>
-<p>漫水填充是通过一种特定的颜色填充联通的区域，通过设置联通区域的上下限以及联通方式来达到不同的填充效果。</p>
-</blockquote>
-<h3 id="图像金字塔"><a href="#图像金字塔" class="headerlink" title="图像金字塔"></a>图像金字塔</h3><blockquote>
-<p>以前经常在论文里面看到，今天终于有幸开始制作高斯金字塔了。<br><img src="/images/posts/opencv_imgproc/imgproc1.jpg" alt=""><br>金字塔的底层是最原始的图像，往上则是低分辨率的金字塔</p>
-</blockquote>
-<blockquote>
-<p>论文里面出现的金字塔主要分成两种：</p>
-<blockquote>
-<p>高斯金字塔<br>拉普拉斯金字塔</p>
-</blockquote>
-</blockquote>
-<p><strong>高斯金字塔</strong></p>
-<blockquote>
-<p>1.对图像Gi进行高斯内核卷积<br>2.将所有偶数行和列去除</p>
-</blockquote>
-<p>高斯图像里面有一个resize函数主要用来修改图像的尺寸<br>resize(src,dst,dsize,fx,fy,插值方式)<br>第一个参数是输入的原始图像<br>第二个参数是输出的图像<br>第三个参数是输出的尺寸，这个参数和下面的两个参数是矛盾的，要么填写这个参数，要么填写下面两个蚕食<br>第四个参数：图像在水平方向的缩放系数<br>第五个参数：图像在垂直方向的缩放系数<br>第六个参数：图像的差值方式<br><strong>通过这个程序可以将图像的尺寸增大，减小</strong>  </p>
-<table>
-<thead>
-<tr>
-<th>插值方式</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>INTER_NEAREST</td>
-<td>最近插值法</td>
-</tr>
-<tr>
-<td>INTER_LINEAR</td>
-<td>线性插值法</td>
-</tr>
-<tr>
-<td>INTER_AREA</td>
-<td>区域插值</td>
-</tr>
-<tr>
-<td>INTER_CUBIC</td>
-<td>区域插值</td>
-</tr>
-<tr>
-<td>INTER_LANCZOS4</td>
-<td>插值</td>
-</tr>
-</tbody>
-</table>
-<p><strong>阈值化</strong><br>阈值化在作用在于在一幅图片上面利用阈值分割出我们想要的物体部分<br>固定阈值操作：典型的是对灰度图像进行阈值操作得到二值化图像，或者去掉噪声。<br>double threshold(输入图像，输出图像，阈值的具体值，不懂)</p>
-<p>自适应与阈值化操作：adaptiveThreshold函数<br>void adaptiveThreshold(输入图像，输出图像，给像素赋满足条件的非零值，用于设置指定的自适应算法)</p>
+          imgproc模块是一个很大模块
 
-          
+里面
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/21/imgproc模块介绍/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1018,22 +793,15 @@
       
         
           
-            <p>###听从学长的建议，准备去将毕业论文发表出去<br>准备条件：<br>endnote:<br>思维导图</p>
-<blockquote>
-<p>首先是如何正确的看论文，其实如何正确的看论文是非常重要的，每天坚持看一篇论文，长期下来，你就会有非常大的提高，相关的看论文的方法别人已经写成了<a href="http://blizzard.cs.uwaterloo.ca/keshav/home/Papers/data/07/paper-reading.pdf" target="_blank" rel="noopener">论文</a>,当然是全英文的，可以看中文<a href="http://blog.csdn.net/qq_33026195/article/details/79565497" target="_blank" rel="noopener">注解</a>  </p>
-</blockquote>
-<p><strong>方法</strong></p>
-<blockquote>
-<p>三遍阅读法：</p>
-<blockquote>
-<p>1:鸟瞰(5-10分钟)</p>
-<blockquote>
-<p>1.1分类：这个是什么类型的论文</p>
-</blockquote>
-</blockquote>
-</blockquote>
-
-          
+          ###听从学长的建议，准备去将毕业论文发
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/17/写论文/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1173,11 +941,15 @@
       
         
           
-            <p>###visual studio经常使用，有一些需要注意的地方</p>
-<p>在程序运行过程中报错C4996报错：调用的程序是之前已经不使用的废弃的函数，如果想要使用可以通过：<br><strong>#pragma warning(disable:4996)</strong> 来实现  </p>
-<p>实现visual studio自动排版可以通过快捷键Ctrl+A,Ctrl+K,Ctrl+F来实现 </p>
-
-          
+          ###visual studio经常使用
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/15/visual-studio笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1317,106 +1089,15 @@
       
         
           
-            <p>###opencv基本函数组成<br>opencv函数组成是：opencv、opencv2<br>opencv文件夹下面都是opencv1.0的函数组成<br>opencv2文件夹下面都是opencv2.0的函数组成  </p>
-<p><strong>opencv2组成部分</strong>  </p>
-<table>
-<thead>
-<tr>
-<th>组成</th>
-<th>作用  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>calib3d</td>
-<td>相机校准和三维重建相关，主要包括多视角几何算法，单个立体摄像头标定，物体姿态估计，立体相似性算法，3D信息的重组  </td>
-</tr>
-<tr>
-<td>contrib</td>
-<td>新增的不太稳定的功能  </td>
-</tr>
-<tr>
-<td>core</td>
-<td>核心功能模块：opencv基本数据结构、动态数据结构、绘图函数、数组操纵相关函数、辅助功能和系统函数和宏、与opengl相互操作  </td>
-</tr>
-<tr>
-<td>imgproc</td>
-<td>线性与非线性图像滤波、图像的几何变换、其他图像变换、直方图相关、结构分析和形状描述、运动分析和对象跟踪、特征检测、目标检测  </td>
-</tr>
-<tr>
-<td>features2d</td>
-<td>特征检测和描述、特征检测器通用接口、描述符匹配器通用接口、关键点描述函数和匹配功能绘制函数  </td>
-</tr>
-<tr>
-<td>flann</td>
-<td>高纬度近似临近快速算法库：快速近似最近邻搜索、聚类  </td>
-</tr>
-<tr>
-<td>gpu</td>
-<td>运用GPU加速计算机视觉计算  </td>
-</tr>
-<tr>
-<td>highgui</td>
-<td>高层GUI图形用户界面  </td>
-</tr>
-<tr>
-<td>legacy</td>
-<td>已经废弃的算法库：运动分析、期望最大化、直方图、平面细分、特征检测与描述、描述符提取器、通用描述符、匹配器  </td>
-</tr>
-<tr>
-<td>ml</td>
-<td>统计模型、一般贝叶斯分类器、K-近邻、支持向量机、决策树、提升、梯度提高树、随机数、超随机数、期望最大化、神经网络、MLdata  </td>
-</tr>
-<tr>
-<td>nonfree</td>
-<td>一些具有专利的算法模块  </td>
-</tr>
-<tr>
-<td>objdetect</td>
-<td>目标检测模块  </td>
-</tr>
-<tr>
-<td>ocl</td>
-<td>运用opencv加速计算机视觉组件模块  </td>
-</tr>
-<tr>
-<td>photo</td>
-<td>包含图像修复和图像去燥两个部分  </td>
-</tr>
-<tr>
-<td>stiching</td>
-<td>图像拼接模块  </td>
-</tr>
-</tbody>
-</table>
-<p>opencv还提供了官方的demo方便我们学习每一个模块，主要在opencv/sources/sample文件夹下面，有兼容各种编程语言的demo  </p>
-<p>mat简析：<br>保存图像和其他矩阵数据的数据结构</p>
-<p>在opencv里面有几种输入的类型需要记忆：</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>string</td>
-<td>输入一个字符串</td>
-</tr>
-<tr>
-<td>INputArray</td>
-<td>需要输入一个Mat数据类型的数据 </td>
-</tr>
-</tbody>
-</table>
-<p>需要记忆的变量：</p>
-<p>名称|含义<br>WINDOW_AUTOSIZE|窗口的大小适应图片的大小<br>WINDOW_NORMAL|窗口的大小可以通过鼠标的标准<br>WINDOW_OPENGL|创建的窗口支持opengl</p>
-<p>创建滑动条：createTrackbar()函数<br>第一个参数：轨迹条的名称<br>第二个参数：依附到创建的窗口上面的名称<br>第三个参数：指向整型的指针<br>第四个参数：滑动块可以达到的滑动块最大位置值<br>第五个参数：这是一个指向回调函数的指针，每一次滑块改变位置时，函数都会进行回调，函数原型必须void XXXX(int,void<em>)第一个参数是轨迹条的位置，第二个参数是用户数据<br>第五个参数：这个参数是指向回调函数的数据<br>createtrackbar(TrackbarName(string),WINDOW_NAME,&amp;滑块的初始位置(int类型),滑块的最大位置(int),函数名称(int,void</em>))</p>
-<p>setMouseCallback(窗口名称(string),on_MouseHandle(函数名称),&amp;Mat指针)</p>
-<p>Mat M(2,2,CV_8UC3,Scalar(0,0,255));<br>cout&lt;&lt;”M= “&lt;&lt;endl&lt;&lt;” “M&lt;&lt;endl&lt;&lt;endl;</p>
-
-          
+          ###opencv基本函数组成openc
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/15/opencv基本内容/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1556,365 +1237,15 @@
       
         
           
-            <h3 id="之前也学习过c-部分的opencv-但是函数太多了，不好记忆"><a href="#之前也学习过c-部分的opencv-但是函数太多了，不好记忆" class="headerlink" title="之前也学习过c++部分的opencv,但是函数太多了，不好记忆"></a>之前也学习过c++部分的opencv,但是函数太多了，不好记忆</h3><p><strong>注意：import cv2 as cv</strong>  </p>
-<table>
-<thead>
-<tr>
-<th>函数名</th>
-<th>注释</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>变量=cv.imread(“文件名称”)</td>
-<td>读取将一个图片读入内存</td>
-<td>src=cv.imread(“picture.jpg”)</td>
-</tr>
-<tr>
-<td>cv.namedWindow(“窗口名称”,窗口设置)</td>
-<td>创建一个窗口</td>
-<td>cv.namedWindow(“input picture”,cv.WINDOW_AUTOSUZE)</td>
-</tr>
-<tr>
-<td>cv.imshow(“窗口名称”,变量)</td>
-<td>将变量放到特定的窗口显示</td>
-<td>cv.imshow(“input picture”,src)</td>
-</tr>
-<tr>
-<td>cv.bitwise_not(变量)</td>
-<td>将变量的进行非操作</td>
-<td>cv.bitwise_not(image)</td>
-</tr>
-<tr>
-<td>cv.bitwise_and(变量1，变量2)</td>
-<td>将两个图片进行与操作</td>
-<td>cv.bitwise_and(image1,image2)</td>
-</tr>
-<tr>
-<td>cv.bitwise_or(变量1，变量2)</td>
-<td>将两张图片进行或操作</td>
-<td>cv.bitwise_or(image1,image2)</td>
-</tr>
-<tr>
-<td>cv.VideoCapture(0)</td>
-<td>调用本机的摄像头</td>
-<td></td>
-</tr>
-<tr>
-<td>变量=cv.VideoCapture(“vedio.avi”)</td>
-<td>调用某一段视频文件</td>
-<td>ret,frame=capture.read()</td>
-</tr>
-<tr>
-<td>ret,frame=capture.read()</td>
-<td>对于一个视频每一次读取一张图片，ret是视频是否结束，frame是保存图片的变量</td>
-</tr>
-<tr>
-<td>image=cv.inRange(变量,lowerb,upperb)</td>
-<td>将标量从RGB空间保存到HSV空间之后，通过inRange函数将需要的颜色过滤出来，首先设置过滤的下边界，然后设置过滤的上边界</td>
-<td></td>
-</tr>
-<tr>
-<td>b,g,r=cv.split(变量)</td>
-<td>变量是RGB空间的彩色图片，通过split函数将三层分解</td>
-<td></td>
-</tr>
-<tr>
-<td>image=cv.merge(b,g,r)</td>
-<td>将三张二维的图片合成一张三维的图片</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>图片逻辑运算</th>
-<th>函数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>将两张图片进行算数相加</td>
-<td>cv.add(image1,image2)</td>
-</tr>
-<tr>
-<td>将两张图片进行算数相减</td>
-<td>cv.substract(image1,image2)</td>
-</tr>
-<tr>
-<td>将两张图片进行算数相乘</td>
-<td>cv.multiply(image1,image2)</td>
-</tr>
-<tr>
-<td>将两张图片进行算数相除</td>
-<td>cv.divide(image1,image2)</td>
-</tr>
-<tr>
-<td>将两张图片进行算数相减</td>
-<td>cv.substract(image1,image2)</td>
-</tr>
-<tr>
-<td>将两张图片进行算数相减</td>
-<td>cv.substract(image1,image2)</td>
-</tr>
-<tr>
-<td>将两张图片进行算数相减</td>
-<td>cv.substract(image1,image2)</td>
-</tr>
-</tbody>
-</table>
-<p>###颜色空间<br>BGR/HSV/YUV/HSI/YCbCr<br>我们平时了解的是RGB色彩空间，RGB色彩空间也可以转换成HSV色彩空间，HSV色彩空间是圆锥形的，同时不同颜色有自己的区域，可以通过选择想要的区域区分我们需要的部分  </p>
-<p>###下面是HSV不同颜色的取值范围  </p>
-<table>
-<thead>
-<tr>
-<th>color</th>
-<th>黑</th>
-<th>灰</th>
-<th>白</th>
-<th>红</th>
-<th>橙</th>
-<th>黄</th>
-<th>绿</th>
-<th>青</th>
-<th>蓝</th>
-<th>紫</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>hmin</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0-156</td>
-<td>11</td>
-<td>26</td>
-<td>35</td>
-<td>78</td>
-<td>100</td>
-<td>125</td>
-</tr>
-<tr>
-<td>hmax</td>
-<td>180</td>
-<td>180</td>
-<td>180</td>
-<td>10-180</td>
-<td>25</td>
-<td>34</td>
-<td>77</td>
-<td>99</td>
-<td>124</td>
-<td>155</td>
-</tr>
-<tr>
-<td>smin</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>43</td>
-<td>43</td>
-<td>43</td>
-<td>43</td>
-<td>43</td>
-<td>43</td>
-<td>43</td>
-</tr>
-<tr>
-<td>smax</td>
-<td>255</td>
-<td>43</td>
-<td>30</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
-</tr>
-<tr>
-<td>vmin</td>
-<td>0</td>
-<td>46</td>
-<td>221</td>
-<td>46</td>
-<td>46</td>
-<td>46</td>
-<td>46</td>
-<td>46</td>
-<td>46</td>
-<td>46</td>
-</tr>
-<tr>
-<td>vmax</td>
-<td>46</td>
-<td>220</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
-<td>255</td>
-</tr>
-</tbody>
-</table>
-<p><strong>颜色空间转换函数：cv.cvtcolor(变量,空间转换参数)</strong>  </p>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>空间转换函数</th>
-<th>解析</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cv.cvtColor(src,COLOR_BGR2GRAY)</td>
-<td>COLOR_BGR2GRAY</td>
-<td>将RGB空间图像转换到灰度空间</td>
-</tr>
-<tr>
-<td>cv.cvtColor(src,COLOR_RGB2HSV)</td>
-<td>COLOR_RGB2HSV</td>
-<td>将RGB空间图像转换到HSV空间</td>
-</tr>
-<tr>
-<td>cv.cvtColor(src,COLOR_RGB2YUV)</td>
-<td>COLOR_RGB2YUV</td>
-<td>将RGB空间图像转换到YUV空间</td>
-</tr>
-<tr>
-<td>cv.cvtColor(src,COLOR_RGB2YCrCb)</td>
-<td>COLOR_RGB2YCrCb</td>
-<td>将RGB空间图像转换到YCrCb空间</td>
-</tr>
-</tbody>
-</table>
-<p>opencv Rect矩阵类的用法<br>创建一个Rect对象的rect(100,50,50,100)，会有以下几个功能：<br>仔细看了一下Rect的源码，Rect是一个c++的矩阵类，创建一个矩阵类有很多方式，因为这个类里面有很多重载函数，方面我们用各种方式去创建一个矩阵类<br>Rect(x,y,height,width)，表示矩阵创建的x,y坐标，已经矩阵的宽度和高度<br>其中x,y表示的是左上点的坐标。<br><strong>学会读源码，力量无穷大</strong>  </p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rect.area()</td>
-<td>返回area矩阵的面积</td>
-</tr>
-<tr>
-<td>rect.size()</td>
-<td>返回rect矩阵的尺寸</td>
-</tr>
-<tr>
-<td>rect.tl()</td>
-<td>返回左上定点的坐标</td>
-</tr>
-<tr>
-<td>rect.br()</td>
-<td>返回右下顶点的坐标</td>
-</tr>
-<tr>
-<td>rect.width()</td>
-<td>返回矩阵的宽度</td>
-</tr>
-<tr>
-<td>rect.height()</td>
-<td>返回矩阵的宽度</td>
-</tr>
-<tr>
-<td>rect.contains(Point(x,y))</td>
-<td>返回布尔变量，是否包含某些点</td>
-</tr>
-<tr>
-<td>rect=rect1 &amp; rect2</td>
-<td>求两个矩阵的交集</td>
-</tr>
-<tr>
-<td>rect=rect1 \</td>
-<td>rect2</td>
-<td>求两个矩阵的并集</td>
-</tr>
-<tr>
-<td>rect=rect+Point(-100,100)</td>
-<td>将左上的点移动，x-100,y+100</td>
-</tr>
-<tr>
-<td>rect=rect+size(-100,100)</td>
-<td>左上的定点不变，宽度减少100，高度加上100</td>
-</tr>
-<tr>
-<td>rect1==rect2</td>
-<td>将矩阵进行对比，返回布尔变量</td>
-</tr>
-</tbody>
-</table>
-<p>创建一个图片形式的有点多，后面慢慢理解吧<br>Mat初始化方式：<br>显式的创建Mat对象的七种方法：  </p>
-<table>
-<thead>
-<tr>
-<th>函数形式</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mat(2,2,CV_8UC3,Scalar(0,0,255))</td>
-<td>创建一个三通道的图像，每一层是都2*2的矩阵，。第一层全部都是0，第二层全部都是0，第三层全部都是255</td>
-</tr>
-<tr>
-<td>int sz[3]={2,2,2};Mat L(3,sz,CV_8UC,Scalar::all(0));</td>
-<td>首先指定通道数目</td>
-</tr>
-<tr>
-<td>不知道也罢</td>
-<td></td>
-</tr>
-<tr>
-<td>M.create(4,4,CV_8UC(2));</td>
-<td>创建一个2通道的数据，每一个数组里面都是4*4的矩阵</td>
-</tr>
-<tr>
-<td>Mat E=Mat::eye(4,4,CV_64F)</td>
-<td>按照matlab的形式创建数组</td>
-</tr>
-<tr>
-<td>Mat O=Mat::ones(2,2,CV_32F)</td>
-<td></td>
-</tr>
-<tr>
-<td>Mat Z=Mat::zeors(3,3,CV_8UC1)</td>
-<td></td>
-</tr>
-<tr>
-<td>Mat C=(Mat_<double>(3,3)&lt;&lt;0,-1,0,-1,5,-1,0,-1,0);</double></td>
-<td>创建一个3*3的数组</td>
-</tr>
-<tr>
-<td>Mat RowClone=C.row(1).clone()</td>
-<td>通过某一行创建另外一个Mat对象</td>
-</tr>
-</tbody>
-</table>
-<p>CV_8UC3创建的图像是uint8，channel3形式的图片，其他的可以以此类推</p>
-<p>Mat M(7,7,CV_32FC2,Scalar(1,3)); 创建了一个7*7的数组，float32数据组成，双通道，Scalar说明通道是(1,3)组成的，第一个通道里面全部是1，第二个通道里面全部是3</p>
-<p>如果创建的是多个通道的，同时每一个通道里面是数据都是一样的，可以用Scalar:all(num)向所有的通道里面填充数据</p>
-<p>定义和输出二维点：<br>Point2f p(6,2),通过坐标位置创建二维点<br>cout&lt;&lt;p&lt;&lt;endl;</p>
-<p>Point3f p(8,2,0),通过坐标位置创建三维点<br>cout&lt;&lt;p&lt;&lt;endl;</p>
-<p>vector<float> v;<br>v.pushback(3);<br>v.pushback(5);<br>v.pushback(7);<br>cout&lt;&lt;Mat(v)&lt;&lt;endl; //通过v创建Mat对象</float></p>
-<p>vector<point2f> point；创建一个vector对象，对象的内容是二维点</point2f></p>
-<p>Piont point;<br>point.x=10;point.y=10;<br>创建一个点，选择性的输出点的x坐标和y坐标</p>
-<p>颜色的表示Scalar类<br>Scalar(a,b,c) 颜色顺序是B,G,R</p>
-<p>尺寸的表示：<br>矩阵的表示:Rect</p>
-
-          
+          之前也学习过c++部分的opencv,但
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/13/opencv-python函数记录/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2054,10 +1385,15 @@
       
         
           
-            <h3 id="通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层"><a href="#通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层" class="headerlink" title="通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层"></a>通常的颜色空间是RGB，是说图像分成三层，分别是红，绿，蓝三层</h3><p>但是在opencv中可以通过颜色空间的处理将我们需要的颜色显示出来<br>这个就需要我们将图像从RGB空间转换到HSV空间  </p>
-<p><img src="/images/posts/color_space/HIV_space.jpg" alt=""><br><img src="/images/posts/color_space/HIV_space1.jpg" alt=""><br><img src="/images/posts/color_space/HIV_space3.png" alt=""></p>
-
-          
+          通常的颜色空间是RGB，是说图像分成三层
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/12/opencv-python-1学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2197,41 +1533,15 @@
       
         
           
-            <h3 id="模块-module"><a href="#模块-module" class="headerlink" title="模块 module"></a>模块 module</h3><p>模块对我我这个常年编程的人来说，再简单不过了</p>
-<p>需要注意的是创建一个python文件的时候，每一个文件都会有一个main函数，通过:<br>if <strong>name</strong>==’<strong>main</strong>‘<br>    test()<br>当相当于如果创建的这个python文件是运行的文件，if条件就会被激活，首先运行test()程序</p>
-<p>如果是其他程序导入这个python模块，if条件就不会被激活，test()程序就不会运行</p>
-<p>这个时候需要注意的是如果是：<br>import test<br>test文件里面所有的程序都需要test.hello()这样的形式运行</p>
-<p>from test import hello<br>可以直接运行hello()程序</p>
-<p>###面向对象编程<br>class Student(object):<br>    def <strong>init</strong>(self,namee,score):<br>        self.name=name<br>        self.score=score<br>其中self就相当于c++中的this指针，指向class本身</p>
-<p>class Student(object)<br>    pass<br>如果只是简单的创建一个class,没有说明class里面的参数有哪些，在后期创建对象如bart之后，通过给bart.name=’what’,就可以给一个实例创建参数</p>
-<p>class Student(object):<br>    def <strong>init</strong>(self,name,score):<br>        self.name=name<br>        self.score=score</p>
-<pre><code>def print_score(self):
-    print(&apos;%s:%s&apos; % (self.name,self.name))
-</code></pre><p><strong>在python的class中如果想要内部属性不被外部的所访问，可以在属性前面加上两个下划线，以两个下划线开头的变量名就是一个私有变量</strong></p>
-<p>私有变量只能class内部进行访问，在外部是不能访问的</p>
-<p>所以可以将刚才的程序进行修改：</p>
-<p>class Student(object):<br>    def.<strong>init</strong>(self,name,score)<br>        self.<strong>name=name<br>        self.</strong>score=score</p>
-<pre><code>def print_score(self):
-    print(&apos;%s:%s&apos; %(self.__name,self.__score))
-</code></pre><p>这样class内部本来的两个共有变量就变成的私有变量</p>
-<p>需要注意的是以双下划线开头并且以双下划线结束的变量是class内部的特殊变量，特殊变量是可以直接访问的。</p>
-<p>当看到单下划线开头的变量虽然可以直接访问，但是不建议随便访问，因为别人将名称修改成这样就是叫你不要求访问他</p>
-<p>###继承和多态</p>
-<p>在oop程序设计中，当我们定义一个class的时候，可以从某个现有的class继承，新的class称之为子类，这个和c++上面也是一样的，被继承的称之为基类或者说是父类</p>
-<p>首先我们创建一个class:</p>
-<p>class Animal(object):<br>    def run(self):<br>        print(“animal is running”)</p>
-<p>class Dog(Animal):<br>    pass</p>
-<p>class Cat(Animal):<br>    pass</p>
-<p>我们首先创建了一个对象class，然后创建两个class继承第一个class,他的好处在于可以直接继承第一个class上面所有的内容<br>dog Dog()<br>dog.run()<br>创建一个对象dog,因为Dog已经从Animal上面继承了所以直接运行dog.run()就可以运行Animal的子程序</p>
-<p>当子类和父类都存在相同的代码run()的时候，我们说子类run()覆盖了父类的run()，在代码运行的时候，总是会调用子类的run(),这样我们就获得的继承的另外一个好处，多态</p>
-<p>isinstance()函数可以判断一个数据类型是不是一样的，这样当我们创建一个cat的类，同时这个类是继承父类animal，这个时候，判断一个一个cat类型的对象是否与animal的数据类型相同的时候就会发现，cat的队形与animal的数据类型是一样的</p>
-<p>但是反过来就不可以</p>
-<p>我们创建一个函数调用animal对象</p>
-<p>def run_twice(Animal):<br>    Animal.run()<br>    Animal.sun()</p>
-<p>这个时候我们传入run_twice(Animal()) //注意传入的都是实例<br>都是调用各自的run函数，虽然都是从Animal继承run()函数，但是当继承的子类内部创建了run()函数，就会屏蔽父类的run()函数，体现class的多态</p>
-<p>这个时候其实是两种编程语言之间的区别：<br>静态语言和动态语言<br>静态语言：需要传入animal类型和animal类型的子类否则无法调用run函数<br>动态语言：不一定需要传入animal类型的语言，只要保证传入的对象有一个run()函数</p>
-
-          
+          模块 module模块对我我这个常年编程
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/11/python-review-3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2371,149 +1681,17 @@
       
         
           
-            <h3 id="汉罗塔"><a href="#汉罗塔" class="headerlink" title="汉罗塔"></a>汉罗塔</h3><blockquote>
-<blockquote>
-<p>def hanluota(n,a,b,c):<br>    if n==1:<br>        print(“%s-&gt;%s” % (a,c))<br>    else:<br>        hanluota(n-1,a,c,b)<br>        print(“%s-&gt;%s” % (a,c))<br>        hanluota(n-1,b,a,c)</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>hanluota(3,”a”,”b”,”c”)</p>
-</blockquote>
-</blockquote>
-<p><strong>简单的写一下汉罗塔，复习一下递归</strong></p>
-<h3 id="list和tuple可以切片，dict是不可以切片的"><a href="#list和tuple可以切片，dict是不可以切片的" class="headerlink" title="list和tuple可以切片，dict是不可以切片的"></a>list和tuple可以切片，dict是不可以切片的</h3><blockquote>
-<p>切片的对象是list和tuple，使用方法是<br>变量[a：b：c]  (a为起始值，b为终止值，c为间距)</p>
-</blockquote>
-<h3 id="列表生成式："><a href="#列表生成式：" class="headerlink" title="列表生成式："></a>列表生成式：</h3><blockquote>
-<p>[x*y for x in range(5) for y in range(10) if y&gt;2]</p>
-</blockquote>
-<p><strong>列表生成式里面可以有for循环，可以有if判断语句</strong></p>
-<blockquote>
-<p>d={‘x’:’A’,’y’:’B’,’z’:’C’}<br>for k,v in d.item():<br>    print(k,’=’,v)</p>
-</blockquote>
-<blockquote>
-<p>可以试试列表里面既有字符串，又有整数，对于字符串，需要将所有的字符串就转变成小写形式</p>
-</blockquote>
-<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><blockquote>
-<p>生成器与列表生成器的区别在于，生成器生成的数据可以非常多，但是不会占用大量的内存，因为他是实时计算出来的，使用的时候才开始调用。</p>
-</blockquote>
-<blockquote>
-<p>生成器的使用方式不仅仅是像列表生成器那样通过一个[]，对于一个函数如果将函数里面的数据通过yield操作，这个函数就相当于一个生成器</p>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>def fib(max):<br>    n,a,b=0,0,1<br>    while n&lt;max:<br>        yield b<br>        a,b=b,a+b<br>        n+=1</p>
-</blockquote>
-</blockquote>
-<h3 id="迭代器-Iterable"><a href="#迭代器-Iterable" class="headerlink" title="迭代器 Iterable"></a>迭代器 Iterable</h3><blockquote>
-<p><strong>list</strong>,<strong>tuple</strong>,<strong>dict</strong>,<strong>set</strong>,<strong>str</strong></p>
-</blockquote>
-<blockquote>
-<p>上面的元素都可以使用迭代器<br>可以使用isinstance判断一个对象是否可以使用迭代器</p>
-</blockquote>
-<h3 id="生成器-Iterator"><a href="#生成器-Iterator" class="headerlink" title="生成器 Iterator"></a>生成器 Iterator</h3><blockquote>
-<p>tuple是生成器</p>
-</blockquote>
-<blockquote>
-<p>凡是可作用于for循环对象的，都是iterable<br>凡是可作用于next()函数对象的都是iterator</p>
-</blockquote>
-<blockquote>
-<p>函数本身也可以赋值给一个变量，变量可以指向函数<br>当一个变量指向一个函数的时候，可以通过这个变量调用这个函数<br>那么函数名就是指向函数的变量</p>
-</blockquote>
-<blockquote>
-<p>既然变量可以指向函数，函数的参数能接受变量，那么一个函数可以接收另一个函数作为参数，这种函数被称为高阶函数</p>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>def(x,y,f):<br>    return f(x)+f(y)</p>
-</blockquote>
-</blockquote>
-<h3 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h3><blockquote>
-<p>map()接收两个参数，一个是函数，一个是iterable</p>
-<blockquote>
-<p>def f(x):<br>    return x*x</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>r=map(f,list(range(1,10)))</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>list(map(str,list(range(1,10))))</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>def fn(x,y):<br>    return x*10+y</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>def char2num(s):<br>    return {‘0’:0,’1’:1,’2’:2,’3’:3,’4’:4,’5’:5,’6’:6,’7’:7,’8’:8,’9’:9}</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>reduce(fn,map(char2num,’13579’))=13579</p>
-</blockquote>
-</blockquote>
-<h3 id="filter函数用于过滤序列"><a href="#filter函数用于过滤序列" class="headerlink" title="filter函数用于过滤序列"></a>filter函数用于过滤序列</h3><blockquote>
-<p>filter函数接收一个函数和一个序列，filter把传入的函数作用于每一个元素，按照返回的阿寒湖是true还是false判断是否丢弃这个元素</p>
-</blockquote>
-<p><strong>就相当于在c++里面的谓词，通过这个谓词判断是否保留元素</strong></p>
-<blockquote>
-<p>高阶函数排序函数，排序函数可以接收三个元素，第一个是一个list/tuple,第一个是一个处理函数，第三个是reverse=True<br>正常情况下函数都是从小到大进行排序的</p>
-<blockquote>
-<p>k=[12,-34,31,432,-223,122]<br>sorted(k,abs,reverse=True)</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>def lazy_sum(*args):<br>    def sum():<br>        ax=0<br>        for n in args:<br>            ax=ax+n<br>        return ax<br>    return sum</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>函数的返回结果是一个函数，然后运行函数就可以得到刚才的结果了<br>相关参数和变量都保存在返回的变量中，这种成为闭包</p>
-</blockquote>
-<p><strong>闭包：</strong></p>
-<blockquote>
-<p>def count():<br>    fs=[]<br>    for i in range(1,4):<br>        def f():<br>            return i*i<br>        fs.append(f)<br>    return fs<br>f1,f2,f3=count()</p>
-</blockquote>
-<blockquote>
-<p>返回闭包的时候注意：返回函数不要引用任何循环变量，否则后续会发生变化的变量</p>
-</blockquote>
-<p><strong>匿名函数：</strong></p>
-<blockquote>
-<blockquote>
-<p>关键字lambda表示匿名函数<br>lambda x:x*x  匿名函数的特点是只有一个表达式，不需要写return，返回值就是该表达式的结果</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>f=lambda x:x*x<br>f(5)=25 </p>
-</blockquote>
-</blockquote>
-<p>可以把一个匿名函数赋值给一个变量，通过这个变量调用这个函数</p>
-<p><strong>装饰器：</strong></p>
-<blockquote>
-<p>def log(func):<br>    def wrapper(<em>args,**kw):<br>        print(‘call %s():’,func.<strong>name</strong>)<br>        return func(</em>args,**kw)<br>    return warpper</p>
-</blockquote>
-<p>@log<br>def now():<br>    print(‘2015-3-25’)</p>
-<p><strong>注意：</strong>这里首先定义了一个装饰器，这个装饰器需要输入一个函数，但是我们在创建新的函数的时候，在函数定义的开头创建一个@装饰器名称，相当于：装饰器函数(刚创建的函数)，就会在刚创建的函数运行之后返回一个调用装饰器函数的结果<br><a href="https://www.zhihu.com/question/26930016" title="知乎链接，解释有点风骚" target="_blank" rel="noopener">对于装饰器的理解，我百度了下</a></p>
-<p>理解：程序本身就像内裤，内裤非常重要，执行一些非常重要的操作，但是不能一直穿，至少冬天穿的时候非常冷，于是就有了裤子，裤子把内裤包裹在里面的同时，提供的避寒的功能，这个裤子就是装饰器，在不影响函数整体运行的同时创建装饰器，很方便。</p>
-<p><strong>注意：</strong>创建一个装饰器名称是log,创建一个函数是now()<br>执行now()函数相当于执行 log(now)()函数<br>上面两层装饰器</p>
-<p>三层装饰器：<br>def log(text):<br>    def decorate(func):<br>        def warpper(<em>args,**kw):<br>            print(“%s %s():”,%(test,func__name__))<br>            return func(</em>args,**kw)<br>        return warpper<br>    return decorator</p>
-<p>now()=log(‘execute’)(now)</p>
-<p><strong>我个人的理解：</strong>形式只是理解的一种方式，编译器还是按照原本的方式运行程序，所以两层装饰器按理来说应该是:<br>装饰器名称(函数名称)(定义的一些参数)，当然可以不需要输入参数的。</p>
-<p>三层装饰器：装饰器名称(一些参数)(函数名称)(定义一些参数)</p>
-<p>###偏函数<br>int(‘12345’,base=2)//int(‘12345’,2)<br><strong>注意：</strong>将其他数据转换成int类型的数据，然后在转换成二进制数据</p>
-<p>functools.partial是用来创建偏函数的<br>int2=functool.partial(int,base=2)<br>//原函数是int(传入一个函数对象)，限制参数是base=2，创建了一个新的函数</p>
-<p>创建偏函数实际可以通过接收函数对象，*args,<strong>kw等3个参数<br>kw={‘base’:2}<br>int2=functools.partial(int,</strong>kw)<br><strong>将kw参数传进去方面方便理解</strong></p>
+          汉罗塔
 
-          
+def hanluota(n,
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/10/python-review-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
