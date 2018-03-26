@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="###opencv基本函数组成opencv函数组成是：opencv、opencv2opencv文件夹下面都是opencv1.0的函数组成opencv2文件夹下面都是opencv2.0的函数组成   opencv2组成部分      组成 作用       calib3d 相机校准和三维重建相关，主要包括多视角几何算法，单个立体摄像头标定，物体姿态估计，立体相似性算法，3D信息的重组     con">
+<meta name="description" content="对车道线检测的理解 对于车道线检测本身的理解：  1.创建程序的意义在意能过适应于大多数情况，所以，有些过程看似没有意义，但是也是为了能过适应更多的环境。2.程序一开始是滤波函数，去除图像中噪声3.车道线的颜色一般理解为白色，这个时候和外界天空的颜色是一样的，如果想用灰度-&amp;gt;二值化那么是没有意义的，因为这个时候天空和车道线就归为一类的。所以对于车道线检测的算法首先应该应该是检测车道线的轮廓，">
 <meta name="keywords" content="opencv">
 <meta property="og:type" content="article">
-<meta property="og:title" content="opencv基本内容">
-<meta property="og:url" content="http://yoursite.com/2018/03/15/opencv基本内容/index.html">
+<meta property="og:title" content="opencv车道线检测主体思路">
+<meta property="og:url" content="http://yoursite.com/2018/03/25/opencv车道线检测主体思路/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="###opencv基本函数组成opencv函数组成是：opencv、opencv2opencv文件夹下面都是opencv1.0的函数组成opencv2文件夹下面都是opencv2.0的函数组成   opencv2组成部分      组成 作用       calib3d 相机校准和三维重建相关，主要包括多视角几何算法，单个立体摄像头标定，物体姿态估计，立体相似性算法，3D信息的重组     con">
+<meta property="og:description" content="对车道线检测的理解 对于车道线检测本身的理解：  1.创建程序的意义在意能过适应于大多数情况，所以，有些过程看似没有意义，但是也是为了能过适应更多的环境。2.程序一开始是滤波函数，去除图像中噪声3.车道线的颜色一般理解为白色，这个时候和外界天空的颜色是一样的，如果想用灰度-&amp;gt;二值化那么是没有意义的，因为这个时候天空和车道线就归为一类的。所以对于车道线检测的算法首先应该应该是检测车道线的轮廓，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-24T08:57:00.411Z">
+<meta property="og:image" content="http://yoursite.com/images/posts/lane_detection_test/picture4.jpg">
+<meta property="og:image" content="http://yoursite.com/images/posts/lane_detection_test/picture3.jpg">
+<meta property="og:updated_time" content="2018-03-26T02:59:43.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="opencv基本内容">
-<meta name="twitter:description" content="###opencv基本函数组成opencv函数组成是：opencv、opencv2opencv文件夹下面都是opencv1.0的函数组成opencv2文件夹下面都是opencv2.0的函数组成   opencv2组成部分      组成 作用       calib3d 相机校准和三维重建相关，主要包括多视角几何算法，单个立体摄像头标定，物体姿态估计，立体相似性算法，3D信息的重组     con">
+<meta name="twitter:title" content="opencv车道线检测主体思路">
+<meta name="twitter:description" content="对车道线检测的理解 对于车道线检测本身的理解：  1.创建程序的意义在意能过适应于大多数情况，所以，有些过程看似没有意义，但是也是为了能过适应更多的环境。2.程序一开始是滤波函数，去除图像中噪声3.车道线的颜色一般理解为白色，这个时候和外界天空的颜色是一样的，如果想用灰度-&amp;gt;二值化那么是没有意义的，因为这个时候天空和车道线就归为一类的。所以对于车道线检测的算法首先应该应该是检测车道线的轮廓，">
+<meta name="twitter:image" content="http://yoursite.com/images/posts/lane_detection_test/picture4.jpg">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/15/opencv基本内容/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/25/opencv车道线检测主体思路/"/>
 
 
 
 
 
-  <title>opencv基本内容 | Hexo</title>
+  <title>opencv车道线检测主体思路 | Hexo</title>
   
 
 
@@ -253,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/15/opencv基本内容/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/25/opencv车道线检测主体思路/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xujiagen">
@@ -270,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">opencv基本内容</h1>
+          <h1 class="post-title" itemprop="name headline">opencv车道线检测主体思路</h1>
         
 
         <div class="post-meta">
@@ -282,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T16:33:06+08:00">
-                2018-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T19:27:59+08:00">
+                2018-03-25
               </time>
             
 
@@ -342,104 +345,17 @@
       
 
       
-        <p>###opencv基本函数组成<br>opencv函数组成是：opencv、opencv2<br>opencv文件夹下面都是opencv1.0的函数组成<br>opencv2文件夹下面都是opencv2.0的函数组成  </p>
-<p><strong>opencv2组成部分</strong>  </p>
-<table>
-<thead>
-<tr>
-<th>组成</th>
-<th>作用  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>calib3d</td>
-<td>相机校准和三维重建相关，主要包括多视角几何算法，单个立体摄像头标定，物体姿态估计，立体相似性算法，3D信息的重组  </td>
-</tr>
-<tr>
-<td>contrib</td>
-<td>新增的不太稳定的功能  </td>
-</tr>
-<tr>
-<td>core</td>
-<td>核心功能模块：opencv基本数据结构、动态数据结构、绘图函数、数组操纵相关函数、辅助功能和系统函数和宏、与opengl相互操作  </td>
-</tr>
-<tr>
-<td>imgproc</td>
-<td>线性与非线性图像滤波、图像的几何变换、其他图像变换、直方图相关、结构分析和形状描述、运动分析和对象跟踪、特征检测、目标检测  </td>
-</tr>
-<tr>
-<td>features2d</td>
-<td>特征检测和描述、特征检测器通用接口、描述符匹配器通用接口、关键点描述函数和匹配功能绘制函数  </td>
-</tr>
-<tr>
-<td>flann</td>
-<td>高纬度近似临近快速算法库：快速近似最近邻搜索、聚类  </td>
-</tr>
-<tr>
-<td>gpu</td>
-<td>运用GPU加速计算机视觉计算  </td>
-</tr>
-<tr>
-<td>highgui</td>
-<td>高层GUI图形用户界面  </td>
-</tr>
-<tr>
-<td>legacy</td>
-<td>已经废弃的算法库：运动分析、期望最大化、直方图、平面细分、特征检测与描述、描述符提取器、通用描述符、匹配器  </td>
-</tr>
-<tr>
-<td>ml</td>
-<td>统计模型、一般贝叶斯分类器、K-近邻、支持向量机、决策树、提升、梯度提高树、随机数、超随机数、期望最大化、神经网络、MLdata  </td>
-</tr>
-<tr>
-<td>nonfree</td>
-<td>一些具有专利的算法模块  </td>
-</tr>
-<tr>
-<td>objdetect</td>
-<td>目标检测模块  </td>
-</tr>
-<tr>
-<td>ocl</td>
-<td>运用opencv加速计算机视觉组件模块  </td>
-</tr>
-<tr>
-<td>photo</td>
-<td>包含图像修复和图像去燥两个部分  </td>
-</tr>
-<tr>
-<td>stiching</td>
-<td>图像拼接模块  </td>
-</tr>
-</tbody>
-</table>
-<p>opencv还提供了官方的demo方便我们学习每一个模块，主要在opencv/sources/sample文件夹下面，有兼容各种编程语言的demo  </p>
-<p>mat简析：<br>保存图像和其他矩阵数据的数据结构</p>
-<p>在opencv里面有几种输入的类型需要记忆：</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>string</td>
-<td>输入一个字符串</td>
-</tr>
-<tr>
-<td>INputArray</td>
-<td>需要输入一个Mat数据类型的数据 </td>
-</tr>
-</tbody>
-</table>
-<p>需要记忆的变量：</p>
-<p>名称|含义<br>WINDOW_AUTOSIZE|窗口的大小适应图片的大小<br>WINDOW_NORMAL|窗口的大小可以通过鼠标的标准<br>WINDOW_OPENGL|创建的窗口支持opengl</p>
-<p>创建滑动条：createTrackbar()函数<br>第一个参数：轨迹条的名称<br>第二个参数：依附到创建的窗口上面的名称<br>第三个参数：指向整型的指针<br>第四个参数：滑动块可以达到的滑动块最大位置值<br>第五个参数：这是一个指向回调函数的指针，每一次滑块改变位置时，函数都会进行回调，函数原型必须void XXXX(int,void<em>)第一个参数是轨迹条的位置，第二个参数是用户数据<br>第五个参数：这个参数是指向回调函数的数据<br>createtrackbar(TrackbarName(string),WINDOW_NAME,&amp;滑块的初始位置(int类型),滑块的最大位置(int),函数名称(int,void</em>))</p>
-<p>setMouseCallback(窗口名称(string),on_MouseHandle(函数名称),&amp;Mat指针)</p>
-<p>Mat M(2,2,CV_8UC3,Scalar(0,0,255));<br>cout&lt;&lt;”M= “&lt;&lt;endl&lt;&lt;” “M&lt;&lt;endl&lt;&lt;endl;</p>
+        <h3 id="对车道线检测的理解"><a href="#对车道线检测的理解" class="headerlink" title="对车道线检测的理解"></a>对车道线检测的理解</h3><blockquote>
+<p>对于车道线检测本身的理解：</p>
+<blockquote>
+<p>1.创建程序的意义在意能过适应于大多数情况，所以，有些过程看似没有意义，但是也是为了能过适应更多的环境。<br>2.程序一开始是滤波函数，去除图像中噪声<br>3.车道线的颜色一般理解为白色，这个时候和外界天空的颜色是一样的，如果想用灰度-&gt;二值化那么是没有意义的，因为这个时候天空和车道线就归为一类的。所以对于车道线检测的算法首先应该应该是检测车道线的轮廓，在图像处理方面我可以理解为检测图片的整体轮廓。<br>4.检测图片的轮廓作用在于车道线与非车道线部分的道路有明显的梯度。<br>5.需要将生成的图片转换成二值化图片，然后将二值化图片通过霍夫变换显示检测到的线条部分。</p>
+</blockquote>
+</blockquote>
+<h3 id="首先导入原始图片"><a href="#首先导入原始图片" class="headerlink" title="首先导入原始图片"></a>首先导入原始图片</h3><p><img src="/images/posts/lane_detection_test/picture4.jpg" alt=""></p>
+<h3 id="对于滤波函数选择"><a href="#对于滤波函数选择" class="headerlink" title="对于滤波函数选择"></a>对于滤波函数选择</h3><p>滤波函数我主要选择高速滤波函数</p>
+<h3 id="对于算子的选择"><a href="#对于算子的选择" class="headerlink" title="对于算子的选择"></a>对于算子的选择</h3><p>canny算子，生成显示图像轮廓的黑白图片</p>
+<h3 id="hough直线检测效果"><a href="#hough直线检测效果" class="headerlink" title="hough直线检测效果"></a>hough直线检测效果</h3><p><img src="/images/posts/lane_detection_test/picture3.jpg" alt=""></p>
+<h3 id="程序实现的主要代码"><a href="#程序实现的主要代码" class="headerlink" title="程序实现的主要代码"></a>程序实现的主要代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;opencv2/opencv.hpp&gt;</span><br><span class="line">#include&lt;opencv2/highgui/highgui.hpp&gt;</span><br><span class="line">#include&lt;opencv2/imgproc/imgproc.hpp&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">using namespace cv;</span><br><span class="line"></span><br><span class="line">//首先创建全局变量</span><br><span class="line">Mat g_srcImage, g_dstImage, g_midImage;</span><br><span class="line">vector&lt;Vec4i&gt; g_lines;</span><br><span class="line">int g_nthreshold = 100;</span><br><span class="line"></span><br><span class="line">static void on_HoughLines(int, void*);</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	g_srcImage = imread(&quot;2.jpg&quot;);//原图像</span><br><span class="line">	resize(g_srcImage, g_srcImage, Size(g_srcImage.cols / 2, g_srcImage.rows / 2), 0, 0);</span><br><span class="line">	imshow(&quot;原始图片&quot;, g_srcImage);</span><br><span class="line"></span><br><span class="line">	namedWindow(&quot;效果图&quot;, 1);</span><br><span class="line">	createTrackbar(&quot;值&quot;, &quot;效果图&quot;, &amp;g_nthreshold, 200, on_HoughLines);</span><br><span class="line">	//创建一个控制条，控制条控制的变量值在canny二值化过程中 </span><br><span class="line">	Canny(g_srcImage, g_midImage, 50, 200, 3);</span><br><span class="line">	cvtColor(g_midImage, g_dstImage, COLOR_GRAY2BGR);</span><br><span class="line">	on_HoughLines(g_nthreshold, 0);</span><br><span class="line">	HoughLinesP(g_midImage, g_lines, 1, CV_PI / 180, 80, 50, 10);</span><br><span class="line">	imshow(&quot;效果图&quot;, g_dstImage);</span><br><span class="line">	waitKey(0);</span><br><span class="line">	destroyAllWindows();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void on_HoughLines(int, void*)</span><br><span class="line">&#123;</span><br><span class="line">	Mat dstImage = g_dstImage.clone();</span><br><span class="line">	Mat midImage = g_midImage.clone();</span><br><span class="line">	vector&lt;Vec4i&gt; mylines;</span><br><span class="line">	HoughLinesP(midImage, mylines, 1, CV_PI / 180, g_nthreshold + 1, 50, 10);</span><br><span class="line">	for (size_t i = 0; i &lt; mylines.size(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		Vec4i l = mylines[i];</span><br><span class="line">		line(dstImage, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(23, 180, 55), 1, LINE_AA);</span><br><span class="line">		imshow(&quot;效果图&quot;, dstImage);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -499,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/13/opencv-python函数记录/" rel="next" title="opencv_python函数记录">
-                <i class="fa fa-chevron-left"></i> opencv_python函数记录
+              <a href="/2018/03/24/opencv博客/" rel="next" title="opencv博客">
+                <i class="fa fa-chevron-left"></i> opencv博客
               </a>
             
           </div>
@@ -508,10 +424,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/15/visual-studio笔记/" rel="prev" title="visual_studio笔记">
-                visual_studio笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -563,8 +475,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -644,6 +565,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#对车道线检测的理解"><span class="nav-number">1.</span> <span class="nav-text">对车道线检测的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首先导入原始图片"><span class="nav-number">2.</span> <span class="nav-text">首先导入原始图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对于滤波函数选择"><span class="nav-number">3.</span> <span class="nav-text">对于滤波函数选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对于算子的选择"><span class="nav-number">4.</span> <span class="nav-text">对于算子的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hough直线检测效果"><span class="nav-number">5.</span> <span class="nav-text">hough直线检测效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序实现的主要代码"><span class="nav-number">6.</span> <span class="nav-text">程序实现的主要代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
