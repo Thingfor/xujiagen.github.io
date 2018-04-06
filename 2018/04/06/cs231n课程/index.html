@@ -88,7 +88,7 @@
 <meta property="og:description" content="本文主要是在学习cs231n的过程中记录的一些笔记第三课，课程后期  卷积神经网络的发展：2010年，卷积神经网络还不像现在这样飞速发展：当时的卷积神经网络有许多分层，首先计算一些特征，然后计算局部不变特征，一些池化操作，然后进过多层处理。然后将处理的结果传递到SVN。   2012年多伦多大学的Jeff Hinton小组的博士生Alex krizhevsky 和 Ilya Sutskever创建">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s1.ax1x.com/2018/04/06/CCDsud.md.png">
-<meta property="og:updated_time" content="2018-04-06T06:38:47.332Z">
+<meta property="og:updated_time" content="2018-04-06T06:47:05.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cs231n课程">
 <meta name="twitter:description" content="本文主要是在学习cs231n的过程中记录的一些笔记第三课，课程后期  卷积神经网络的发展：2010年，卷积神经网络还不像现在这样飞速发展：当时的卷积神经网络有许多分层，首先计算一些特征，然后计算局部不变特征，一些池化操作，然后进过多层处理。然后将处理的结果传递到SVN。   2012年多伦多大学的Jeff Hinton小组的博士生Alex krizhevsky 和 Ilya Sutskever创建">
@@ -378,7 +378,10 @@
 <p>曼哈顿distance去检测两张图片之间的距离：<br><a href="https://imgchr.com/i/CCDsud" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/04/06/CCDsud.md.png" alt="CCDsud.png" border="0"></a></p>
 </blockquote>
 <blockquote>
-<p>曼哈顿距离是选择一个比较的范围，在这个比较的范围里面，计算两张图片像素值的差值的绝对值，然后将这些值进行累加。<br>得到的结果就是曼哈顿距离<br><code>`</code></p>
+<p>曼哈顿距离是选择一个比较的范围，在这个比较的范围里面，计算两张图片像素值的差值的绝对值，然后将这些值进行累加。<br>得到的结果就是曼哈顿距离</p>
+</blockquote>
+<blockquote>
+<p>Nearest Neighbor classifier<br>临近分类器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">class NearestNeighbor:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    def train(self,X,Y):</span><br><span class="line">        self.Xtr=X</span><br><span class="line">        self.Ytr=Y</span><br><span class="line">    </span><br><span class="line">    def predict(self,X):</span><br><span class="line">        num_test=X.shape[0]</span><br><span class="line">        Ypred=np.zeors(num_test,dtype=self.ytr.dtype)</span><br><span class="line"></span><br><span class="line">    for i in range(num_test):</span><br><span class="line">        distance=np.num(np.abs(self.Ctr-X[i,:]),axis=1)</span><br><span class="line">        min_index=np.argmin(distances)</span><br><span class="line">        Ypred[i]=self.ytr[min_index]</span><br><span class="line">    return Ypred</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 
       
