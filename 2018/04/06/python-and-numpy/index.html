@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="numpy," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="cs231 numpy教程 参考的web链接在学习numpy的过程中，总是会忘记很多语法：   基本数据类型和大多数编程语言一样，Python拥有一系列的基本数据类型，比如整型、浮点型、布尔型和字符串等。这些类型的使用方式和在其他语言中的使用方式是类似的。数字：整型和浮点型的使用与其他语言类似。1234567891011121314x = 3print(type(x))">
+<meta name="keywords" content="numpy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python and numpy">
+<meta property="og:url" content="http://yoursite.com/2018/04/06/python-and-numpy/index.html">
+<meta property="og:site_name" content="fighting!兽人永不为奴">
+<meta property="og:description" content="cs231 numpy教程 参考的web链接在学习numpy的过程中，总是会忘记很多语法：   基本数据类型和大多数编程语言一样，Python拥有一系列的基本数据类型，比如整型、浮点型、布尔型和字符串等。这些类型的使用方式和在其他语言中的使用方式是类似的。数字：整型和浮点型的使用与其他语言类似。1234567891011121314x = 3print(type(x))">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-06T07:09:30.185Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python and numpy">
+<meta name="twitter:description" content="cs231 numpy教程 参考的web链接在学习numpy的过程中，总是会忘记很多语法：   基本数据类型和大多数编程语言一样，Python拥有一系列的基本数据类型，比如整型、浮点型、布尔型和字符串等。这些类型的使用方式和在其他语言中的使用方式是类似的。数字：整型和浮点型的使用与其他语言类似。1234567891011121314x = 3print(type(x))">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/06/python-and-numpy/"/>
+
+
+
+
+
+  <title>python and numpy | fighting!兽人永不为奴</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">fighting!兽人永不为奴</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">努力，努力，知道自己的目标</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/06/python-and-numpy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xujiagen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fighting!兽人永不为奴">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python and numpy</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-06T14:54:49+08:00">
+                2018-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/numpy/" itemprop="url" rel="index">
+                    <span itemprop="name">numpy</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="cs231-numpy教程"><a href="#cs231-numpy教程" class="headerlink" title="cs231 numpy教程"></a>cs231 numpy教程</h3><hr>
+<p>参考的<a href="https://zhuanlan.zhihu.com/p/20878530?refer=intelligentunit" target="_blank" rel="noopener">web链接</a><br>在学习numpy的过程中，总是会忘记很多语法：</p>
+<hr>
+<blockquote>
+<p><strong>基本数据类型</strong><br>和大多数编程语言一样，Python拥有一系列的基本数据类型，比如整型、浮点型、布尔型和字符串等。这些类型的使用方式和在其他语言中的使用方式是类似的。<br>数字：整型和浮点型的使用与其他语言类似。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">x = 3</span><br><span class="line">print(type(x))                  # Prints &quot;&lt;type &apos;int&apos;&gt;&quot;</span><br><span class="line">print(x)                        # Prints &quot;3&quot;</span><br><span class="line">print(x+1)                      # Addition; prints &quot;4&quot;</span><br><span class="line">print(x-1)                      # Subtraction; prints &quot;2&quot;</span><br><span class="line">print(x*2)                      # Multiplication; prints &quot;6&quot;</span><br><span class="line">print(x**2)                     # Exponentiation; prints &quot;9&quot;</span><br><span class="line">x += 1</span><br><span class="line">print(x)                        # Prints &quot;4&quot;</span><br><span class="line">x *= 2</span><br><span class="line">print(x)                        # Prints &quot;8&quot;</span><br><span class="line">y = 2.5</span><br><span class="line">print(type(y))                  # Prints &quot;&lt;type &apos;float&apos;&gt;&quot;</span><br><span class="line">print(y, y + 1, y * 2, y ** 2)  # Prints &quot;2.5 3.5 5.0 6.25&quot;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>需要注意的是，Python中没有 x++ 和 x– 的操作符。</strong></p>
+<hr>
+<p>布尔型：Python实现了所有的布尔逻辑，但用的是英语，而不是我们习惯的操作符（比如&amp;&amp;和||等）。<br>布尔类型使用的是and/or<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">t = True</span><br><span class="line">f = False</span><br><span class="line">print(t)            # Prints &quot;&lt;type &apos;bool&apos;&gt;&quot;</span><br><span class="line">print( t and f)     # Logical AND; prints &quot;False&quot;</span><br><span class="line">print( t or f)      # Logical OR; prints &quot;True&quot;</span><br><span class="line">print( not t )      # Logical NOT; prints &quot;False&quot;</span><br><span class="line">print(t != f)       # Logical XOR; prints &quot;True&quot;  </span><br><span class="line">字符串：Python对字符串的支持非常棒。</span><br><span class="line"></span><br><span class="line">hello = &apos;hello&apos;                                 # String literals can use single quotes</span><br><span class="line">world = &quot;world&quot;                                 # or double quotes; it does not matter.</span><br><span class="line">print(hello)                                    # Prints &quot;hello&quot;</span><br><span class="line">print(len(hello))                               # String length; prints &quot;5&quot;</span><br><span class="line">hw = hello + &apos; &apos; + world                        # String concatenation</span><br><span class="line">print(hw)                                       # prints &quot;hello world&quot;</span><br><span class="line">hw12 = &apos;%s %s %d&apos; % (hello, world, 12)          # sprintf style string formatting</span><br><span class="line">print(hw12)                                     # prints &quot;hello world 12&quot;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>字符串对象有一系列有用的方法，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s = &quot;hello&quot;</span><br><span class="line">print(s.capitalize())                   # Capitalize a string; prints &quot;Hello&quot;</span><br><span class="line">print(s.upper())                        # Convert a string to uppercase; prints &quot;HELLO&quot;</span><br><span class="line">print(s.rjust(7))                       # Right-justify a string, padding with spaces; prints &quot;  hello&quot;</span><br><span class="line">print(s.center(7))                      # Center a string, padding with spaces; prints &quot; hello &quot;</span><br><span class="line">print(s.replace(&apos;l&apos;, &apos;(ell)&apos;))          # Replace all instances of one substring with another;</span><br><span class="line">                                        # prints &quot;he(ell)(ell)o&quot;</span><br><span class="line">print(&apos;  world &apos;.strip())               # Strip leading and trailing whitespace; prints &quot;world&quot;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>如果想详细查看字符串方法，请看文档。</p>
+</blockquote>
+<hr>
+<p><strong>容器Containers</strong><br>译者注：有知友建议container翻译为复合数据类型，供读者参考。<br>Python有以下几种容器类型：列表（lists）、字典（dictionaries）、集合（sets）和元组（tuples）。</p>
+<p>列表Lists<br>列表就是Python中的数组，但是列表长度可变，且能包含不同类型元素。</p>
+<p>xs = [3, 1, 2]   # Create a list<br>print xs, xs[2]  # Prints “[3, 1, 2] 2”<br>print xs[-1]     # Negative indices count from the end of the list; prints “2”<br>xs[2] = ‘foo’    # Lists can contain elements of different types<br>print xs         # Prints “[3, 1, ‘foo’]”<br>xs.append(‘bar’) # Add a new element to the end of the list<br>print xs         # Prints<br>x = xs.pop()     # Remove and return the last element of the list<br>print x, xs      # Prints “bar [3, 1, ‘foo’]”<br>列表的细节，同样可以查阅文档。</p>
+<p>切片Slicing：为了一次性地获取列表中的元素，Python提供了一种简洁的语法，这就是切片。</p>
+<p>nums = range(5)    # range is a built-in function that creates a list of integers<br>print nums         # Prints “[0, 1, 2, 3, 4]”<br>print nums[2:4]    # Get a slice from index 2 to 4 (exclusive); prints “[2, 3]”<br>print nums[2:]     # Get a slice from index 2 to the end; prints “[2, 3, 4]”<br>print nums[:2]     # Get a slice from the start to index 2 (exclusive); prints “[0, 1]”<br>print nums[:]      # Get a slice of the whole list; prints [“0, 1, 2, 3, 4]”<br>print nums[:-1]    # Slice indices can be negative; prints [“0, 1, 2, 3]”<br>nums[2:4] = [8, 9] # Assign a new sublist to a slice<br>print nums         # Prints “[0, 1, 8, 8, 4]”<br>在Numpy数组的内容中，我们会再次看到切片语法。</p>
+<p>循环Loops：我们可以这样遍历列表中的每一个元素：</p>
+<p>animals = [‘cat’, ‘dog’, ‘monkey’]<br>for animal in animals:<br>    print animal</p>
+<h1 id="Prints-“cat”-“dog”-“monkey”-each-on-its-own-line"><a href="#Prints-“cat”-“dog”-“monkey”-each-on-its-own-line" class="headerlink" title="Prints “cat”, “dog”, “monkey”, each on its own line."></a>Prints “cat”, “dog”, “monkey”, each on its own line.</h1><p>如果想要在循环体内访问每个元素的指针，可以使用内置的enumerate函数</p>
+<p>animals = [‘cat’, ‘dog’, ‘monkey’]<br>for idx, animal in enumerate(animals):<br>    print ‘#%d: %s’ % (idx + 1, animal)</p>
+<h1 id="Prints-“-1-cat”-“-2-dog”-“-3-monkey”-each-on-its-own-line"><a href="#Prints-“-1-cat”-“-2-dog”-“-3-monkey”-each-on-its-own-line" class="headerlink" title="Prints “#1: cat”, “#2: dog”, “#3: monkey”, each on its own line"></a>Prints “#1: cat”, “#2: dog”, “#3: monkey”, each on its own line</h1><p>列表推导List comprehensions：在编程的时候，我们常常想要将一种数据类型转换为另一种。下面是一个简单例子，将列表中的每个元素变成它的平方。</p>
+<p>nums = [0, 1, 2, 3, 4]<br>squares = []<br>for x in nums:<br>    squares.append(x ** 2)<br>print squares   # Prints [0, 1, 4, 9, 16]<br>使用列表推导，你就可以让代码简化很多：</p>
+<p>nums = [0, 1, 2, 3, 4]<br>squares = [x ** 2 for x in nums]<br>print squares   # Prints [0, 1, 4, 9, 16]<br>列表推导还可以包含条件：</p>
+<p>nums = [0, 1, 2, 3, 4]<br>even_squares = [x ** 2 for x in nums if x % 2 == 0]<br>print even_squares  # Prints “[0, 4, 16]”<br>字典Dictionaries<br>字典用来储存（键, 值）对，这和Java中的Map差不多。你可以这样使用它：</p>
+<p>d = {‘cat’: ‘cute’, ‘dog’: ‘furry’}  # Create a new dictionary with some data<br>print d[‘cat’]       # Get an entry from a dictionary; prints “cute”<br>print ‘cat’ in d     # Check if a dictionary has a given key; prints “True”<br>d[‘fish’] = ‘wet’    # Set an entry in a dictionary<br>print d[‘fish’]      # Prints “wet”</p>
+<h1 id="print-d-‘monkey’-KeyError-‘monkey’-not-a-key-of-d"><a href="#print-d-‘monkey’-KeyError-‘monkey’-not-a-key-of-d" class="headerlink" title="print d[‘monkey’]  # KeyError: ‘monkey’ not a key of d"></a>print d[‘monkey’]  # KeyError: ‘monkey’ not a key of d</h1><p>print d.get(‘monkey’, ‘N/A’)  # Get an element with a default; prints “N/A”<br>print d.get(‘fish’, ‘N/A’)    # Get an element with a default; prints “wet”<br>del d[‘fish’]        # Remove an element from a dictionary<br>print d.get(‘fish’, ‘N/A’) # “fish” is no longer a key; prints “N/A”<br>想要知道字典的其他特性，请查阅文档。</p>
+<p>循环Loops：在字典中，用键来迭代更加容易。</p>
+<p>d = {‘person’: 2, ‘cat’: 4, ‘spider’: 8}<br>for animal in d:<br>    legs = d[animal]<br>    print ‘A %s has %d legs’ % (animal, legs)</p>
+<h1 id="Prints-“A-person-has-2-legs”-“A-spider-has-8-legs”-“A-cat-has-4-legs”"><a href="#Prints-“A-person-has-2-legs”-“A-spider-has-8-legs”-“A-cat-has-4-legs”" class="headerlink" title="Prints “A person has 2 legs”, “A spider has 8 legs”, “A cat has 4 legs”"></a>Prints “A person has 2 legs”, “A spider has 8 legs”, “A cat has 4 legs”</h1><p>如果你想要访问键和对应的值，那就使用iteritems方法：</p>
+<p>d = {‘person’: 2, ‘cat’: 4, ‘spider’: 8}<br>for animal, legs in d.iteritems():<br>    print ‘A %s has %d legs’ % (animal, legs)</p>
+<h1 id="Prints-“A-person-has-2-legs”-“A-spider-has-8-legs”-“A-cat-has-4-legs”-1"><a href="#Prints-“A-person-has-2-legs”-“A-spider-has-8-legs”-“A-cat-has-4-legs”-1" class="headerlink" title="Prints “A person has 2 legs”, “A spider has 8 legs”, “A cat has 4 legs”"></a>Prints “A person has 2 legs”, “A spider has 8 legs”, “A cat has 4 legs”</h1><p>字典推导Dictionary comprehensions：和列表推导类似，但是允许你方便地构建字典。</p>
+<p>nums = [0, 1, 2, 3, 4]<br>even_num_to_square = {x: x ** 2 for x in nums if x % 2 == 0}<br>print even_num_to_square  # Prints “{0: 0, 2: 4, 4: 16}”<br>集合Sets<br>集合是独立不同个体的无序集合。示例如下：<br>animals = {‘cat’, ‘dog’}<br>print ‘cat’ in animals   # Check if an element is in a set; prints “True”<br>print ‘fish’ in animals  # prints “False”<br>animals.add(‘fish’)      # Add an element to a set<br>print ‘fish’ in animals  # Prints “True”<br>print len(animals)       # Number of elements in a set; prints “3”<br>animals.add(‘cat’)       # Adding an element that is already in the set does nothing<br>print len(animals)       # Prints “3”<br>animals.remove(‘cat’)    # Remove an element from a set<br>print len(animals)       # Prints “2”<br>和前面一样，要知道更详细的，查看文档。</p>
+<p>循环Loops：在集合中循环的语法和在列表中一样，但是集合是无序的，所以你在访问集合的元素的时候，不能做关于顺序的假设。</p>
+<p>animals = {‘cat’, ‘dog’, ‘fish’}<br>for idx, animal in enumerate(animals):<br>    print ‘#%d: %s’ % (idx + 1, animal)</p>
+<h1 id="Prints-“-1-fish”-“-2-dog”-“-3-cat”"><a href="#Prints-“-1-fish”-“-2-dog”-“-3-cat”" class="headerlink" title="Prints “#1: fish”, “#2: dog”, “#3: cat”"></a>Prints “#1: fish”, “#2: dog”, “#3: cat”</h1><p>集合推导Set comprehensions：和字典推导一样，可以很方便地构建集合：</p>
+<p>from math import sqrt<br>nums = {int(sqrt(x)) for x in range(30)}<br>print nums  # Prints “set([0, 1, 2, 3, 4, 5])”<br>元组Tuples<br>元组是一个值的有序列表（不可改变）。从很多方面来说，元组和列表都很相似。和列表最重要的不同在于，元组可以在字典中用作键，还可以作为集合的元素，而列表不行。例子如下：<br>d = {(x, x + 1): x for x in range(10)}  # Create a dictionary with tuple keys<br>print d<br>t = (5, 6)       # Create a tuple<br>print type(t)    # Prints “<type 'tuple'="">“<br>print d[t]       # Prints “5”<br>print d[(1, 2)]  # Prints “1”<br>文档有更多元组的信息。</type></p>
+<p>函数Functions<br>Python函数使用def来定义函数：<br>def sign(x):<br>    if x &gt; 0:<br>        return ‘positive’<br>    elif x &lt; 0:<br>        return ‘negative’<br>    else:<br>        return ‘zero’</p>
+<p>for x in [-1, 0, 1]:<br>    print sign(x)</p>
+<h1 id="Prints-“negative”-“zero”-“positive”"><a href="#Prints-“negative”-“zero”-“positive”" class="headerlink" title="Prints “negative”, “zero”, “positive”"></a>Prints “negative”, “zero”, “positive”</h1><p>我们常常使用可选参数来定义函数：</p>
+<p>def hello(name, loud=False):<br>    if loud:<br>        print ‘HELLO, %s’ % name.upper()<br>    else:<br>        print ‘Hello, %s!’ % name</p>
+<p>hello(‘Bob’) # Prints “Hello, Bob”<br>hello(‘Fred’, loud=True)  # Prints “HELLO, FRED!”<br>函数还有很多内容，可以查看文档。</p>
+<p>类Classes<br>Python对于类的定义是简单直接的：</p>
+<p>class Greeter(object):</p>
+<pre><code># Constructor
+def __init__(self, name):
+    self.name = name  # Create an instance variable
+
+# Instance method
+def greet(self, loud=False):
+    if loud:
+        print &apos;HELLO, %s!&apos; % self.name.upper()
+    else:
+        print &apos;Hello, %s&apos; % self.name
+</code></pre><p>g = Greeter(‘Fred’)  # Construct an instance of the Greeter class<br>g.greet()            # Call an instance method; prints “Hello, Fred”<br>g.greet(loud=True)   # Call an instance method; prints “HELLO, FRED!”<br>更多类的信息请查阅文档。</p>
+<p>Numpy<br>Numpy是Python中用于科学计算的核心库。它提供了高性能的多维数组对象，以及相关工具。</p>
+<p>数组Arrays<br>一个numpy数组是一个由不同数值组成的网格。网格中的数据都是同一种数据类型，可以通过非负整型数的元组来访问。维度的数量被称为数组的阶，数组的大小是一个由整型数构成的元组，可以描述数组不同维度上的大小。</p>
+<p>我们可以从列表创建数组，然后利用方括号访问其中的元素：</p>
+<p>import numpy as np</p>
+<p>a = np.array([1, 2, 3])  # Create a rank 1 array<br>print type(a)            # Prints “<type 'numpy.ndarray'="">“<br>print a.shape            # Prints “(3,)”<br>print a[0], a[1], a[2]   # Prints “1 2 3”<br>a[0] = 5                 # Change an element of the array<br>print a                  # Prints “[5, 2, 3]”</type></p>
+<p>b = np.array([[1,2,3],[4,5,6]])   # Create a rank 2 array<br>print b                           # 显示一下矩阵b<br>print b.shape                     # Prints “(2, 3)”<br>print b[0, 0], b[0, 1], b[1, 0]   # Prints “1 2 4”<br>Numpy还提供了很多其他创建数组的方法：</p>
+<p>import numpy as np</p>
+<p>a = np.zeros((2,2))  # Create an array of all zeros<br>print a              # Prints “[[ 0.  0.]</p>
+<pre><code>#          [ 0.  0.]]&quot;
+</code></pre><p>b = np.ones((1,2))   # Create an array of all ones<br>print b              # Prints “[[ 1.  1.]]”</p>
+<p>c = np.full((2,2), 7) # Create a constant array<br>print c               # Prints “[[ 7.  7.]</p>
+<pre><code>#          [ 7.  7.]]&quot;
+</code></pre><p>d = np.eye(2)        # Create a 2x2 identity matrix<br>print d              # Prints “[[ 1.  0.]</p>
+<pre><code>#          [ 0.  1.]]&quot;
+</code></pre><p>e = np.random.random((2,2)) # Create an array filled with random values<br>print e                     # Might print “[[ 0.91940167  0.08143941]</p>
+<pre><code>#               [ 0.68744134  0.87236687]]&quot;
+</code></pre><p>其他数组相关方法，请查看文档。</p>
+<p>访问数组<br>Numpy提供了多种访问数组的方法。</p>
+<p>切片：和Python列表类似，numpy数组可以使用切片语法。因为数组可以是多维的，所以你必须为每个维度指定好切片。</p>
+<p>import numpy as np</p>
+<h1 id="Create-the-following-rank-2-array-with-shape-3-4"><a href="#Create-the-following-rank-2-array-with-shape-3-4" class="headerlink" title="Create the following rank 2 array with shape (3, 4)"></a>Create the following rank 2 array with shape (3, 4)</h1><h1 id="1-2-3-4"><a href="#1-2-3-4" class="headerlink" title="[[ 1  2  3  4]"></a>[[ 1  2  3  4]</h1><h1 id="5-6-7-8"><a href="#5-6-7-8" class="headerlink" title="[ 5  6  7  8]"></a>[ 5  6  7  8]</h1><h1 id="9-10-11-12"><a href="#9-10-11-12" class="headerlink" title="[ 9 10 11 12]]"></a>[ 9 10 11 12]]</h1><p>a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])</p>
+<h1 id="Use-slicing-to-pull-out-the-subarray-consisting-of-the-first-2-rows"><a href="#Use-slicing-to-pull-out-the-subarray-consisting-of-the-first-2-rows" class="headerlink" title="Use slicing to pull out the subarray consisting of the first 2 rows"></a>Use slicing to pull out the subarray consisting of the first 2 rows</h1><h1 id="and-columns-1-and-2-b-is-the-following-array-of-shape-2-2"><a href="#and-columns-1-and-2-b-is-the-following-array-of-shape-2-2" class="headerlink" title="and columns 1 and 2; b is the following array of shape (2, 2):"></a>and columns 1 and 2; b is the following array of shape (2, 2):</h1><h1 id="2-3"><a href="#2-3" class="headerlink" title="[[2 3]"></a>[[2 3]</h1><h1 id="6-7"><a href="#6-7" class="headerlink" title="[6 7]]"></a>[6 7]]</h1><p>b = a[:2, 1:3]</p>
+<h1 id="A-slice-of-an-array-is-a-view-into-the-same-data-so-modifying-it"><a href="#A-slice-of-an-array-is-a-view-into-the-same-data-so-modifying-it" class="headerlink" title="A slice of an array is a view into the same data, so modifying it"></a>A slice of an array is a view into the same data, so modifying it</h1><h1 id="will-modify-the-original-array"><a href="#will-modify-the-original-array" class="headerlink" title="will modify the original array."></a>will modify the original array.</h1><p>print a[0, 1]   # Prints “2”<br>b[0, 0] = 77    # b[0, 0] is the same piece of data as a[0, 1]<br>print a[0, 1]   # Prints “77”<br>你可以同时使用整型和切片语法来访问数组。但是，这样做会产生一个比原数组低阶的新数组。需要注意的是，这里和MATLAB中的情况是不同的：</p>
+<p>import numpy as np</p>
+<h1 id="Create-the-following-rank-2-array-with-shape-3-4-1"><a href="#Create-the-following-rank-2-array-with-shape-3-4-1" class="headerlink" title="Create the following rank 2 array with shape (3, 4)"></a>Create the following rank 2 array with shape (3, 4)</h1><h1 id="1-2-3-4-1"><a href="#1-2-3-4-1" class="headerlink" title="[[ 1  2  3  4]"></a>[[ 1  2  3  4]</h1><h1 id="5-6-7-8-1"><a href="#5-6-7-8-1" class="headerlink" title="[ 5  6  7  8]"></a>[ 5  6  7  8]</h1><h1 id="9-10-11-12-1"><a href="#9-10-11-12-1" class="headerlink" title="[ 9 10 11 12]]"></a>[ 9 10 11 12]]</h1><p>a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])</p>
+<h1 id="Two-ways-of-accessing-the-data-in-the-middle-row-of-the-array"><a href="#Two-ways-of-accessing-the-data-in-the-middle-row-of-the-array" class="headerlink" title="Two ways of accessing the data in the middle row of the array."></a>Two ways of accessing the data in the middle row of the array.</h1><h1 id="Mixing-integer-indexing-with-slices-yields-an-array-of-lower-rank"><a href="#Mixing-integer-indexing-with-slices-yields-an-array-of-lower-rank" class="headerlink" title="Mixing integer indexing with slices yields an array of lower rank,"></a>Mixing integer indexing with slices yields an array of lower rank,</h1><h1 id="while-using-only-slices-yields-an-array-of-the-same-rank-as-the"><a href="#while-using-only-slices-yields-an-array-of-the-same-rank-as-the" class="headerlink" title="while using only slices yields an array of the same rank as the"></a>while using only slices yields an array of the same rank as the</h1><h1 id="original-array"><a href="#original-array" class="headerlink" title="original array:"></a>original array:</h1><p>row_r1 = a[1, :]    # Rank 1 view of the second row of a<br>row_r2 = a[1:2, :]  # Rank 2 view of the second row of a<br>print row_r1, row_r1.shape  # Prints “[5 6 7 8] (4,)”<br>print row_r2, row_r2.shape  # Prints “[[5 6 7 8]] (1, 4)”</p>
+<h1 id="We-can-make-the-same-distinction-when-accessing-columns-of-an-array"><a href="#We-can-make-the-same-distinction-when-accessing-columns-of-an-array" class="headerlink" title="We can make the same distinction when accessing columns of an array:"></a>We can make the same distinction when accessing columns of an array:</h1><p>col_r1 = a[:, 1]<br>col_r2 = a[:, 1:2]<br>print col_r1, col_r1.shape  # Prints “[ 2  6 10] (3,)”<br>print col_r2, col_r2.shape  # Prints “[[ 2]</p>
+<pre><code>#          [ 6]
+#          [10]] (3, 1)&quot;
+</code></pre><p>整型数组访问：当我们使用切片语法访问数组时，得到的总是原数组的一个子集。整型数组访问允许我们利用其它数组的数据构建一个新的数组：</p>
+<p>import numpy as np</p>
+<p>a = np.array([[1,2], [3, 4], [5, 6]])</p>
+<h1 id="An-example-of-integer-array-indexing"><a href="#An-example-of-integer-array-indexing" class="headerlink" title="An example of integer array indexing."></a>An example of integer array indexing.</h1><h1 id="The-returned-array-will-have-shape-3-and"><a href="#The-returned-array-will-have-shape-3-and" class="headerlink" title="The returned array will have shape (3,) and"></a>The returned array will have shape (3,) and</h1><p>print a[[0, 1, 2], [0, 1, 0]]  # Prints “[1 4 5]”</p>
+<h1 id="The-above-example-of-integer-array-indexing-is-equivalent-to-this"><a href="#The-above-example-of-integer-array-indexing-is-equivalent-to-this" class="headerlink" title="The above example of integer array indexing is equivalent to this:"></a>The above example of integer array indexing is equivalent to this:</h1><p>print np.array([a[0, 0], a[1, 1], a[2, 0]])  # Prints “[1 4 5]”</p>
+<h1 id="When-using-integer-array-indexing-you-can-reuse-the-same"><a href="#When-using-integer-array-indexing-you-can-reuse-the-same" class="headerlink" title="When using integer array indexing, you can reuse the same"></a>When using integer array indexing, you can reuse the same</h1><h1 id="element-from-the-source-array"><a href="#element-from-the-source-array" class="headerlink" title="element from the source array:"></a>element from the source array:</h1><p>print a[[0, 0], [1, 1]]  # Prints “[2 2]”</p>
+<h1 id="Equivalent-to-the-previous-integer-array-indexing-example"><a href="#Equivalent-to-the-previous-integer-array-indexing-example" class="headerlink" title="Equivalent to the previous integer array indexing example"></a>Equivalent to the previous integer array indexing example</h1><p>print np.array([a[0, 1], a[0, 1]])  # Prints “[2 2]”<br>整型数组访问语法还有个有用的技巧，可以用来选择或者更改矩阵中每行中的一个元素：</p>
+<p>import numpy as np</p>
+<h1 id="Create-a-new-array-from-which-we-will-select-elements"><a href="#Create-a-new-array-from-which-we-will-select-elements" class="headerlink" title="Create a new array from which we will select elements"></a>Create a new array from which we will select elements</h1><p>a = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])</p>
+<p>print a  # prints “array([[ 1,  2,  3],</p>
+<pre><code>#                [ 4,  5,  6],
+#                [ 7,  8,  9],
+#                [10, 11, 12]])&quot;
+</code></pre><h1 id="Create-an-array-of-indices"><a href="#Create-an-array-of-indices" class="headerlink" title="Create an array of indices"></a>Create an array of indices</h1><p>b = np.array([0, 2, 0, 1])</p>
+<h1 id="Select-one-element-from-each-row-of-a-using-the-indices-in-b"><a href="#Select-one-element-from-each-row-of-a-using-the-indices-in-b" class="headerlink" title="Select one element from each row of a using the indices in b"></a>Select one element from each row of a using the indices in b</h1><p>print a[np.arange(4), b]  # Prints “[ 1  6  7 11]”</p>
+<h1 id="Mutate-one-element-from-each-row-of-a-using-the-indices-in-b"><a href="#Mutate-one-element-from-each-row-of-a-using-the-indices-in-b" class="headerlink" title="Mutate one element from each row of a using the indices in b"></a>Mutate one element from each row of a using the indices in b</h1><p>a[np.arange(4), b] += 10</p>
+<p>print a  # prints “array([[11,  2,  3],</p>
+<pre><code>#                [ 4,  5, 16],
+#                [17,  8,  9],
+#                [10, 21, 12]])
+</code></pre><p>布尔型数组访问：布尔型数组访问可以让你选择数组中任意元素。通常，这种访问方式用于选取数组中满足某些条件的元素，举例如下：</p>
+<p>import numpy as np</p>
+<p>a = np.array([[1,2], [3, 4], [5, 6]])</p>
+<p>bool_idx = (a &gt; 2)  # Find the elements of a that are bigger than 2;</p>
+<pre><code># this returns a numpy array of Booleans of the same
+# shape as a, where each slot of bool_idx tells
+# whether that element of a is &gt; 2.
+</code></pre><p>print bool_idx      # Prints “[[False False]</p>
+<pre><code>#          [ True  True]
+#          [ True  True]]&quot;
+</code></pre><h1 id="We-use-boolean-array-indexing-to-construct-a-rank-1-array"><a href="#We-use-boolean-array-indexing-to-construct-a-rank-1-array" class="headerlink" title="We use boolean array indexing to construct a rank 1 array"></a>We use boolean array indexing to construct a rank 1 array</h1><h1 id="consisting-of-the-elements-of-a-corresponding-to-the-True-values"><a href="#consisting-of-the-elements-of-a-corresponding-to-the-True-values" class="headerlink" title="consisting of the elements of a corresponding to the True values"></a>consisting of the elements of a corresponding to the True values</h1><h1 id="of-bool-idx"><a href="#of-bool-idx" class="headerlink" title="of bool_idx"></a>of bool_idx</h1><p>print a[bool_idx]  # Prints “[3 4 5 6]”</p>
+<h1 id="We-can-do-all-of-the-above-in-a-single-concise-statement"><a href="#We-can-do-all-of-the-above-in-a-single-concise-statement" class="headerlink" title="We can do all of the above in a single concise statement:"></a>We can do all of the above in a single concise statement:</h1><p>print a[a &gt; 2]     # Prints “[3 4 5 6]”<br>为了教程的简介，有很多数组访问的细节我们没有详细说明，可以查看文档。</p>
+<p>数据类型<br>每个Numpy数组都是数据类型相同的元素组成的网格。Numpy提供了很多的数据类型用于创建数组。当你创建数组的时候，Numpy会尝试猜测数组的数据类型，你也可以通过参数直接指定数据类型，例子如下：</p>
+<p>import numpy as np</p>
+<p>x = np.array([1, 2])  # Let numpy choose the datatype<br>print x.dtype         # Prints “int64”</p>
+<p>x = np.array([1.0, 2.0])  # Let numpy choose the datatype<br>print x.dtype             # Prints “float64”</p>
+<p>x = np.array([1, 2], dtype=np.int64)  # Force a particular datatype<br>print x.dtype                         # Prints “int64”<br>更多细节查看文档。</p>
+<p>数组计算<br>基本数学计算函数会对数组中元素逐个进行计算，既可以利用操作符重载，也可以使用函数方式：</p>
+<p>import numpy as np</p>
+<p>x = np.array([[1,2],[3,4]], dtype=np.float64)<br>y = np.array([[5,6],[7,8]], dtype=np.float64)</p>
+<h1 id="Elementwise-sum-both-produce-the-array"><a href="#Elementwise-sum-both-produce-the-array" class="headerlink" title="Elementwise sum; both produce the array"></a>Elementwise sum; both produce the array</h1><h1 id="6-0-8-0"><a href="#6-0-8-0" class="headerlink" title="[[ 6.0  8.0]"></a>[[ 6.0  8.0]</h1><h1 id="10-0-12-0"><a href="#10-0-12-0" class="headerlink" title="[10.0 12.0]]"></a>[10.0 12.0]]</h1><p>print x + y<br>print np.add(x, y)</p>
+<h1 id="Elementwise-difference-both-produce-the-array"><a href="#Elementwise-difference-both-produce-the-array" class="headerlink" title="Elementwise difference; both produce the array"></a>Elementwise difference; both produce the array</h1><h1 id="4-0-4-0"><a href="#4-0-4-0" class="headerlink" title="[[-4.0 -4.0]"></a>[[-4.0 -4.0]</h1><h1 id="4-0-4-0-1"><a href="#4-0-4-0-1" class="headerlink" title="[-4.0 -4.0]]"></a>[-4.0 -4.0]]</h1><p>print x - y<br>print np.subtract(x, y)</p>
+<h1 id="Elementwise-product-both-produce-the-array"><a href="#Elementwise-product-both-produce-the-array" class="headerlink" title="Elementwise product; both produce the array"></a>Elementwise product; both produce the array</h1><h1 id="5-0-12-0"><a href="#5-0-12-0" class="headerlink" title="[[ 5.0 12.0]"></a>[[ 5.0 12.0]</h1><h1 id="21-0-32-0"><a href="#21-0-32-0" class="headerlink" title="[21.0 32.0]]"></a>[21.0 32.0]]</h1><p>print x * y<br>print np.multiply(x, y)</p>
+<h1 id="Elementwise-division-both-produce-the-array"><a href="#Elementwise-division-both-produce-the-array" class="headerlink" title="Elementwise division; both produce the array"></a>Elementwise division; both produce the array</h1><h1 id="0-2-0-33333333"><a href="#0-2-0-33333333" class="headerlink" title="[[ 0.2         0.33333333]"></a>[[ 0.2         0.33333333]</h1><h1 id="0-42857143-0-5"><a href="#0-42857143-0-5" class="headerlink" title="[ 0.42857143  0.5       ]]"></a>[ 0.42857143  0.5       ]]</h1><p>print x / y<br>print np.divide(x, y)</p>
+<h1 id="Elementwise-square-root-produces-the-array"><a href="#Elementwise-square-root-produces-the-array" class="headerlink" title="Elementwise square root; produces the array"></a>Elementwise square root; produces the array</h1><h1 id="1-1-41421356"><a href="#1-1-41421356" class="headerlink" title="[[ 1.          1.41421356]"></a>[[ 1.          1.41421356]</h1><h1 id="1-73205081-2"><a href="#1-73205081-2" class="headerlink" title="[ 1.73205081  2.        ]]"></a>[ 1.73205081  2.        ]]</h1><p>print np.sqrt(x)<br>和MATLAB不同，*是元素逐个相乘，而不是矩阵乘法。在Numpy中使用dot来进行矩阵乘法：</p>
+<p>import numpy as np</p>
+<p>x = np.array([[1,2],[3,4]])<br>y = np.array([[5,6],[7,8]])</p>
+<p>v = np.array([9,10])<br>w = np.array([11, 12])</p>
+<h1 id="Inner-product-of-vectors-both-produce-219"><a href="#Inner-product-of-vectors-both-produce-219" class="headerlink" title="Inner product of vectors; both produce 219"></a>Inner product of vectors; both produce 219</h1><p>print v.dot(w)<br>print np.dot(v, w)</p>
+<h1 id="Matrix-vector-product-both-produce-the-rank-1-array-29-67"><a href="#Matrix-vector-product-both-produce-the-rank-1-array-29-67" class="headerlink" title="Matrix / vector product; both produce the rank 1 array [29 67]"></a>Matrix / vector product; both produce the rank 1 array [29 67]</h1><p>print x.dot(v)<br>print np.dot(x, v)</p>
+<h1 id="Matrix-matrix-product-both-produce-the-rank-2-array"><a href="#Matrix-matrix-product-both-produce-the-rank-2-array" class="headerlink" title="Matrix / matrix product; both produce the rank 2 array"></a>Matrix / matrix product; both produce the rank 2 array</h1><h1 id="19-22"><a href="#19-22" class="headerlink" title="[[19 22]"></a>[[19 22]</h1><h1 id="43-50"><a href="#43-50" class="headerlink" title="[43 50]]"></a>[43 50]]</h1><p>print x.dot(y)<br>print np.dot(x, y)<br>Numpy提供了很多计算数组的函数，其中最常用的一个是sum：</p>
+<p>import numpy as np</p>
+<p>x = np.array([[1,2],[3,4]])</p>
+<p>print np.sum(x)  # Compute sum of all elements; prints “10”<br>print np.sum(x, axis=0)  # Compute sum of each column; prints “[4 6]”<br>print np.sum(x, axis=1)  # Compute sum of each row; prints “[3 7]”<br>想要了解更多函数，可以查看文档。</p>
+<p>除了计算，我们还常常改变数组或者操作其中的元素。其中将矩阵转置是常用的一个，在Numpy中，使用T来转置矩阵：</p>
+<p>import numpy as np</p>
+<p>x = np.array([[1,2], [3,4]])<br>print x    # Prints “[[1 2]</p>
+<pre><code>#          [3 4]]&quot;
+</code></pre><p>print x.T  # Prints “[[1 3]</p>
+<pre><code>#          [2 4]]&quot;
+</code></pre><h1 id="Note-that-taking-the-transpose-of-a-rank-1-array-does-nothing"><a href="#Note-that-taking-the-transpose-of-a-rank-1-array-does-nothing" class="headerlink" title="Note that taking the transpose of a rank 1 array does nothing:"></a>Note that taking the transpose of a rank 1 array does nothing:</h1><p>v = np.array([1,2,3])<br>print v    # Prints “[1 2 3]”<br>print v.T  # Prints “[1 2 3]”<br>Numpy还提供了更多操作数组的方法，请查看文档。</p>
+<p>广播Broadcasting<br>广播是一种强有力的机制，它让Numpy可以让不同大小的矩阵在一起进行数学计算。我们常常会有一个小的矩阵和一个大的矩阵，然后我们会需要用小的矩阵对大的矩阵做一些计算。</p>
+<p>举个例子，如果我们想要把一个向量加到矩阵的每一行，我们可以这样做：</p>
+<p>import numpy as np</p>
+<h1 id="We-will-add-the-vector-v-to-each-row-of-the-matrix-x"><a href="#We-will-add-the-vector-v-to-each-row-of-the-matrix-x" class="headerlink" title="We will add the vector v to each row of the matrix x,"></a>We will add the vector v to each row of the matrix x,</h1><h1 id="storing-the-result-in-the-matrix-y"><a href="#storing-the-result-in-the-matrix-y" class="headerlink" title="storing the result in the matrix y"></a>storing the result in the matrix y</h1><p>x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])<br>v = np.array([1, 0, 1])<br>y = np.empty_like(x)   # Create an empty matrix with the same shape as x</p>
+<h1 id="Add-the-vector-v-to-each-row-of-the-matrix-x-with-an-explicit-loop"><a href="#Add-the-vector-v-to-each-row-of-the-matrix-x-with-an-explicit-loop" class="headerlink" title="Add the vector v to each row of the matrix x with an explicit loop"></a>Add the vector v to each row of the matrix x with an explicit loop</h1><p>for i in range(4):<br>    y[i, :] = x[i, :] + v</p>
+<h1 id="Now-y-is-the-following"><a href="#Now-y-is-the-following" class="headerlink" title="Now y is the following"></a>Now y is the following</h1><h1 id="2-2-4"><a href="#2-2-4" class="headerlink" title="[[ 2  2  4]"></a>[[ 2  2  4]</h1><h1 id="5-5-7"><a href="#5-5-7" class="headerlink" title="[ 5  5  7]"></a>[ 5  5  7]</h1><h1 id="8-8-10"><a href="#8-8-10" class="headerlink" title="[ 8  8 10]"></a>[ 8  8 10]</h1><h1 id="11-11-13"><a href="#11-11-13" class="headerlink" title="[11 11 13]]"></a>[11 11 13]]</h1><p>print y<br>这样是行得通的，但是当x矩阵非常大，利用循环来计算就会变得很慢很慢。我们可以换一种思路：</p>
+<p>import numpy as np</p>
+<h1 id="We-will-add-the-vector-v-to-each-row-of-the-matrix-x-1"><a href="#We-will-add-the-vector-v-to-each-row-of-the-matrix-x-1" class="headerlink" title="We will add the vector v to each row of the matrix x,"></a>We will add the vector v to each row of the matrix x,</h1><h1 id="storing-the-result-in-the-matrix-y-1"><a href="#storing-the-result-in-the-matrix-y-1" class="headerlink" title="storing the result in the matrix y"></a>storing the result in the matrix y</h1><p>x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])<br>v = np.array([1, 0, 1])<br>vv = np.tile(v, (4, 1))  # Stack 4 copies of v on top of each other<br>print vv                 # Prints “[[1 0 1]</p>
+<pre><code>#          [1 0 1]
+#          [1 0 1]
+#          [1 0 1]]&quot;
+</code></pre><p>y = x + vv  # Add x and vv elementwise<br>print y  # Prints “[[ 2  2  4</p>
+<pre><code>#          [ 5  5  7]
+#          [ 8  8 10]
+#          [11 11 13]]&quot;
+</code></pre><p>Numpy广播机制可以让我们不用创建vv，就能直接运算，看看下面例子：</p>
+<p>import numpy as np</p>
+<h1 id="We-will-add-the-vector-v-to-each-row-of-the-matrix-x-2"><a href="#We-will-add-the-vector-v-to-each-row-of-the-matrix-x-2" class="headerlink" title="We will add the vector v to each row of the matrix x,"></a>We will add the vector v to each row of the matrix x,</h1><h1 id="storing-the-result-in-the-matrix-y-2"><a href="#storing-the-result-in-the-matrix-y-2" class="headerlink" title="storing the result in the matrix y"></a>storing the result in the matrix y</h1><p>x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])<br>v = np.array([1, 0, 1])<br>y = x + v  # Add v to each row of x using broadcasting<br>print y  # Prints “[[ 2  2  4]</p>
+<pre><code>#          [ 5  5  7]
+#          [ 8  8 10]
+#          [11 11 13]]&quot;
+</code></pre><p>对两个数组使用广播机制要遵守下列规则：</p>
+<p>如果数组的秩不同，使用1来将秩较小的数组进行扩展，直到两个数组的尺寸的长度都一样。<br>如果两个数组在某个维度上的长度是一样的，或者其中一个数组在该维度上长度为1，那么我们就说这两个数组在该维度上是相容的。<br>如果两个数组在所有维度上都是相容的，他们就能使用广播。<br>如果两个输入数组的尺寸不同，那么注意其中较大的那个尺寸。因为广播之后，两个数组的尺寸将和那个较大的尺寸一样。<br>在任何一个维度上，如果一个数组的长度为1，另一个数组长度大于1，那么在该维度上，就好像是对第一个数组进行了复制。<br>如果上述解释看不明白，可以读一读文档和这个解释。译者注：强烈推荐阅读文档中的例子。</p>
+<p>支持广播机制的函数是全局函数。哪些是全局函数可以在文档中查找。</p>
+<p>下面是一些广播机制的使用：</p>
+<p>import numpy as np</p>
+<h1 id="Compute-outer-product-of-vectors"><a href="#Compute-outer-product-of-vectors" class="headerlink" title="Compute outer product of vectors"></a>Compute outer product of vectors</h1><p>v = np.array([1,2,3])  # v has shape (3,)<br>w = np.array([4,5])    # w has shape (2,)</p>
+<h1 id="To-compute-an-outer-product-we-first-reshape-v-to-be-a-column"><a href="#To-compute-an-outer-product-we-first-reshape-v-to-be-a-column" class="headerlink" title="To compute an outer product, we first reshape v to be a column"></a>To compute an outer product, we first reshape v to be a column</h1><h1 id="vector-of-shape-3-1-we-can-then-broadcast-it-against-w-to-yield"><a href="#vector-of-shape-3-1-we-can-then-broadcast-it-against-w-to-yield" class="headerlink" title="vector of shape (3, 1); we can then broadcast it against w to yield"></a>vector of shape (3, 1); we can then broadcast it against w to yield</h1><h1 id="an-output-of-shape-3-2-which-is-the-outer-product-of-v-and-w"><a href="#an-output-of-shape-3-2-which-is-the-outer-product-of-v-and-w" class="headerlink" title="an output of shape (3, 2), which is the outer product of v and w:"></a>an output of shape (3, 2), which is the outer product of v and w:</h1><h1 id="4-5"><a href="#4-5" class="headerlink" title="[[ 4  5]"></a>[[ 4  5]</h1><h1 id="8-10"><a href="#8-10" class="headerlink" title="[ 8 10]"></a>[ 8 10]</h1><h1 id="12-15"><a href="#12-15" class="headerlink" title="[12 15]]"></a>[12 15]]</h1><p>print np.reshape(v, (3, 1)) * w</p>
+<h1 id="Add-a-vector-to-each-row-of-a-matrix"><a href="#Add-a-vector-to-each-row-of-a-matrix" class="headerlink" title="Add a vector to each row of a matrix"></a>Add a vector to each row of a matrix</h1><p>x = np.array([[1,2,3], [4,5,6]])</p>
+<h1 id="x-has-shape-2-3-and-v-has-shape-3-so-they-broadcast-to-2-3"><a href="#x-has-shape-2-3-and-v-has-shape-3-so-they-broadcast-to-2-3" class="headerlink" title="x has shape (2, 3) and v has shape (3,) so they broadcast to (2, 3),"></a>x has shape (2, 3) and v has shape (3,) so they broadcast to (2, 3),</h1><h1 id="giving-the-following-matrix"><a href="#giving-the-following-matrix" class="headerlink" title="giving the following matrix:"></a>giving the following matrix:</h1><h1 id="2-4-6"><a href="#2-4-6" class="headerlink" title="[[2 4 6]"></a>[[2 4 6]</h1><h1 id="5-7-9"><a href="#5-7-9" class="headerlink" title="[5 7 9]]"></a>[5 7 9]]</h1><p>print x + v</p>
+<h1 id="Add-a-vector-to-each-column-of-a-matrix"><a href="#Add-a-vector-to-each-column-of-a-matrix" class="headerlink" title="Add a vector to each column of a matrix"></a>Add a vector to each column of a matrix</h1><h1 id="x-has-shape-2-3-and-w-has-shape-2"><a href="#x-has-shape-2-3-and-w-has-shape-2" class="headerlink" title="x has shape (2, 3) and w has shape (2,)."></a>x has shape (2, 3) and w has shape (2,).</h1><h1 id="If-we-transpose-x-then-it-has-shape-3-2-and-can-be-broadcast"><a href="#If-we-transpose-x-then-it-has-shape-3-2-and-can-be-broadcast" class="headerlink" title="If we transpose x then it has shape (3, 2) and can be broadcast"></a>If we transpose x then it has shape (3, 2) and can be broadcast</h1><h1 id="against-w-to-yield-a-result-of-shape-3-2-transposing-this-result"><a href="#against-w-to-yield-a-result-of-shape-3-2-transposing-this-result" class="headerlink" title="against w to yield a result of shape (3, 2); transposing this result"></a>against w to yield a result of shape (3, 2); transposing this result</h1><h1 id="yields-the-final-result-of-shape-2-3-which-is-the-matrix-x-with"><a href="#yields-the-final-result-of-shape-2-3-which-is-the-matrix-x-with" class="headerlink" title="yields the final result of shape (2, 3) which is the matrix x with"></a>yields the final result of shape (2, 3) which is the matrix x with</h1><h1 id="the-vector-w-added-to-each-column-Gives-the-following-matrix"><a href="#the-vector-w-added-to-each-column-Gives-the-following-matrix" class="headerlink" title="the vector w added to each column. Gives the following matrix:"></a>the vector w added to each column. Gives the following matrix:</h1><h1 id="5-6-7"><a href="#5-6-7" class="headerlink" title="[[ 5  6  7]"></a>[[ 5  6  7]</h1><h1 id="9-10-11"><a href="#9-10-11" class="headerlink" title="[ 9 10 11]]"></a>[ 9 10 11]]</h1><p>print (x.T + w).T</p>
+<h1 id="Another-solution-is-to-reshape-w-to-be-a-row-vector-of-shape-2-1"><a href="#Another-solution-is-to-reshape-w-to-be-a-row-vector-of-shape-2-1" class="headerlink" title="Another solution is to reshape w to be a row vector of shape (2, 1);"></a>Another solution is to reshape w to be a row vector of shape (2, 1);</h1><h1 id="we-can-then-broadcast-it-directly-against-x-to-produce-the-same"><a href="#we-can-then-broadcast-it-directly-against-x-to-produce-the-same" class="headerlink" title="we can then broadcast it directly against x to produce the same"></a>we can then broadcast it directly against x to produce the same</h1><h1 id="output"><a href="#output" class="headerlink" title="output."></a>output.</h1><p>print x + np.reshape(w, (2, 1))</p>
+<h1 id="Multiply-a-matrix-by-a-constant"><a href="#Multiply-a-matrix-by-a-constant" class="headerlink" title="Multiply a matrix by a constant:"></a>Multiply a matrix by a constant:</h1><h1 id="x-has-shape-2-3-Numpy-treats-scalars-as-arrays-of-shape"><a href="#x-has-shape-2-3-Numpy-treats-scalars-as-arrays-of-shape" class="headerlink" title="x has shape (2, 3). Numpy treats scalars as arrays of shape ();"></a>x has shape (2, 3). Numpy treats scalars as arrays of shape ();</h1><h1 id="these-can-be-broadcast-together-to-shape-2-3-producing-the"><a href="#these-can-be-broadcast-together-to-shape-2-3-producing-the" class="headerlink" title="these can be broadcast together to shape (2, 3), producing the"></a>these can be broadcast together to shape (2, 3), producing the</h1><h1 id="following-array"><a href="#following-array" class="headerlink" title="following array:"></a>following array:</h1><h1 id="2-4-6-1"><a href="#2-4-6-1" class="headerlink" title="[[ 2  4  6]"></a>[[ 2  4  6]</h1><h1 id="8-10-12"><a href="#8-10-12" class="headerlink" title="[ 8 10 12]]"></a>[ 8 10 12]]</h1><p>print x * 2<br>广播机制能够让你的代码更简洁更迅速，能够用的时候请尽量使用！</p>
+<p>Numpy文档<br>这篇教程涉及了你需要了解的numpy中的一些重要内容，但是numpy远不止如此。可以查阅numpy文献来学习更多。</p>
+<p>SciPy<br>Numpy提供了高性能的多维数组，以及计算和操作数组的基本工具。SciPy基于Numpy，提供了大量的计算和操作数组的函数，这些函数对于不同类型的科学和工程计算非常有用。</p>
+<p>熟悉SciPy的最好方法就是阅读文档。我们会强调对于本课程有用的部分。</p>
+<p>图像操作<br>SciPy提供了一些操作图像的基本函数。比如，它提供了将图像从硬盘读入到数组的函数，也提供了将数组中数据写入的硬盘成为图像的函数。下面是一个简单的例子：</p>
+<p>from scipy.misc import imread, imsave, imresize</p>
+<h1 id="Read-an-JPEG-image-into-a-numpy-array"><a href="#Read-an-JPEG-image-into-a-numpy-array" class="headerlink" title="Read an JPEG image into a numpy array"></a>Read an JPEG image into a numpy array</h1><p>img = imread(‘assets/cat.jpg’)<br>print img.dtype, img.shape  # Prints “uint8 (400, 248, 3)”</p>
+<h1 id="We-can-tint-the-image-by-scaling-each-of-the-color-channels"><a href="#We-can-tint-the-image-by-scaling-each-of-the-color-channels" class="headerlink" title="We can tint the image by scaling each of the color channels"></a>We can tint the image by scaling each of the color channels</h1><h1 id="by-a-different-scalar-constant-The-image-has-shape-400-248-3"><a href="#by-a-different-scalar-constant-The-image-has-shape-400-248-3" class="headerlink" title="by a different scalar constant. The image has shape (400, 248, 3);"></a>by a different scalar constant. The image has shape (400, 248, 3);</h1><h1 id="we-multiply-it-by-the-array-1-0-95-0-9-of-shape-3"><a href="#we-multiply-it-by-the-array-1-0-95-0-9-of-shape-3" class="headerlink" title="we multiply it by the array [1, 0.95, 0.9] of shape (3,);"></a>we multiply it by the array [1, 0.95, 0.9] of shape (3,);</h1><h1 id="numpy-broadcasting-means-that-this-leaves-the-red-channel-unchanged"><a href="#numpy-broadcasting-means-that-this-leaves-the-red-channel-unchanged" class="headerlink" title="numpy broadcasting means that this leaves the red channel unchanged,"></a>numpy broadcasting means that this leaves the red channel unchanged,</h1><h1 id="and-multiplies-the-green-and-blue-channels-by-0-95-and-0-9"><a href="#and-multiplies-the-green-and-blue-channels-by-0-95-and-0-9" class="headerlink" title="and multiplies the green and blue channels by 0.95 and 0.9"></a>and multiplies the green and blue channels by 0.95 and 0.9</h1><h1 id="respectively"><a href="#respectively" class="headerlink" title="respectively."></a>respectively.</h1><p>img_tinted = img * [1, 0.95, 0.9]</p>
+<h1 id="Resize-the-tinted-image-to-be-300-by-300-pixels"><a href="#Resize-the-tinted-image-to-be-300-by-300-pixels" class="headerlink" title="Resize the tinted image to be 300 by 300 pixels."></a>Resize the tinted image to be 300 by 300 pixels.</h1><p>img_tinted = imresize(img_tinted, (300, 300))</p>
+<h1 id="Write-the-tinted-image-back-to-disk"><a href="#Write-the-tinted-image-back-to-disk" class="headerlink" title="Write the tinted image back to disk"></a>Write the tinted image back to disk</h1><p>imsave(‘assets/cat_tinted.jpg’, img_tinted)<br>译者注：如果运行这段代码出现类似ImportError: cannot import name imread的报错，那么请利用pip进行Pillow的下载，可以解决问题。命令：pip install Pillow。</p>
+<p>—————————————————————————————————————————</p>
+<p>左边是原始图片，右边是变色和变形的图片。</p>
+<p>—————————————————————————————————————————</p>
+<p>MATLAB文件<br>函数scipy.io.loadmat和scipy.io.savemat能够让你读和写MATLAB文件。具体请查看文档。</p>
+<p>点之间的距离<br>SciPy定义了一些有用的函数，可以计算集合中点之间的距离。</p>
+<p>函数scipy.spatial.distance.pdist能够计算集合中所有两点之间的距离：</p>
+<p>import numpy as np<br>from scipy.spatial.distance import pdist, squareform</p>
+<h1 id="Create-the-following-array-where-each-row-is-a-point-in-2D-space"><a href="#Create-the-following-array-where-each-row-is-a-point-in-2D-space" class="headerlink" title="Create the following array where each row is a point in 2D space:"></a>Create the following array where each row is a point in 2D space:</h1><h1 id="0-1"><a href="#0-1" class="headerlink" title="[[0 1]"></a>[[0 1]</h1><h1 id="1-0"><a href="#1-0" class="headerlink" title="[1 0]"></a>[1 0]</h1><h1 id="2-0"><a href="#2-0" class="headerlink" title="[2 0]]"></a>[2 0]]</h1><p>x = np.array([[0, 1], [1, 0], [2, 0]])<br>print x</p>
+<h1 id="Compute-the-Euclidean-distance-between-all-rows-of-x"><a href="#Compute-the-Euclidean-distance-between-all-rows-of-x" class="headerlink" title="Compute the Euclidean distance between all rows of x."></a>Compute the Euclidean distance between all rows of x.</h1><h1 id="d-i-j-is-the-Euclidean-distance-between-x-i-and-x-j"><a href="#d-i-j-is-the-Euclidean-distance-between-x-i-and-x-j" class="headerlink" title="d[i, j] is the Euclidean distance between x[i, :] and x[j, :],"></a>d[i, j] is the Euclidean distance between x[i, :] and x[j, :],</h1><h1 id="and-d-is-the-following-array"><a href="#and-d-is-the-following-array" class="headerlink" title="and d is the following array:"></a>and d is the following array:</h1><h1 id="0-1-41421356-2-23606798"><a href="#0-1-41421356-2-23606798" class="headerlink" title="[[ 0.          1.41421356  2.23606798]"></a>[[ 0.          1.41421356  2.23606798]</h1><h1 id="1-41421356-0-1"><a href="#1-41421356-0-1" class="headerlink" title="[ 1.41421356  0.          1.        ]"></a>[ 1.41421356  0.          1.        ]</h1><h1 id="2-23606798-1-0"><a href="#2-23606798-1-0" class="headerlink" title="[ 2.23606798  1.          0.        ]]"></a>[ 2.23606798  1.          0.        ]]</h1><p>d = squareform(pdist(x, ‘euclidean’))<br>print d<br>具体细节请阅读文档。</p>
+<p>函数scipy.spatial.distance.cdist可以计算不同集合中点的距离，具体请查看文档。</p>
+<p>Matplotlib<br>Matplotlib是一个作图库。这里简要介绍matplotlib.pyplot模块，功能和MATLAB的作图功能类似。</p>
+<p>绘图<br>matplotlib库中最重要的函数是Plot。该函数允许你做出2D图形，如下：</p>
+<p>import numpy as np<br>import matplotlib.pyplot as plt</p>
+<h1 id="Compute-the-x-and-y-coordinates-for-points-on-a-sine-curve"><a href="#Compute-the-x-and-y-coordinates-for-points-on-a-sine-curve" class="headerlink" title="Compute the x and y coordinates for points on a sine curve"></a>Compute the x and y coordinates for points on a sine curve</h1><p>x = np.arange(0, 3 * np.pi, 0.1)<br>y = np.sin(x)</p>
+<h1 id="Plot-the-points-using-matplotlib"><a href="#Plot-the-points-using-matplotlib" class="headerlink" title="Plot the points using matplotlib"></a>Plot the points using matplotlib</h1><p>plt.plot(x, y)<br>plt.show()  # You must call plt.show() to make graphics appear.<br>运行上面代码会产生下面的作图：</p>
+<p>—————————————————————————————————————————</p>
+<p>—————————————————————————————————————————<br>只需要少量工作，就可以一次画不同的线，加上标签，坐标轴标志等。</p>
+<p>import numpy as np<br>import matplotlib.pyplot as plt</p>
+<h1 id="Compute-the-x-and-y-coordinates-for-points-on-sine-and-cosine-curves"><a href="#Compute-the-x-and-y-coordinates-for-points-on-sine-and-cosine-curves" class="headerlink" title="Compute the x and y coordinates for points on sine and cosine curves"></a>Compute the x and y coordinates for points on sine and cosine curves</h1><p>x = np.arange(0, 3 * np.pi, 0.1)<br>y_sin = np.sin(x)<br>y_cos = np.cos(x)</p>
+<h1 id="Plot-the-points-using-matplotlib-1"><a href="#Plot-the-points-using-matplotlib-1" class="headerlink" title="Plot the points using matplotlib"></a>Plot the points using matplotlib</h1><p>plt.plot(x, y_sin)<br>plt.plot(x, y_cos)<br>plt.xlabel(‘x axis label’)<br>plt.ylabel(‘y axis label’)<br>plt.title(‘Sine and Cosine’)<br>plt.legend([‘Sine’, ‘Cosine’])<br>plt.show()<br>—————————————————————————————————————————</p>
+<p>—————————————————————————————————————————<br>可以在文档中阅读更多关于plot的内容。</p>
+<p>绘制多个图像<br>可以使用subplot函数来在一幅图中画不同的东西：</p>
+<p>import numpy as np<br>import matplotlib.pyplot as plt</p>
+<h1 id="Compute-the-x-and-y-coordinates-for-points-on-sine-and-cosine-curves-1"><a href="#Compute-the-x-and-y-coordinates-for-points-on-sine-and-cosine-curves-1" class="headerlink" title="Compute the x and y coordinates for points on sine and cosine curves"></a>Compute the x and y coordinates for points on sine and cosine curves</h1><p>x = np.arange(0, 3 * np.pi, 0.1)<br>y_sin = np.sin(x)<br>y_cos = np.cos(x)</p>
+<h1 id="Set-up-a-subplot-grid-that-has-height-2-and-width-1"><a href="#Set-up-a-subplot-grid-that-has-height-2-and-width-1" class="headerlink" title="Set up a subplot grid that has height 2 and width 1,"></a>Set up a subplot grid that has height 2 and width 1,</h1><h1 id="and-set-the-first-such-subplot-as-active"><a href="#and-set-the-first-such-subplot-as-active" class="headerlink" title="and set the first such subplot as active."></a>and set the first such subplot as active.</h1><p>plt.subplot(2, 1, 1)</p>
+<h1 id="Make-the-first-plot"><a href="#Make-the-first-plot" class="headerlink" title="Make the first plot"></a>Make the first plot</h1><p>plt.plot(x, y_sin)<br>plt.title(‘Sine’)</p>
+<h1 id="Set-the-second-subplot-as-active-and-make-the-second-plot"><a href="#Set-the-second-subplot-as-active-and-make-the-second-plot" class="headerlink" title="Set the second subplot as active, and make the second plot."></a>Set the second subplot as active, and make the second plot.</h1><p>plt.subplot(2, 1, 2)<br>plt.plot(x, y_cos)<br>plt.title(‘Cosine’)</p>
+<h1 id="Show-the-figure"><a href="#Show-the-figure" class="headerlink" title="Show the figure."></a>Show the figure.</h1><p>plt.show()<br>—————————————————————————————————————————</p>
+<p>—————————————————————————————————————————<br>关于subplot的更多细节，可以阅读文档。</p>
+<p>图像<br>你可以使用imshow函数来显示图像，如下所示：</p>
+<p>import numpy as np<br>from scipy.misc import imread, imresize<br>import matplotlib.pyplot as plt</p>
+<p>img = imread(‘assets/cat.jpg’)<br>img_tinted = img * [1, 0.95, 0.9]</p>
+<h1 id="Show-the-original-image"><a href="#Show-the-original-image" class="headerlink" title="Show the original image"></a>Show the original image</h1><p>plt.subplot(1, 2, 1)<br>plt.imshow(img)</p>
+<h1 id="Show-the-tinted-image"><a href="#Show-the-tinted-image" class="headerlink" title="Show the tinted image"></a>Show the tinted image</h1><p>plt.subplot(1, 2, 2)</p>
+<h1 id="A-slight-gotcha-with-imshow-is-that-it-might-give-strange-results"><a href="#A-slight-gotcha-with-imshow-is-that-it-might-give-strange-results" class="headerlink" title="A slight gotcha with imshow is that it might give strange results"></a>A slight gotcha with imshow is that it might give strange results</h1><h1 id="if-presented-with-data-that-is-not-uint8-To-work-around-this-we"><a href="#if-presented-with-data-that-is-not-uint8-To-work-around-this-we" class="headerlink" title="if presented with data that is not uint8. To work around this, we"></a>if presented with data that is not uint8. To work around this, we</h1><h1 id="explicitly-cast-the-image-to-uint8-before-displaying-it"><a href="#explicitly-cast-the-image-to-uint8-before-displaying-it" class="headerlink" title="explicitly cast the image to uint8 before displaying it."></a>explicitly cast the image to uint8 before displaying it.</h1><p>plt.imshow(np.uint8(img_tinted))<br>plt.show()</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/pay/weipayimg.jpg" alt="xujiagen 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay/alipayimg.jpg" alt="xujiagen 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/numpy/" rel="tag"># numpy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/06/cs231n课程/" rel="next" title="cs231n课程">
+                <i class="fa fa-chevron-left"></i> cs231n课程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/06/python-and-cPickle/" rel="prev" title="python and cPickle">
+                python and cPickle <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="xujiagen" />
+            
+              <p class="site-author-name" itemprop="name">xujiagen</p>
+              <p class="site-description motion-element" itemprop="description">岁月静悄悄，无人知晓</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xujiagen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xjiagen@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cs231-numpy教程"><span class="nav-number">1.</span> <span class="nav-text">cs231 numpy教程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Prints-“cat”-“dog”-“monkey”-each-on-its-own-line"><span class="nav-number"></span> <span class="nav-text">Prints “cat”, “dog”, “monkey”, each on its own line.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Prints-“-1-cat”-“-2-dog”-“-3-monkey”-each-on-its-own-line"><span class="nav-number"></span> <span class="nav-text">Prints “#1: cat”, “#2: dog”, “#3: monkey”, each on its own line</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-d-‘monkey’-KeyError-‘monkey’-not-a-key-of-d"><span class="nav-number"></span> <span class="nav-text">print d[‘monkey’]  # KeyError: ‘monkey’ not a key of d</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Prints-“A-person-has-2-legs”-“A-spider-has-8-legs”-“A-cat-has-4-legs”"><span class="nav-number"></span> <span class="nav-text">Prints “A person has 2 legs”, “A spider has 8 legs”, “A cat has 4 legs”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Prints-“A-person-has-2-legs”-“A-spider-has-8-legs”-“A-cat-has-4-legs”-1"><span class="nav-number"></span> <span class="nav-text">Prints “A person has 2 legs”, “A spider has 8 legs”, “A cat has 4 legs”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Prints-“-1-fish”-“-2-dog”-“-3-cat”"><span class="nav-number"></span> <span class="nav-text">Prints “#1: fish”, “#2: dog”, “#3: cat”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Prints-“negative”-“zero”-“positive”"><span class="nav-number"></span> <span class="nav-text">Prints “negative”, “zero”, “positive”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-the-following-rank-2-array-with-shape-3-4"><span class="nav-number"></span> <span class="nav-text">Create the following rank 2 array with shape (3, 4)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-2-3-4"><span class="nav-number"></span> <span class="nav-text">[[ 1  2  3  4]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-6-7-8"><span class="nav-number"></span> <span class="nav-text">[ 5  6  7  8]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-10-11-12"><span class="nav-number"></span> <span class="nav-text">[ 9 10 11 12]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Use-slicing-to-pull-out-the-subarray-consisting-of-the-first-2-rows"><span class="nav-number"></span> <span class="nav-text">Use slicing to pull out the subarray consisting of the first 2 rows</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#and-columns-1-and-2-b-is-the-following-array-of-shape-2-2"><span class="nav-number"></span> <span class="nav-text">and columns 1 and 2; b is the following array of shape (2, 2):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-3"><span class="nav-number"></span> <span class="nav-text">[[2 3]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-7"><span class="nav-number"></span> <span class="nav-text">[6 7]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A-slice-of-an-array-is-a-view-into-the-same-data-so-modifying-it"><span class="nav-number"></span> <span class="nav-text">A slice of an array is a view into the same data, so modifying it</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#will-modify-the-original-array"><span class="nav-number"></span> <span class="nav-text">will modify the original array.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-the-following-rank-2-array-with-shape-3-4-1"><span class="nav-number"></span> <span class="nav-text">Create the following rank 2 array with shape (3, 4)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-2-3-4-1"><span class="nav-number"></span> <span class="nav-text">[[ 1  2  3  4]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-6-7-8-1"><span class="nav-number"></span> <span class="nav-text">[ 5  6  7  8]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-10-11-12-1"><span class="nav-number"></span> <span class="nav-text">[ 9 10 11 12]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Two-ways-of-accessing-the-data-in-the-middle-row-of-the-array"><span class="nav-number"></span> <span class="nav-text">Two ways of accessing the data in the middle row of the array.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mixing-integer-indexing-with-slices-yields-an-array-of-lower-rank"><span class="nav-number"></span> <span class="nav-text">Mixing integer indexing with slices yields an array of lower rank,</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#while-using-only-slices-yields-an-array-of-the-same-rank-as-the"><span class="nav-number"></span> <span class="nav-text">while using only slices yields an array of the same rank as the</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#original-array"><span class="nav-number"></span> <span class="nav-text">original array:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#We-can-make-the-same-distinction-when-accessing-columns-of-an-array"><span class="nav-number"></span> <span class="nav-text">We can make the same distinction when accessing columns of an array:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#An-example-of-integer-array-indexing"><span class="nav-number"></span> <span class="nav-text">An example of integer array indexing.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-returned-array-will-have-shape-3-and"><span class="nav-number"></span> <span class="nav-text">The returned array will have shape (3,) and</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-above-example-of-integer-array-indexing-is-equivalent-to-this"><span class="nav-number"></span> <span class="nav-text">The above example of integer array indexing is equivalent to this:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#When-using-integer-array-indexing-you-can-reuse-the-same"><span class="nav-number"></span> <span class="nav-text">When using integer array indexing, you can reuse the same</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#element-from-the-source-array"><span class="nav-number"></span> <span class="nav-text">element from the source array:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Equivalent-to-the-previous-integer-array-indexing-example"><span class="nav-number"></span> <span class="nav-text">Equivalent to the previous integer array indexing example</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-a-new-array-from-which-we-will-select-elements"><span class="nav-number"></span> <span class="nav-text">Create a new array from which we will select elements</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-an-array-of-indices"><span class="nav-number"></span> <span class="nav-text">Create an array of indices</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Select-one-element-from-each-row-of-a-using-the-indices-in-b"><span class="nav-number"></span> <span class="nav-text">Select one element from each row of a using the indices in b</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mutate-one-element-from-each-row-of-a-using-the-indices-in-b"><span class="nav-number"></span> <span class="nav-text">Mutate one element from each row of a using the indices in b</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#We-use-boolean-array-indexing-to-construct-a-rank-1-array"><span class="nav-number"></span> <span class="nav-text">We use boolean array indexing to construct a rank 1 array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#consisting-of-the-elements-of-a-corresponding-to-the-True-values"><span class="nav-number"></span> <span class="nav-text">consisting of the elements of a corresponding to the True values</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#of-bool-idx"><span class="nav-number"></span> <span class="nav-text">of bool_idx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#We-can-do-all-of-the-above-in-a-single-concise-statement"><span class="nav-number"></span> <span class="nav-text">We can do all of the above in a single concise statement:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Elementwise-sum-both-produce-the-array"><span class="nav-number"></span> <span class="nav-text">Elementwise sum; both produce the array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-0-8-0"><span class="nav-number"></span> <span class="nav-text">[[ 6.0  8.0]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-0-12-0"><span class="nav-number"></span> <span class="nav-text">[10.0 12.0]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Elementwise-difference-both-produce-the-array"><span class="nav-number"></span> <span class="nav-text">Elementwise difference; both produce the array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-0-4-0"><span class="nav-number"></span> <span class="nav-text">[[-4.0 -4.0]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-0-4-0-1"><span class="nav-number"></span> <span class="nav-text">[-4.0 -4.0]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Elementwise-product-both-produce-the-array"><span class="nav-number"></span> <span class="nav-text">Elementwise product; both produce the array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-0-12-0"><span class="nav-number"></span> <span class="nav-text">[[ 5.0 12.0]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-0-32-0"><span class="nav-number"></span> <span class="nav-text">[21.0 32.0]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Elementwise-division-both-produce-the-array"><span class="nav-number"></span> <span class="nav-text">Elementwise division; both produce the array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0-2-0-33333333"><span class="nav-number"></span> <span class="nav-text">[[ 0.2         0.33333333]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0-42857143-0-5"><span class="nav-number"></span> <span class="nav-text">[ 0.42857143  0.5       ]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Elementwise-square-root-produces-the-array"><span class="nav-number"></span> <span class="nav-text">Elementwise square root; produces the array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-41421356"><span class="nav-number"></span> <span class="nav-text">[[ 1.          1.41421356]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-73205081-2"><span class="nav-number"></span> <span class="nav-text">[ 1.73205081  2.        ]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inner-product-of-vectors-both-produce-219"><span class="nav-number"></span> <span class="nav-text">Inner product of vectors; both produce 219</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrix-vector-product-both-produce-the-rank-1-array-29-67"><span class="nav-number"></span> <span class="nav-text">Matrix / vector product; both produce the rank 1 array [29 67]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrix-matrix-product-both-produce-the-rank-2-array"><span class="nav-number"></span> <span class="nav-text">Matrix / matrix product; both produce the rank 2 array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#19-22"><span class="nav-number"></span> <span class="nav-text">[[19 22]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#43-50"><span class="nav-number"></span> <span class="nav-text">[43 50]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Note-that-taking-the-transpose-of-a-rank-1-array-does-nothing"><span class="nav-number"></span> <span class="nav-text">Note that taking the transpose of a rank 1 array does nothing:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#We-will-add-the-vector-v-to-each-row-of-the-matrix-x"><span class="nav-number"></span> <span class="nav-text">We will add the vector v to each row of the matrix x,</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#storing-the-result-in-the-matrix-y"><span class="nav-number"></span> <span class="nav-text">storing the result in the matrix y</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Add-the-vector-v-to-each-row-of-the-matrix-x-with-an-explicit-loop"><span class="nav-number"></span> <span class="nav-text">Add the vector v to each row of the matrix x with an explicit loop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Now-y-is-the-following"><span class="nav-number"></span> <span class="nav-text">Now y is the following</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-2-4"><span class="nav-number"></span> <span class="nav-text">[[ 2  2  4]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-5-7"><span class="nav-number"></span> <span class="nav-text">[ 5  5  7]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-8-10"><span class="nav-number"></span> <span class="nav-text">[ 8  8 10]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-11-13"><span class="nav-number"></span> <span class="nav-text">[11 11 13]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#We-will-add-the-vector-v-to-each-row-of-the-matrix-x-1"><span class="nav-number"></span> <span class="nav-text">We will add the vector v to each row of the matrix x,</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#storing-the-result-in-the-matrix-y-1"><span class="nav-number"></span> <span class="nav-text">storing the result in the matrix y</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#We-will-add-the-vector-v-to-each-row-of-the-matrix-x-2"><span class="nav-number"></span> <span class="nav-text">We will add the vector v to each row of the matrix x,</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#storing-the-result-in-the-matrix-y-2"><span class="nav-number"></span> <span class="nav-text">storing the result in the matrix y</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Compute-outer-product-of-vectors"><span class="nav-number"></span> <span class="nav-text">Compute outer product of vectors</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#To-compute-an-outer-product-we-first-reshape-v-to-be-a-column"><span class="nav-number"></span> <span class="nav-text">To compute an outer product, we first reshape v to be a column</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vector-of-shape-3-1-we-can-then-broadcast-it-against-w-to-yield"><span class="nav-number"></span> <span class="nav-text">vector of shape (3, 1); we can then broadcast it against w to yield</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#an-output-of-shape-3-2-which-is-the-outer-product-of-v-and-w"><span class="nav-number"></span> <span class="nav-text">an output of shape (3, 2), which is the outer product of v and w:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-5"><span class="nav-number"></span> <span class="nav-text">[[ 4  5]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-10"><span class="nav-number"></span> <span class="nav-text">[ 8 10]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-15"><span class="nav-number"></span> <span class="nav-text">[12 15]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Add-a-vector-to-each-row-of-a-matrix"><span class="nav-number"></span> <span class="nav-text">Add a vector to each row of a matrix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x-has-shape-2-3-and-v-has-shape-3-so-they-broadcast-to-2-3"><span class="nav-number"></span> <span class="nav-text">x has shape (2, 3) and v has shape (3,) so they broadcast to (2, 3),</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#giving-the-following-matrix"><span class="nav-number"></span> <span class="nav-text">giving the following matrix:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-4-6"><span class="nav-number"></span> <span class="nav-text">[[2 4 6]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-7-9"><span class="nav-number"></span> <span class="nav-text">[5 7 9]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Add-a-vector-to-each-column-of-a-matrix"><span class="nav-number"></span> <span class="nav-text">Add a vector to each column of a matrix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x-has-shape-2-3-and-w-has-shape-2"><span class="nav-number"></span> <span class="nav-text">x has shape (2, 3) and w has shape (2,).</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#If-we-transpose-x-then-it-has-shape-3-2-and-can-be-broadcast"><span class="nav-number"></span> <span class="nav-text">If we transpose x then it has shape (3, 2) and can be broadcast</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#against-w-to-yield-a-result-of-shape-3-2-transposing-this-result"><span class="nav-number"></span> <span class="nav-text">against w to yield a result of shape (3, 2); transposing this result</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#yields-the-final-result-of-shape-2-3-which-is-the-matrix-x-with"><span class="nav-number"></span> <span class="nav-text">yields the final result of shape (2, 3) which is the matrix x with</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-vector-w-added-to-each-column-Gives-the-following-matrix"><span class="nav-number"></span> <span class="nav-text">the vector w added to each column. Gives the following matrix:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-6-7"><span class="nav-number"></span> <span class="nav-text">[[ 5  6  7]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-10-11"><span class="nav-number"></span> <span class="nav-text">[ 9 10 11]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Another-solution-is-to-reshape-w-to-be-a-row-vector-of-shape-2-1"><span class="nav-number"></span> <span class="nav-text">Another solution is to reshape w to be a row vector of shape (2, 1);</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#we-can-then-broadcast-it-directly-against-x-to-produce-the-same"><span class="nav-number"></span> <span class="nav-text">we can then broadcast it directly against x to produce the same</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#output"><span class="nav-number"></span> <span class="nav-text">output.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Multiply-a-matrix-by-a-constant"><span class="nav-number"></span> <span class="nav-text">Multiply a matrix by a constant:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x-has-shape-2-3-Numpy-treats-scalars-as-arrays-of-shape"><span class="nav-number"></span> <span class="nav-text">x has shape (2, 3). Numpy treats scalars as arrays of shape ();</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#these-can-be-broadcast-together-to-shape-2-3-producing-the"><span class="nav-number"></span> <span class="nav-text">these can be broadcast together to shape (2, 3), producing the</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#following-array"><span class="nav-number"></span> <span class="nav-text">following array:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-4-6-1"><span class="nav-number"></span> <span class="nav-text">[[ 2  4  6]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-10-12"><span class="nav-number"></span> <span class="nav-text">[ 8 10 12]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Read-an-JPEG-image-into-a-numpy-array"><span class="nav-number"></span> <span class="nav-text">Read an JPEG image into a numpy array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#We-can-tint-the-image-by-scaling-each-of-the-color-channels"><span class="nav-number"></span> <span class="nav-text">We can tint the image by scaling each of the color channels</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#by-a-different-scalar-constant-The-image-has-shape-400-248-3"><span class="nav-number"></span> <span class="nav-text">by a different scalar constant. The image has shape (400, 248, 3);</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#we-multiply-it-by-the-array-1-0-95-0-9-of-shape-3"><span class="nav-number"></span> <span class="nav-text">we multiply it by the array [1, 0.95, 0.9] of shape (3,);</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#numpy-broadcasting-means-that-this-leaves-the-red-channel-unchanged"><span class="nav-number"></span> <span class="nav-text">numpy broadcasting means that this leaves the red channel unchanged,</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#and-multiplies-the-green-and-blue-channels-by-0-95-and-0-9"><span class="nav-number"></span> <span class="nav-text">and multiplies the green and blue channels by 0.95 and 0.9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#respectively"><span class="nav-number"></span> <span class="nav-text">respectively.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Resize-the-tinted-image-to-be-300-by-300-pixels"><span class="nav-number"></span> <span class="nav-text">Resize the tinted image to be 300 by 300 pixels.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Write-the-tinted-image-back-to-disk"><span class="nav-number"></span> <span class="nav-text">Write the tinted image back to disk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-the-following-array-where-each-row-is-a-point-in-2D-space"><span class="nav-number"></span> <span class="nav-text">Create the following array where each row is a point in 2D space:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0-1"><span class="nav-number"></span> <span class="nav-text">[[0 1]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-0"><span class="nav-number"></span> <span class="nav-text">[1 0]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-0"><span class="nav-number"></span> <span class="nav-text">[2 0]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Compute-the-Euclidean-distance-between-all-rows-of-x"><span class="nav-number"></span> <span class="nav-text">Compute the Euclidean distance between all rows of x.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#d-i-j-is-the-Euclidean-distance-between-x-i-and-x-j"><span class="nav-number"></span> <span class="nav-text">d[i, j] is the Euclidean distance between x[i, :] and x[j, :],</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#and-d-is-the-following-array"><span class="nav-number"></span> <span class="nav-text">and d is the following array:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0-1-41421356-2-23606798"><span class="nav-number"></span> <span class="nav-text">[[ 0.          1.41421356  2.23606798]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-41421356-0-1"><span class="nav-number"></span> <span class="nav-text">[ 1.41421356  0.          1.        ]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-23606798-1-0"><span class="nav-number"></span> <span class="nav-text">[ 2.23606798  1.          0.        ]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Compute-the-x-and-y-coordinates-for-points-on-a-sine-curve"><span class="nav-number"></span> <span class="nav-text">Compute the x and y coordinates for points on a sine curve</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Plot-the-points-using-matplotlib"><span class="nav-number"></span> <span class="nav-text">Plot the points using matplotlib</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Compute-the-x-and-y-coordinates-for-points-on-sine-and-cosine-curves"><span class="nav-number"></span> <span class="nav-text">Compute the x and y coordinates for points on sine and cosine curves</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Plot-the-points-using-matplotlib-1"><span class="nav-number"></span> <span class="nav-text">Plot the points using matplotlib</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Compute-the-x-and-y-coordinates-for-points-on-sine-and-cosine-curves-1"><span class="nav-number"></span> <span class="nav-text">Compute the x and y coordinates for points on sine and cosine curves</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set-up-a-subplot-grid-that-has-height-2-and-width-1"><span class="nav-number"></span> <span class="nav-text">Set up a subplot grid that has height 2 and width 1,</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#and-set-the-first-such-subplot-as-active"><span class="nav-number"></span> <span class="nav-text">and set the first such subplot as active.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Make-the-first-plot"><span class="nav-number"></span> <span class="nav-text">Make the first plot</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set-the-second-subplot-as-active-and-make-the-second-plot"><span class="nav-number"></span> <span class="nav-text">Set the second subplot as active, and make the second plot.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Show-the-figure"><span class="nav-number"></span> <span class="nav-text">Show the figure.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Show-the-original-image"><span class="nav-number"></span> <span class="nav-text">Show the original image</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Show-the-tinted-image"><span class="nav-number"></span> <span class="nav-text">Show the tinted image</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A-slight-gotcha-with-imshow-is-that-it-might-give-strange-results"><span class="nav-number"></span> <span class="nav-text">A slight gotcha with imshow is that it might give strange results</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#if-presented-with-data-that-is-not-uint8-To-work-around-this-we"><span class="nav-number"></span> <span class="nav-text">if presented with data that is not uint8. To work around this, we</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#explicitly-cast-the-image-to-uint8-before-displaying-it"><span class="nav-number"></span> <span class="nav-text">explicitly cast the image to uint8 before displaying it.</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xujiagen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
