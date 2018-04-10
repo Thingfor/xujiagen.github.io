@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="cs231 numpy教程 参考的web链接在学习numpy的过程中，总是会忘记很多语法：   基本数据类型和大多数编程语言一样，Python拥有一系列的基本数据类型，比如整型、浮点型、布尔型和字符串等。这些类型的使用方式和在其他语言中的使用方式是类似的。数字：整型和浮点型的使用与其他语言类似。1234567891011121314x = 3print(type(x))">
+<meta name="description" content="cs231 numpy教程 参考的web链接在学习numpy的过程中，总是会忘记很多语法：  python对于字符串部分有非常丰富的库函数通过此链接查看python的str数据类型的一些库函数或者这个链接  容器Containers译者注：有知友建议container翻译为复合数据类型，供读者参考。Python有以下几种容器类型：列表（lists）、字典（dictionaries）、集合（sets">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python numpy语法">
 <meta property="og:url" content="http://yoursite.com/2018/04/06/python-numpy语法/index.html">
 <meta property="og:site_name" content="fighting!兽人永不为奴">
-<meta property="og:description" content="cs231 numpy教程 参考的web链接在学习numpy的过程中，总是会忘记很多语法：   基本数据类型和大多数编程语言一样，Python拥有一系列的基本数据类型，比如整型、浮点型、布尔型和字符串等。这些类型的使用方式和在其他语言中的使用方式是类似的。数字：整型和浮点型的使用与其他语言类似。1234567891011121314x = 3print(type(x))">
+<meta property="og:description" content="cs231 numpy教程 参考的web链接在学习numpy的过程中，总是会忘记很多语法：  python对于字符串部分有非常丰富的库函数通过此链接查看python的str数据类型的一些库函数或者这个链接  容器Containers译者注：有知友建议container翻译为复合数据类型，供读者参考。Python有以下几种容器类型：列表（lists）、字典（dictionaries）、集合（sets">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-10T02:04:23.157Z">
+<meta property="og:updated_time" content="2018-04-10T03:23:27.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python numpy语法">
-<meta name="twitter:description" content="cs231 numpy教程 参考的web链接在学习numpy的过程中，总是会忘记很多语法：   基本数据类型和大多数编程语言一样，Python拥有一系列的基本数据类型，比如整型、浮点型、布尔型和字符串等。这些类型的使用方式和在其他语言中的使用方式是类似的。数字：整型和浮点型的使用与其他语言类似。1234567891011121314x = 3print(type(x))">
+<meta name="twitter:description" content="cs231 numpy教程 参考的web链接在学习numpy的过程中，总是会忘记很多语法：  python对于字符串部分有非常丰富的库函数通过此链接查看python的str数据类型的一些库函数或者这个链接  容器Containers译者注：有知友建议container翻译为复合数据类型，供读者参考。Python有以下几种容器类型：列表（lists）、字典（dictionaries）、集合（sets">
 
 
 
@@ -345,18 +345,7 @@
         <h3 id="cs231-numpy教程"><a href="#cs231-numpy教程" class="headerlink" title="cs231 numpy教程"></a>cs231 numpy教程</h3><hr>
 <p>参考的<a href="https://zhuanlan.zhihu.com/p/20878530?refer=intelligentunit" target="_blank" rel="noopener">web链接</a><br>在学习numpy的过程中，总是会忘记很多语法：</p>
 <hr>
-<blockquote>
-<p><strong>基本数据类型</strong><br>和大多数编程语言一样，Python拥有一系列的基本数据类型，比如整型、浮点型、布尔型和字符串等。这些类型的使用方式和在其他语言中的使用方式是类似的。<br>数字：整型和浮点型的使用与其他语言类似。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">x = 3</span><br><span class="line">print(type(x))                  # Prints &quot;&lt;type &apos;int&apos;&gt;&quot;</span><br><span class="line">print(x)                        # Prints &quot;3&quot;</span><br><span class="line">print(x+1)                      # Addition; prints &quot;4&quot;</span><br><span class="line">print(x-1)                      # Subtraction; prints &quot;2&quot;</span><br><span class="line">print(x*2)                      # Multiplication; prints &quot;6&quot;</span><br><span class="line">print(x**2)                     # Exponentiation; prints &quot;9&quot;</span><br><span class="line">x += 1</span><br><span class="line">print(x)                        # Prints &quot;4&quot;</span><br><span class="line">x *= 2</span><br><span class="line">print(x)                        # Prints &quot;8&quot;</span><br><span class="line">y = 2.5</span><br><span class="line">print(type(y))                  # Prints &quot;&lt;type &apos;float&apos;&gt;&quot;</span><br><span class="line">print(y, y + 1, y * 2, y ** 2)  # Prints &quot;2.5 3.5 5.0 6.25&quot;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p><strong>需要注意的是，Python中没有 x++ 和 x– 的操作符。</strong></p>
-<hr>
-<p>布尔型：Python实现了所有的布尔逻辑，但用的是英语，而不是我们习惯的操作符（比如&amp;&amp;和||等）。<br>布尔类型使用的是and/or<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">t = True</span><br><span class="line">f = False</span><br><span class="line">print(t)            # Prints &quot;&lt;type &apos;bool&apos;&gt;&quot;</span><br><span class="line">print( t and f)     # Logical AND; prints &quot;False&quot;</span><br><span class="line">print( t or f)      # Logical OR; prints &quot;True&quot;</span><br><span class="line">print( not t )      # Logical NOT; prints &quot;False&quot;</span><br><span class="line">print(t != f)       # Logical XOR; prints &quot;True&quot;  </span><br><span class="line">字符串：Python对字符串的支持非常棒。</span><br><span class="line"></span><br><span class="line">hello = &apos;hello&apos;                                 # String literals can use single quotes</span><br><span class="line">world = &quot;world&quot;                                 # or double quotes; it does not matter.</span><br><span class="line">print(hello)                                    # Prints &quot;hello&quot;</span><br><span class="line">print(len(hello))                               # String length; prints &quot;5&quot;</span><br><span class="line">hw = hello + &apos; &apos; + world                        # String concatenation</span><br><span class="line">print(hw)                                       # prints &quot;hello world&quot;</span><br><span class="line">hw12 = &apos;%s %s %d&apos; % (hello, world, 12)          # sprintf style string formatting</span><br><span class="line">print(hw12)                                     # prints &quot;hello world 12&quot;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>字符串对象有一系列有用的方法，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s = &quot;hello&quot;</span><br><span class="line">print(s.capitalize())                   # Capitalize a string; prints &quot;Hello&quot;</span><br><span class="line">print(s.upper())                        # Convert a string to uppercase; prints &quot;HELLO&quot;</span><br><span class="line">print(s.rjust(7))                       # Right-justify a string, padding with spaces; prints &quot;  hello&quot;</span><br><span class="line">print(s.center(7))                      # Center a string, padding with spaces; prints &quot; hello &quot;</span><br><span class="line">print(s.replace(&apos;l&apos;, &apos;(ell)&apos;))          # Replace all instances of one substring with another;</span><br><span class="line">                                        # prints &quot;he(ell)(ell)o&quot;</span><br><span class="line">print(&apos;  world &apos;.strip())               # Strip leading and trailing whitespace; prints &quot;world&quot;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>如果想详细查看字符串方法，请看文档。</p>
-</blockquote>
+<p>python对于字符串部分有非常丰富的库函数<br><a href="https://www.cnblogs.com/mlgjb/p/7879813.html" target="_blank" rel="noopener">通过此链接查看python的str数据类型的一些库函数</a><br><a href="https://www.cnblogs.com/mlgjb/p/7879813.html" target="_blank" rel="noopener">或者这个链接</a></p>
 <hr>
 <p><strong>容器Containers</strong><br>译者注：有知友建议container翻译为复合数据类型，供读者参考。<br>Python有以下几种容器类型：列表（lists）、字典（dictionaries）、集合（sets）和元组（tuples）。</p>
 <p>列表Lists<br>列表就是Python中的数组，但是列表长度可变，且能包含不同类型元素。</p>
