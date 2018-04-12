@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="fighting!兽人永不为奴">
 <meta property="og:description" content="python 函数复习，最近需要写一写python程序做毕设数据类型对于python的字符串数据，如果需要输出python的字符串数据，对于内部的其他可能存在误解的符号可能需要转义符号来进行转义 字符串前面可以通过加上‘r’实现本段字符串不需要进行转义print(r’\\t\\’) # 等于\\t\\print内部有许多行’’’内容’’’实现将内容进行打印 区分python中赋值与别名的含义123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-09T14:20:51.330Z">
+<meta property="og:updated_time" content="2018-04-10T08:24:11.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python_语法">
 <meta name="twitter:description" content="python 函数复习，最近需要写一写python程序做毕设数据类型对于python的字符串数据，如果需要输出python的字符串数据，对于内部的其他可能存在误解的符号可能需要转义符号来进行转义 字符串前面可以通过加上‘r’实现本段字符串不需要进行转义print(r’\\t\\’) # 等于\\t\\print内部有许多行’’’内容’’’实现将内容进行打印 区分python中赋值与别名的含义123">
@@ -529,17 +529,9 @@
 <p>###偏函数<br>int(‘12345’,base=2)//int(‘12345’,2)<br><strong>注意：</strong>将其他数据转换成int类型的数据，然后在转换成二进制数据</p>
 <p>functools.partial是用来创建偏函数的<br>int2=functool.partial(int,base=2)<br>//原函数是int(传入一个函数对象)，限制参数是base=2，创建了一个新的函数</p>
 <p>创建偏函数实际可以通过接收函数对象，*args,<strong>kw等3个参数<br>kw={‘base’:2}<br>int2=functools.partial(int,</strong>kw)<br><strong>将kw参数传进去方面方便理解</strong></p>
-<h3 id="模块-module"><a href="#模块-module" class="headerlink" title="模块 module"></a>模块 module</h3><p>模块对我我这个常年编程的人来说，再简单不过了</p>
-<p>需要注意的是创建一个python文件的时候，每一个文件都会有一个main函数，通过:<br>if <strong>name</strong>==’<strong>main</strong>‘<br>    test()<br>当相当于如果创建的这个python文件是运行的文件，if条件就会被激活，首先运行test()程序</p>
-<p>如果是其他程序导入这个python模块，if条件就不会被激活，test()程序就不会运行</p>
-<p>这个时候需要注意的是如果是：<br>import test<br>test文件里面所有的程序都需要test.hello()这样的形式运行</p>
-<p>from test import hello<br>可以直接运行hello()程序</p>
-<p>###面向对象编程<br>class Student(object):<br>    def <strong>init</strong>(self,namee,score):<br>        self.name=name<br>        self.score=score<br>其中self就相当于c++中的this指针，指向class本身</p>
-<p>class Student(object)<br>    pass<br>如果只是简单的创建一个class,没有说明class里面的参数有哪些，在后期创建对象如bart之后，通过给bart.name=’what’,就可以给一个实例创建参数</p>
-<p>class Student(object):<br>    def <strong>init</strong>(self,name,score):<br>        self.name=name<br>        self.score=score</p>
-<pre><code>def print_score(self):
-    print(&apos;%s:%s&apos; % (self.name,self.name))
-</code></pre><p><strong>在python的class中如果想要内部属性不被外部的所访问，可以在属性前面加上两个下划线，以两个下划线开头的变量名就是一个私有变量</strong></p>
+<h3 id="模块-module"><a href="#模块-module" class="headerlink" title="模块 module"></a>模块 module</h3><p> 因为python的模块函数也是py函数，也是可以直接指向的。所以在编写python的模块函数的时候需要注意<br>python的模块函数里面必须有：<br>if <strong>name</strong>=’<strong>init</strong>‘<br>    test()<br>这样直接运行python的模块文件的时候就会调用test()函数<br>同时其他文件也可以import模块文件以及里面的函数</p>
+<p>###面向对象编程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#创建一个python的类：</span><br><span class="line">class student(object):</span><br><span class="line">    def __init__(self,name,score):</span><br><span class="line">        self.name=name</span><br><span class="line">        self.score=score</span><br><span class="line">    def print_information(self):</span><br><span class="line">        print(self.name,&quot;get&quot;,self.score)</span><br><span class="line"></span><br><span class="line">#之后在通过class创建类：</span><br><span class="line">xujiagen=student(&quot;xujiagen&quot;,95)</span><br></pre></td></tr></table></figure></p>
+<p><strong>在python的class中如果想要内部属性不被外部的所访问，可以在属性前面加上两个下划线，以两个下划线开头的变量名就是一个私有变量</strong></p>
 <p>私有变量只能class内部进行访问，在外部是不能访问的</p>
 <p>所以可以将刚才的程序进行修改：</p>
 <p>class Student(object):<br>    def.<strong>init</strong>(self,name,score)<br>        self.<strong>name=name<br>        self.</strong>score=score</p>
@@ -714,7 +706,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -999,6 +991,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
