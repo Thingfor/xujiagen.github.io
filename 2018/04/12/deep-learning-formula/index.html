@@ -87,10 +87,13 @@
 <meta property="og:site_name" content="fighting!兽人永不为奴">
 <meta property="og:description" content="通过学习cs231n了解对于很多神经网络需要了解梯度计算参考网页 softmax损失函数以及它的梯度计算损失函数的计算公式如下$$L_i=-log\left(\frac{e^{f_{y_i}-max{(f_j)}}}{\sum_j{e^{f_j-max(f_j)}}}\right)$$ 对所有样本计入正则化惩罚后，损失函数的公式为：$$L=\frac{1}{N}\sum_i{Li}+\lambda">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-12T07:42:44.539Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/04/12/CEC4WF.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2018/04/12/CEChJU.jpg">
+<meta property="og:updated_time" content="2018-04-12T07:47:24.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deep learning formula">
 <meta name="twitter:description" content="通过学习cs231n了解对于很多神经网络需要了解梯度计算参考网页 softmax损失函数以及它的梯度计算损失函数的计算公式如下$$L_i=-log\left(\frac{e^{f_{y_i}-max{(f_j)}}}{\sum_j{e^{f_j-max(f_j)}}}\right)$$ 对所有样本计入正则化惩罚后，损失函数的公式为：$$L=\frac{1}{N}\sum_i{Li}+\lambda">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/04/12/CEC4WF.jpg">
 
 
 
@@ -350,6 +353,7 @@
 <p>然后计算各级的梯度：<br>梯度的定义是：<br>$$dw_i,k=\frac{\partial{L_i}}{\partial{W_k}}$$<br>易知损失函数和分值函数的定义$L_i$是$f_m$的函数，$f_m$是$W_k$的函数<br>而$\frac{\partial{L_i}}{\partial{W_k}}$在这里容易求解<br>$$dw_i,k=\frac{\partial{L_i}}{\partial{w_k}}=\frac{\partial{L_i}}{\partial{f_m}}*\frac{\partial{f_m}}{\partial{w_k}}$$<br>$$\because f_{vn}=\left( x_{i}N_{k}\right) <em>{m}\quad\therefore \dfrac {\partial f</em>{m}}{\partial w_{r}}=X_{i}$$<br>现在只需要求出：$\frac{\partial{L_i}}{\partial{f_m}}\quad\because L_i=-\sum_k{P_{i,k}}P_K$</p>
 <p>这里$P_K=\frac{e^{f_k}}{\sum_j{e^{f_j}}}$,我们先求出:$\frac{\partial{P_k}}{\partial{f_m}}$<br>因为$P_K$是$f_m$的复合函数，我们需要分$m=k$和$m\neq{k}$两种情况讨论</p>
 <p>当$k=m,\frac{\partial{p_k}}{\partial{f_m}}=\frac{\partial}{\partial{f_m}}<em>{\frac{e^{f_m}}{\sum_j{e^{f_j}}}}$<br>$$\frac{(e^{f_m})^{‘}</em>\sum_j{e^{f_j}}-e^{f_m}<em>(\sum_j{e^{f_j}})^{‘}}{(\sum_j{e^{f_j}})^2}$$注公式$(\frac{f}{g})^{‘}=\frac{f^{‘}g-fg^{‘}}{g^2}$<br>$$=P_m-\frac{e^{fm}}{(\sum_{j}e^{f_j})^2}</em>(e^{f_0}+e^{f_1}+e^{f_m}+…..)^{‘}$$<br>$$P_m=P_m^2$$<br>注释$(e^(f_0))^{‘}=0$</p>
+<p>###具体推导过程<br><img src="https://s1.ax1x.com/2018/04/12/CEC4WF.jpg" alt="CEC4WF.jpg"><br><img src="https://s1.ax1x.com/2018/04/12/CEChJU.jpg" alt="CEChJU.jpg"><br>这个是上面链接里面作者推导的图片，因为没有说明禁止转载，我就转载了！</p>
 
       
     </div>
