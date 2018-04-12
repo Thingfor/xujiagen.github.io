@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="通过学习cs231n了解对于很多神经网络需要了解梯度计算参考网页 softmax损失函数以及它的梯度计算损失函数的计算公式如下$$L_i=-log\left(\frac{e^{f_{y_i}-max{f_j}}}{\sum_j{e^{f_j-max(f_j)}}}\right)$$ 对所有样本计入正则化惩罚后，损失函数的公式为：$$L=\frac{1}{N}\sum_i{Li}+\lambda{W">
+<meta name="description" content="通过学习cs231n了解对于很多神经网络需要了解梯度计算参考网页 softmax损失函数以及它的梯度计算损失函数的计算公式如下$$L_i=-log\left(\frac{e^{f_{y_i}-max{(f_j)}}}{\sum_j{e^{f_j-max(f_j)}}}\right)$$ 对所有样本计入正则化惩罚后，损失函数的公式为：$$L=\frac{1}{N}\sum_i{Li}+\lambda">
 <meta name="keywords" content="deep learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="deep learning formula">
 <meta property="og:url" content="http://yoursite.com/2018/04/12/deep-learning-formula/index.html">
 <meta property="og:site_name" content="fighting!兽人永不为奴">
-<meta property="og:description" content="通过学习cs231n了解对于很多神经网络需要了解梯度计算参考网页 softmax损失函数以及它的梯度计算损失函数的计算公式如下$$L_i=-log\left(\frac{e^{f_{y_i}-max{f_j}}}{\sum_j{e^{f_j-max(f_j)}}}\right)$$ 对所有样本计入正则化惩罚后，损失函数的公式为：$$L=\frac{1}{N}\sum_i{Li}+\lambda{W">
+<meta property="og:description" content="通过学习cs231n了解对于很多神经网络需要了解梯度计算参考网页 softmax损失函数以及它的梯度计算损失函数的计算公式如下$$L_i=-log\left(\frac{e^{f_{y_i}-max{(f_j)}}}{\sum_j{e^{f_j-max(f_j)}}}\right)$$ 对所有样本计入正则化惩罚后，损失函数的公式为：$$L=\frac{1}{N}\sum_i{Li}+\lambda">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-12T05:54:49.483Z">
+<meta property="og:updated_time" content="2018-04-12T07:42:44.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deep learning formula">
-<meta name="twitter:description" content="通过学习cs231n了解对于很多神经网络需要了解梯度计算参考网页 softmax损失函数以及它的梯度计算损失函数的计算公式如下$$L_i=-log\left(\frac{e^{f_{y_i}-max{f_j}}}{\sum_j{e^{f_j-max(f_j)}}}\right)$$ 对所有样本计入正则化惩罚后，损失函数的公式为：$$L=\frac{1}{N}\sum_i{Li}+\lambda{W">
+<meta name="twitter:description" content="通过学习cs231n了解对于很多神经网络需要了解梯度计算参考网页 softmax损失函数以及它的梯度计算损失函数的计算公式如下$$L_i=-log\left(\frac{e^{f_{y_i}-max{(f_j)}}}{\sum_j{e^{f_j-max(f_j)}}}\right)$$ 对所有样本计入正则化惩罚后，损失函数的公式为：$$L=\frac{1}{N}\sum_i{Li}+\lambda">
 
 
 
@@ -343,11 +343,13 @@
 
       
         <p>通过学习cs231n了解对于很多神经网络需要了解梯度计算<br><a href="https://blog.csdn.net/shenxiaoming77/article/details/76858593" target="_blank" rel="noopener">参考网页</a></p>
-<h3 id="softmax损失函数以及它的梯度计算"><a href="#softmax损失函数以及它的梯度计算" class="headerlink" title="softmax损失函数以及它的梯度计算"></a>softmax损失函数以及它的梯度计算</h3><p>损失函数的计算公式如下<br>$$L_i=-log\left(<br>\frac{e^{f_{y_i}-max{f_j}}}{\sum_j{e^{f_j-max(f_j)}}}<br>\right)$$</p>
+<h3 id="softmax损失函数以及它的梯度计算"><a href="#softmax损失函数以及它的梯度计算" class="headerlink" title="softmax损失函数以及它的梯度计算"></a>softmax损失函数以及它的梯度计算</h3><p>损失函数的计算公式如下<br>$$L_i=-log\left(<br>\frac{e^{f_{y_i}-max{(f_j)}}}{\sum_j{e^{f_j-max(f_j)}}}<br>\right)$$</p>
 <p>对所有样本计入正则化惩罚后，损失函数的公式为：<br>$$L=\frac{1}{N}\sum_i{Li}+\lambda{W}$$</p>
 <p>对其中每一个变量进行解析：<br>f(i,j)是矩阵F(x,w)中第i,j个元素<br>$max(f_j)$表示第i个样本的所有分类得分中最大得分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cs231n中对于损失函数的计算公式：</span><br><span class="line">f = X.dot(W) # N by C </span><br><span class="line"># f_max是对第i行元素的所有分类计分求最大值，所以axis = 1</span><br><span class="line">f_max = np.reshape(np.max(f, axis=1), (num_train, 1)) # N by 1 </span><br><span class="line"># 对每个计分求归一化概率，这个概率是每个样本在不同类别上的分布。 N by C</span><br><span class="line">prob = np.exp(f - f_max) / np.sum(np.exp(f - f_max), axis=1, keepdims=True)</span><br><span class="line">for i in xrange(num_train): </span><br><span class="line">  for j in xrange(num_class): </span><br><span class="line">    if (j == y[i]):</span><br><span class="line">      loss += -np.log(prob[i, j])) </span><br><span class="line">loss /= num_train </span><br><span class="line">loss += 0.5 * reg * np.sum(W * W)</span><br></pre></td></tr></table></figure></p>
 <p>这个损失函数的原理是，如果样本i，如果说它的真正的样本是j，同时它被正确分类了，这样说明分类成功，这种情况下对损失函数没有贡献，但是如果说分类错误了，这样它对损失函数是有贡献的</p>
-<p>然后计算各级的梯度：<br>梯度的定义是：<br>$$dw_i,k=\frac{\partial{L_i}}{\partial{W_k}}$$</p>
+<p>然后计算各级的梯度：<br>梯度的定义是：<br>$$dw_i,k=\frac{\partial{L_i}}{\partial{W_k}}$$<br>易知损失函数和分值函数的定义$L_i$是$f_m$的函数，$f_m$是$W_k$的函数<br>而$\frac{\partial{L_i}}{\partial{W_k}}$在这里容易求解<br>$$dw_i,k=\frac{\partial{L_i}}{\partial{w_k}}=\frac{\partial{L_i}}{\partial{f_m}}*\frac{\partial{f_m}}{\partial{w_k}}$$<br>$$\because f_{vn}=\left( x_{i}N_{k}\right) <em>{m}\quad\therefore \dfrac {\partial f</em>{m}}{\partial w_{r}}=X_{i}$$<br>现在只需要求出：$\frac{\partial{L_i}}{\partial{f_m}}\quad\because L_i=-\sum_k{P_{i,k}}P_K$</p>
+<p>这里$P_K=\frac{e^{f_k}}{\sum_j{e^{f_j}}}$,我们先求出:$\frac{\partial{P_k}}{\partial{f_m}}$<br>因为$P_K$是$f_m$的复合函数，我们需要分$m=k$和$m\neq{k}$两种情况讨论</p>
+<p>当$k=m,\frac{\partial{p_k}}{\partial{f_m}}=\frac{\partial}{\partial{f_m}}<em>{\frac{e^{f_m}}{\sum_j{e^{f_j}}}}$<br>$$\frac{(e^{f_m})^{‘}</em>\sum_j{e^{f_j}}-e^{f_m}<em>(\sum_j{e^{f_j}})^{‘}}{(\sum_j{e^{f_j}})^2}$$注公式$(\frac{f}{g})^{‘}=\frac{f^{‘}g-fg^{‘}}{g^2}$<br>$$=P_m-\frac{e^{fm}}{(\sum_{j}e^{f_j})^2}</em>(e^{f_0}+e^{f_1}+e^{f_m}+…..)^{‘}$$<br>$$P_m=P_m^2$$<br>注释$(e^(f_0))^{‘}=0$</p>
 
       
     </div>
