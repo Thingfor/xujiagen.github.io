@@ -89,7 +89,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s1.ax1x.com/2018/04/12/CEC4WF.jpg">
 <meta property="og:image" content="https://s1.ax1x.com/2018/04/12/CEChJU.jpg">
-<meta property="og:updated_time" content="2018-04-14T03:08:14.847Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/04/14/CZlvUf.md.jpg">
+<meta property="og:updated_time" content="2018-04-14T12:15:23.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deep learning formula">
 <meta name="twitter:description" content="通过学习cs231n了解对于很多神经网络需要了解梯度计算参考网页 softmax损失函数以及它的梯度计算损失函数的计算公式如下$$L_i=-log\left(\frac{e^{f_{y_i}-max{(f_j)}}}{\sum_j{e^{f_j-max(f_j)}}}\right)$$ 对所有样本计入正则化惩罚后，损失函数的公式为：$$L=\frac{1}{N}\sum_i{Li}+\lambda">
@@ -357,8 +358,34 @@
 <h3 id="深度学习的梯度下降算法"><a href="#深度学习的梯度下降算法" class="headerlink" title="深度学习的梯度下降算法"></a>深度学习的梯度下降算法</h3><blockquote>
 <p>深度学习的梯度下降算法是整个深度学习过程中非常重要的算法，对于神经网络的优化大部分也是在设计合理的梯度算法让整体的学习率提高的同时，避免权重的计算陷入的局部最优以及鞍点。<br>相关算法的介绍可以参考<a href="https://zhuanlan.zhihu.com/p/22252270" target="_blank" rel="noopener">链接</a></p>
 </blockquote>
-<p>####随机梯度下降SGD</p>
-<p>####Adagrad</p>
+<h4 id="随机梯度下降SGD-Stochastic-gradient-descent"><a href="#随机梯度下降SGD-Stochastic-gradient-descent" class="headerlink" title="随机梯度下降SGD(Stochastic gradient descent)"></a>随机梯度下降SGD(Stochastic gradient descent)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">while True:</span><br><span class="line">  data_batch=dataset.sample_data_batch()</span><br><span class="line">  loss=network.forward(data_batch)</span><br><span class="line">  dx=network.backward()</span><br><span class="line">  x+=-learning_rate*dx</span><br><span class="line"></span><br><span class="line">随机梯度算法是相对于全部训练数据而言的，每一次只是用训练数据的一小部分(batch)</span><br><span class="line">这个算法会根据梯度的大小选择步长，如果不同维度的步长相差很大就会震荡，让收敛变得很慢。</span><br></pre></td></tr></table></figure>
+<h4 id="GSD-momentum算法"><a href="#GSD-momentum算法" class="headerlink" title="GSD+momentum算法"></a>GSD+momentum算法</h4><blockquote>
+<p>将迭代更新考虑成物理问题，梯度相当于小球在该位置的加速度(力)，参数每一次更新的量相当于小球的速度，参数值相对于小球当时的高度，位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v=mu*v-learning_rate*dx</span><br><span class="line">x+=v</span><br><span class="line">其中v相当于速度，dx相当于加速度,x相当于对应的高度，同时为了小球能够收敛于谷底，加入了能量损失机制,也就是说每一次都是在mu*v基础上改变的,v初始值是0</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="Nesterov-Momentum-update"><a href="#Nesterov-Momentum-update" class="headerlink" title="Nesterov Momentum update"></a>Nesterov Momentum update</h3><p>不再是使用当前的梯度，而是每一次都向前看，使用的是未来的梯度，对于momentum算法而言，如果不考虑每一次因为梯度而带来的v的变化，下一刻会变成x+mu*v，这里的梯度值有助于收敛<br>$$v_t=\mu{v_{t-1}}-\epsilon{\nabla{f(\theta_{t-1}+\mu{v_{t-1}})}}$$<br>$$\theta_t=\theta_{t-1}+v_t$$<br>这里使用的梯度值不再是当前位置的梯度值，所以SGD和momentum这种原始的接口不兼容，通过对原始的公式进行形式转换，可以使接口兼容。$\phi_{t-1}=\phi_{t-1}+\mu{v_{t-1}}$<br>原来的公式变成：<br>$$v_t=\mu{v_{t-1}}-\epsilon\nabla{f{\phi_{t-1}}}$$<br>$$\phi_t=\phi_{t-1}-\mu{v_{t-1}}+(1+\mu)v_t$$</p>
+<p>更多的梯度算法介绍：<br><a href="https://blog.csdn.net/silent56_th/article/details/59680033" target="_blank" rel="noopener">参考链接</a></p>
+<h3 id="CNN框架"><a href="#CNN框架" class="headerlink" title="CNN框架"></a>CNN框架</h3><p>AlexNet/VGG/GoogleNet/ResNet常见的CNN深度学习框架</p>
+<h4 id="AlexNet框架"><a href="#AlexNet框架" class="headerlink" title="AlexNet框架"></a>AlexNet框架</h4><ul>
+<li>CONV1—————卷积层<blockquote>
+<p>第一层是卷积层，输入图像的大小是227*227*3的图片，卷积核矩阵的大小是11*11*96，步长是4，输出矩阵的大小是55*55*96<br>参数的大小是11*11*3*96=35K</p>
+</blockquote>
+</li>
+<li>Max POOL1———–最大池化层<blockquote>
+<p>池化层核的大小是3*3，步长是2，输出矩阵的大小是(55-3)/2+1=27<br>池化层的输出矩阵的大小：27*27*96<br>池化层的输入参数：池化层不需要输入参数<br>参数是指这个时候需要计算的权重，但是最大池化层不需要权重，所以也就没有参数</p>
+</blockquote>
+</li>
+<li>NORM1—————归一化层 <blockquote>
+<p>归一化层的作用是将原来的数据分布转变成高斯分布，这个时候数据的相对位置被改变了，但是这一层基本上属于处理，不需要参数，数据的数据大小也没有改变</p>
+</blockquote>
+</li>
+<li>CONV2—————卷积层<blockquote>
+<p>5*5*2256的卷积核，同时计算的步长是1，边缘的宽度是2<br>MAX POOL2———–最大池化层<br>NORM2—————归一化层<br>CONV3—————卷积层<br>CONV4—————卷积层<br>CONV5—————卷积层<br>Max POOL3———–最大池化层<br>FC6—————–全连接层<br>FC7—————–全连接层<br>FC8—————–全连接层</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>上面的描述可以看这一张图片<br><a href="https://imgchr.com/i/CZlvUf" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/04/14/CZlvUf.md.jpg" alt="CZlvUf.md.jpg"></a></p>
+</blockquote>
 
       
     </div>
@@ -427,6 +454,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/24/lane-detection-artical/" rel="prev" title="lane_detection_artical">
+                lane_detection_artical <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -507,7 +538,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -518,7 +549,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -529,7 +560,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -578,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax损失函数以及它的梯度计算"><span class="nav-number">1.</span> <span class="nav-text">softmax损失函数以及它的梯度计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习的梯度下降算法"><span class="nav-number">2.</span> <span class="nav-text">深度学习的梯度下降算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax损失函数以及它的梯度计算"><span class="nav-number">1.</span> <span class="nav-text">softmax损失函数以及它的梯度计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习的梯度下降算法"><span class="nav-number">2.</span> <span class="nav-text">深度学习的梯度下降算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#随机梯度下降SGD-Stochastic-gradient-descent"><span class="nav-number">2.1.</span> <span class="nav-text">随机梯度下降SGD(Stochastic gradient descent)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GSD-momentum算法"><span class="nav-number">2.2.</span> <span class="nav-text">GSD+momentum算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nesterov-Momentum-update"><span class="nav-number">3.</span> <span class="nav-text">Nesterov Momentum update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN框架"><span class="nav-number">4.</span> <span class="nav-text">CNN框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AlexNet框架"><span class="nav-number">4.1.</span> <span class="nav-text">AlexNet框架</span></a></li></ol></li></ol></div>
             
 
           </div>
