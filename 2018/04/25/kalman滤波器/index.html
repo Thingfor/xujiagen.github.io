@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$p_t=p_{t-1}+v_{t-1}\Delta{t}+u_t\fra">
+<meta name="description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$$p_t=p_{t-1}+v_{t-1}\Delta{t}+u_t\fr">
 <meta name="keywords" content="kalman filter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kalman滤波器">
 <meta property="og:url" content="http://yoursite.com/2018/04/25/kalman滤波器/index.html">
 <meta property="og:site_name" content="fighting!兽人永不为奴">
-<meta property="og:description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$p_t=p_{t-1}+v_{t-1}\Delta{t}+u_t\fra">
+<meta property="og:description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$$p_t=p_{t-1}+v_{t-1}\Delta{t}+u_t\fr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-25T06:02:26.713Z">
+<meta property="og:updated_time" content="2018-04-25T06:04:16.767Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kalman滤波器">
-<meta name="twitter:description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$p_t=p_{t-1}+v_{t-1}\Delta{t}+u_t\fra">
+<meta name="twitter:description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$$p_t=p_{t-1}+v_{t-1}\Delta{t}+u_t\fr">
 
 
 
@@ -345,7 +345,7 @@
         <h3 id="本文主要是讲解kalman滤波器"><a href="#本文主要是讲解kalman滤波器" class="headerlink" title="本文主要是讲解kalman滤波器"></a>本文主要是讲解kalman滤波器</h3><blockquote>
 <p>kalman滤波器现在想要做目标跟随<br>状态$x_t=\begin{bmatrix}<br>p_t \  v_t<br>\end{bmatrix}$<br>其中$x_t$表示当前的状态<br>$p_t$表示当前的位置<br>$v_t$表示当前的速度<br>车辆在该瞬间的加速度是$u_t$</p>
 </blockquote>
-<p>假如我们已知上一个时刻的状态，当前的状态会是什么呢?<br>$p_t=p_{t-1}+v_{t-1}<em>\Delta{t}+u_t</em>\frac{\Delta{t^2}}{2}$<br>$v_t=v_{t-1}+u_t*\Delta{t}$<br>将上面的状态公式转换到矩阵空间：<br>$\begin{bmatrix}p_t \ v_t\end{bmatrix}=<br>\begin{bmatrix}1 &amp; \Delta{t}\ 0 &amp; 1\end{bmatrix}<br>\begin{bmatrix}p_{t-1} \ v_{t-1}\end{bmatrix}+<br>\begin{bmatrix}\frac{\Delta{t^2}}{2} \ \Delta{t}\end{bmatrix}$<br>将上面的公式进行总结化简：<br>$$\widehat{x}^{-}=F_t\widehat{x}_{t-1}+B_tu_t$$<br>上面这个公式就是卡尔曼滤波器中的第一个公式，状态预测公式，<br>其中$F_t$表示的是状态转移矩阵，表示如何从上一个时刻的状态推测当前时刻的状态<br>$B_t$表示控制矩阵，表示控制量$u_t$如何作用于当前矩阵<br>最左边的x还有一个’-‘减号的上标，表示这个是是从上一个时刻推测过来的。</p>
+<p>假如我们已知上一个时刻的状态，当前的状态会是什么呢?<br>$$p_t=p_{t-1}+v_{t-1}<em>\Delta{t}+u_t</em>\frac{\Delta{t^2}}{2}$$<br>$v_t=v_{t-1}+u_t*\Delta{t}$<br>将上面的状态公式转换到矩阵空间：<br>$\begin{bmatrix}p_t \ v_t\end{bmatrix}=<br>\begin{bmatrix}1 &amp; \Delta{t}\ 0 &amp; 1\end{bmatrix}<br>\begin{bmatrix}p_{t-1} \ v_{t-1}\end{bmatrix}+<br>\begin{bmatrix}\frac{\Delta{t^2}}{2} \ \Delta{t}\end{bmatrix}$<br>将上面的公式进行总结化简：<br>$$\widehat{x}^{-}=F_t\widehat{x}_{t-1}+B_tu_t$$<br>上面这个公式就是卡尔曼滤波器中的第一个公式，状态预测公式，<br>其中$F_t$表示的是状态转移矩阵，表示如何从上一个时刻的状态推测当前时刻的状态<br>$B_t$表示控制矩阵，表示控制量$u_t$如何作用于当前矩阵<br>最左边的x还有一个’-‘减号的上标，表示这个是是从上一个时刻推测过来的。</p>
 
       
     </div>
