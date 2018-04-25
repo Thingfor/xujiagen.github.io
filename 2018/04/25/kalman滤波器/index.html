@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$$p_t=p_{t-1}+v_{t-1}\Delta{t}+u_t\fr">
+<meta name="description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随假如说现在这里是一个小车，这个小车的速度和位置都是在随着时间变化的  状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$$">
 <meta name="keywords" content="kalman filter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kalman滤波器">
 <meta property="og:url" content="http://yoursite.com/2018/04/25/kalman滤波器/index.html">
 <meta property="og:site_name" content="fighting!兽人永不为奴">
-<meta property="og:description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$$p_t=p_{t-1}+v_{t-1}\Delta{t}+u_t\fr">
+<meta property="og:description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随假如说现在这里是一个小车，这个小车的速度和位置都是在随着时间变化的  状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-25T06:04:16.767Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/04/25/C1V3es.md.jpg">
+<meta property="og:updated_time" content="2018-04-25T08:02:35.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kalman滤波器">
-<meta name="twitter:description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$$p_t=p_{t-1}+v_{t-1}\Delta{t}+u_t\fr">
+<meta name="twitter:description" content="本文主要是讲解kalman滤波器 kalman滤波器现在想要做目标跟随假如说现在这里是一个小车，这个小车的速度和位置都是在随着时间变化的  状态$x_t=\begin{bmatrix}p_t \  v_t\end{bmatrix}$其中$x_t$表示当前的状态$p_t$表示当前的位置$v_t$表示当前的速度车辆在该瞬间的加速度是$u_t$  假如我们已知上一个时刻的状态，当前的状态会是什么呢?$$">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/04/25/C1V3es.md.jpg">
 
 
 
@@ -343,9 +345,29 @@
 
       
         <h3 id="本文主要是讲解kalman滤波器"><a href="#本文主要是讲解kalman滤波器" class="headerlink" title="本文主要是讲解kalman滤波器"></a>本文主要是讲解kalman滤波器</h3><blockquote>
-<p>kalman滤波器现在想要做目标跟随<br>状态$x_t=\begin{bmatrix}<br>p_t \  v_t<br>\end{bmatrix}$<br>其中$x_t$表示当前的状态<br>$p_t$表示当前的位置<br>$v_t$表示当前的速度<br>车辆在该瞬间的加速度是$u_t$</p>
+<p>kalman滤波器现在想要做目标跟随<br>假如说现在这里是一个小车，这个小车的速度和位置都是在随着时间变化的</p>
 </blockquote>
-<p>假如我们已知上一个时刻的状态，当前的状态会是什么呢?<br>$$p_t=p_{t-1}+v_{t-1}<em>\Delta{t}+u_t</em>\frac{\Delta{t^2}}{2}$$<br>$v_t=v_{t-1}+u_t*\Delta{t}$<br>将上面的状态公式转换到矩阵空间：<br>$\begin{bmatrix}p_t \ v_t\end{bmatrix}=<br>\begin{bmatrix}1 &amp; \Delta{t}\ 0 &amp; 1\end{bmatrix}<br>\begin{bmatrix}p_{t-1} \ v_{t-1}\end{bmatrix}+<br>\begin{bmatrix}\frac{\Delta{t^2}}{2} \ \Delta{t}\end{bmatrix}$<br>将上面的公式进行总结化简：<br>$$\widehat{x}^{-}=F_t\widehat{x}_{t-1}+B_tu_t$$<br>上面这个公式就是卡尔曼滤波器中的第一个公式，状态预测公式，<br>其中$F_t$表示的是状态转移矩阵，表示如何从上一个时刻的状态推测当前时刻的状态<br>$B_t$表示控制矩阵，表示控制量$u_t$如何作用于当前矩阵<br>最左边的x还有一个’-‘减号的上标，表示这个是是从上一个时刻推测过来的。</p>
+<p>状态$x_t=\begin{bmatrix}<br>p_t \  v_t<br>\end{bmatrix}$<br>其中$x_t$表示当前的状态<br>$p_t$表示当前的位置<br>$v_t$表示当前的速度<br>车辆在该瞬间的加速度是$u_t$</p>
+<blockquote>
+<p>假如我们已知上一个时刻的状态，当前的状态会是什么呢?<br>$$p_t=p_{t-1}+v_{t-1}<em>\Delta{t}+u_t</em>\frac{\Delta{t^2}}{2}$$<br>$$v_t=v_{t-1}+u_t*\Delta{t}$$<br>将上面的状态公式转换到矩阵空间：<br>$$\begin{bmatrix}p_t \ v_t\end{bmatrix}=<br>\begin{bmatrix}1 &amp; \Delta{t}\ 0 &amp; 1\end{bmatrix}<br>\begin{bmatrix}p_{t-1} \ v_{t-1}\end{bmatrix}+<br>\begin{bmatrix}\frac{\Delta{t^2}}{2} \ \Delta{t}\end{bmatrix}$$<br>将上面的公式进行总结化简：<br>$$\widehat{x}^{-}=F_t\widehat{x}_{t-1}+B_tu_t $$</p>
+</blockquote>
+<blockquote>
+<p>上面这个公式就是卡尔曼滤波器中的第一个公式，状态预测公式，<br>其中$F_t$表示的是状态转移矩阵，表示如何从上一个时刻的状态推测当前时刻的状态<br>$B_t$表示控制矩阵，表示控制量$u_t$如何作用于当前矩阵<br>最左边的x还有一个’-‘减号的上标，表示这个是是从上一个时刻推测过来的。</p>
+</blockquote>
+<h3 id="协方差矩阵"><a href="#协方差矩阵" class="headerlink" title="协方差矩阵"></a>协方差矩阵</h3><p>对于一个一维的数据来说，如果想要知道一个数据的分布，我们可以通过方差来表示。一般数据分布都满足高斯分布特性。<br>但是对于二维的数据来说，通过将数据投影到两个坐标轴上面去的时候，可以观测到这个数据在每一个坐标轴上面的分布，但是这个时候可能两个维度直线也存在关系，可能数据在x方向增长的时候，数据在y方向也发生增长，这两个维度之间是存在联系的。<br>这个时候藐视一个数据分布的时候，不仅仅需要方差数据，还需要协方差数据来表示。<br>$$cov(x,x)=\begin{bmatrix}\sigma_{11} &amp;  \sigma_{12}\\sigma_{12} &amp; \sigma_{22}\end{bmatrix}$$<br>对角线上面的数据是他们的方差，反对角阵上面的数据是他们的协方差，这两个数据是一样的，当数据在两个维度呈现正相关的时候，协方差矩阵为正，如果两个维度呈现负相关的时候，协方差矩阵为负。</p>
+<p>在卡尔曼滤波器中所有有关不确定性的表述都要用到协方差矩阵。</p>
+<p>如何让这种不确定性在每一个时刻之间传递呢，重要的方法是通过乘上状态转换矩阵F</p>
+<p>通过上一个时刻推测当前时刻的协方差就是通过上一个时刻的协方差计算当前时刻的协方差。<br>$$P_t^-=FP_{t-1}F^T$$<br>至于说为什么要乘两遍，这个是协方差矩阵的一个性质：<br>$$cov(Ax,Bx)=Acov(x,x)B^T$$</p>
+<p>噪声协方差矩阵传递公式：<br>$$P_t^-=FP_{t-1}F^T+Q$$<br>加上一个Q在一维的数据里面相当于加上一个偏差，有一个调0的作用，这个时候主要是为了消除本身产生的噪声</p>
+<p>上面这个公式是卡尔曼滤波的第二个公式表示不确定性在各个时刻传递的关系。</p>
+<p>上面都是预测的变量，下面要计算的是观测的变量</p>
+<p>###观测矩阵<br>如果说这个小车现在我们需要一个东西去观测它的具体位置。有一个方法就是通过一个激光传感器测量这个小车的具体位置。但是这个激光传感器测量的数据也不一定就是非常精准的。<br>$$H=\begin{bmatrix}1 &amp; 0\end{bmatrix}$$<br>$$z_t=Hx_t+v$$<br>首先创建一个H矩阵，这个矩阵是一个1行两列到的数据，就要是将观测到的距离转换到实际检测的数据。<br>同时上面的数据还有一个v表示一个调0的变量，主要是为了消除测量不精准产生的噪声。</p>
+<p>观测噪声的协方差矩阵用R表示，这个和上面的预测噪声的协方差矩阵是不一样的。</p>
+<p>###状态更新<br>$$\widehat{x}_t=\widehat{x}_t^-=K_t(z_t-H\widehat{x}_t^-)$$<br>状态更新函数，首先说明一下括号里面的内容，括号里面主要是：实际的观测值和预期的观测值之间的残差。其中$K_t$系数非常重要，主要是权衡预测量与观测量之间的关系，来决定我们是相信预测模型多一点还是相信观察模型多一点。<br>其中$K_t$的计算公式是：<br>$$K_t=P_t^-H^T(HP_t^-H^T+R)^{-1}$$<br>如果相信预测模型多一点，这个残差的权重就会小一点，如果相信观察模型多一点，这个残差的权重就会大一点。<br>第二个作用是将残差从观察域转换到状态域。</p>
+<p>###噪声协方差矩阵更新<br>$$P_t=(I-K_tH)P_t^-$$</p>
+<p>kalman滤波器主要是在这种状态的不确定性中寻求一种平衡的。</p>
+<p><a href="https://imgchr.com/i/C1V3es" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/04/25/C1V3es.md.jpg" alt="C1V3es.md.jpg"></a></p>
+<p>matlab计算公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Z=(1:100);  %观测值</span><br><span class="line">noise=randn(1,100);  %方差为1的高斯噪声</span><br><span class="line">Z=Z+noise; </span><br><span class="line"></span><br><span class="line">x=[0;0]  %x的初始状态</span><br><span class="line">P=[1,0;0,1];%状态协方差矩阵</span><br><span class="line">F=[1 1;0 1];%状态转移矩阵</span><br><span class="line">Q=[0.0001,0;0,0.0001];%状态转移协方差矩阵</span><br><span class="line">H=[1 0];%观测噪声</span><br><span class="line">R=1;%观测噪声方差</span><br><span class="line"></span><br><span class="line">figure;</span><br><span class="line">hold on</span><br><span class="line">for i=1:100</span><br><span class="line">    x_=F*x;</span><br><span class="line">    P_=F*P*F&apos;+Q;</span><br><span class="line">    K=P_*H&apos;*/(H*P_*H&apos;+R);</span><br><span class="line">    x=x_+K*(Z(i)-H*X_);</span><br><span class="line">    P=(eye(2)-K*H)*P_;</span><br><span class="line">    plot(X(1),X(2)) %画点，横轴表示位置，纵轴表示速度</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -565,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#本文主要是讲解kalman滤波器"><span class="nav-number">1.</span> <span class="nav-text">本文主要是讲解kalman滤波器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#本文主要是讲解kalman滤波器"><span class="nav-number">1.</span> <span class="nav-text">本文主要是讲解kalman滤波器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协方差矩阵"><span class="nav-number">2.</span> <span class="nav-text">协方差矩阵</span></a></li></ol></div>
             
 
           </div>
