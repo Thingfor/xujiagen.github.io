@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="fighting!兽人永不为奴">
 <meta property="og:description" content="python 函数复习，最近需要写一写python程序做毕设数据类型对于python的字符串数据，如果需要输出python的字符串数据，对于内部的其他可能存在误解的符号可能需要转义符号来进行转义 字符串前面可以通过加上‘r’实现本段字符串不需要进行转义print(r’\\t\\’) # 等于\\t\\print内部有许多行’’’内容’’’实现将内容进行打印 区分python中赋值与别名的含义123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-10T08:24:11.379Z">
+<meta property="og:updated_time" content="2018-04-30T14:40:29.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python_语法">
 <meta name="twitter:description" content="python 函数复习，最近需要写一写python程序做毕设数据类型对于python的字符串数据，如果需要输出python的字符串数据，对于内部的其他可能存在误解的符号可能需要转义符号来进行转义 字符串前面可以通过加上‘r’实现本段字符串不需要进行转义print(r’\\t\\’) # 等于\\t\\print内部有许多行’’’内容’’’实现将内容进行打印 区分python中赋值与别名的含义123">
@@ -348,8 +348,7 @@
 <p>需要注意：<br>/除法数据的结果是浮点数，无关除法两侧对象的数据类型<br>//地板除  输出的结果永远是整数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;Hello, %s&apos; % &apos;world&apos; #输出显示：&apos;Hello, world&apos;</span><br><span class="line">&apos;Hi, %s, you have $%d.&apos; % (&apos;Michael&apos;, 1000000)  #输出显示：&apos;Hi, Michael, you have $1000000.&apos;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;Age:%s.Gender:%s&apos;%(25,Ture) #当不确定数据类型的时候可以shiyong%s，它可以将其他数据类型的变量转换成字符串类型的变量。</span><br><span class="line"></span><br><span class="line">print(&apos;god &#123;0&#125; you&apos;.format&#123;&apos;like&apos;&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="list和tuple"><a href="#list和tuple" class="headerlink" title="list和tuple"></a>list和tuple</h3><p>list和tuple<br>list类型是列表型的数据<br>list里面的数据是有顺序的，同时负数表示从最后面开始往前计算。同时list列表元素的添加可以通过append和insert函数来实现</p>
-<p>list.append(‘元素’) 可以在数据的最后添加数据<br>list.insert(1,’元素’),来列表的确定位置创建数据的同时，将原来这个位置的数据向后移动<br>list.pop() 将列表最后的元素从列表中删除<br>list.pop(2) 将列表中确定位置的数据从列表中删除</p>
+<h3 id="list和tuple"><a href="#list和tuple" class="headerlink" title="list和tuple"></a>list和tuple</h3><p>list和tuple<br>list类型是列表型的数据<br>list里面的数据是有顺序的，同时负数表示从最后面开始往前计算。同时list列表元素的添加可以通过append和insert函数来实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list.append(&apos;元素&apos;) 可以在数据的最后添加数据</span><br><span class="line">list.insert(1,&apos;元素&apos;),来列表的确定位置创建数据的同时，将原来这个位置的数据向后移动 </span><br><span class="line">list.pop() 将列表最后的元素从列表中删除</span><br><span class="line">list.pop(2) 将列表中确定位置的数据从列表中删除</span><br></pre></td></tr></table></figure></p>
 <p>python 上面应该是没有n++，n–这样的操作方式的。</p>
 <p>对于list元素如果将名称直接复制给另外一个名称相当于别名<br>例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">k=list(range(10))</span><br><span class="line">k2=k1</span><br><span class="line">#这个时候k2就是k的别名，k2会因为k的改变而改变</span><br><span class="line">如果需要将内容进行复制需要使用切片全部内容进行复制</span><br><span class="line">k2=k[:] 这个时候才是内容复制过去</span><br></pre></td></tr></table></figure></p>
 <h3 id="dict-字典"><a href="#dict-字典" class="headerlink" title="dict 字典"></a>dict 字典</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;&apos;Michael&apos;: 95, &apos;Bob&apos;: 75, &apos;Tracy&apos;: 85&#125;</span><br><span class="line">d[&apos;Michael&apos;]  #显示在字典里面的内容</span><br><span class="line">&apos;Thomas&apos; in d #查询在字典里面的内容是否存在，返回值是布尔类型的元素</span><br><span class="line">d.get(&apos;Bob&apos;) #查询一个元素在字典里面的内容，如果没有内容返回None</span><br><span class="line">d.get(&apos;Bob&apos;,-1) #查询一个元素在字典里面的内容，如果有返回值，否则返回-1</span><br><span class="line">d.pop(&apos;Bob&apos;)  #因为字典里面的元素都是无序的，所以不存在删除最后一个元素，但是通过pop()函数删除指定的元素</span><br><span class="line"></span><br><span class="line">#创建字典的方式</span><br><span class="line">1：x = dict(a=&quot;1&quot;, b=&quot;2&quot;)</span><br><span class="line">2：通过枚举创建字典</span><br><span class="line">3：通过列表创建字典，列表的每一个内容都需要两个元素</span><br><span class="line"></span><br><span class="line">对于字典里面的内容有三种调用方式：</span><br><span class="line">1.调用字典里面所有的元素 dict.items()</span><br><span class="line">2.调用字典里面的key dict.keys()</span><br><span class="line">3.调用字典里面的values dict.values()</span><br></pre></td></tr></table></figure>
@@ -362,22 +361,9 @@
 </blockquote>
 <p>如果需要传入可变参数可以写成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;def calc(*number):</span><br><span class="line">    sum=0;</span><br><span class="line">    for n in number:</span><br><span class="line">        sum+=n</span><br><span class="line">    return sum</span><br><span class="line"></span><br><span class="line">这个可变参数的函数输入是：</span><br><span class="line">&gt;calc(1,2,3,4)</span><br><span class="line">这个程序在写的过程中不需要在意元素的个数，也不需要将元素包装成元组tuple或者list列表的形式</span><br></pre></td></tr></table></figure></p>
 <p>对于想要输入一个list或者是tuple，可以用calc(*number)加上一个星号的形式，传入的参数可以是0个，也可以很多</p>
-<p><strong>4.关键字参数：</strong></p>
-<blockquote>
-<blockquote>
-<p>def person(name,age,**kw):<br>    print(‘name:’,name,’age:’,age,’other:’,kw)</p>
-</blockquote>
-</blockquote>
-<p>关键字参数允许你传入0个或者任意个数的参数，这些参数会组装成一个dict(字典)<br>传入的形式是：</p>
-<blockquote>
-<p>person(‘bob’,35,city=’beijing’)</p>
-</blockquote>
-<p>也可以创建一个dict,然后把该dict转换成关键字传进去</p>
-<blockquote>
-<blockquote>
-<p>extra={‘city’:’beijing’,’job’:’engine’}<br>person(“bob”,35,**extra)</p>
-</blockquote>
-</blockquote>
+<p><strong>4.关键字参数：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def person(name,age,**kw):</span><br><span class="line">    print(&apos;name:&apos;,name,&apos;age:&apos;,age,&apos;other:&apos;,kw)</span><br></pre></td></tr></table></figure></p>
+<p>关键字参数允许你传入0个或者任意个数的参数，这些参数会组装成一个dict(字典)<br>传入的形式是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person(&apos;bob&apos;,35,city=&apos;beijing&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>也可以创建一个dict,然后把该dict转换成关键字传进去<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extra=&#123;&apos;city&apos;:&apos;beijing&apos;,&apos;job&apos;:&apos;engine&apos;&#125;</span><br><span class="line">person(&quot;bob&quot;,35,**extra)</span><br></pre></td></tr></table></figure></p>
 <p>直接以字典的形式传进去</p>
 <p><strong>5.命名关键字参数：</strong></p>
 <blockquote>
@@ -387,28 +373,22 @@
 <blockquote>
 <p>在定义过程中可以将必选关键字参数，默认关键字参数，可变参数，关键字参数和命名关键字参数相组合，关键字的顺序是：必选参数，默认参数，可变参数，命名关键字参数，和关键字参数</p>
 </blockquote>
-<h3 id="汉罗塔"><a href="#汉罗塔" class="headerlink" title="汉罗塔"></a>汉罗塔</h3><blockquote>
-<blockquote>
-<p>def hanluota(n,a,b,c):<br>    if n==1:<br>        print(“%s-&gt;%s” % (a,c))<br>    else:<br>        hanluota(n-1,a,c,b)<br>        print(“%s-&gt;%s” % (a,c))<br>        hanluota(n-1,b,a,c)</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><blockquote>
+<p>首先假如说定义一个变量，这个变量是在一个函数外部的变量，在这个函数内部如果想要调用这个变量，如果只是打印这样不需要原始的外部变量，标量是可以正常使用的，但是如果想要修改这个变量，这个时候是不能修改的，会在函数内部创建一个和外部变量同名的变量。这件可见外部的变量在函数内部只能读不能写。<br>同时如果想要在函数内部修改这个变量可以使用global 使函数内部的变量变成函数外部的变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">variable=1</span><br><span class="line"></span><br><span class="line">def hanshu():</span><br><span class="line">    global variable</span><br><span class="line">    variable*=variable</span><br><span class="line">    return variable</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>hanluota(3,”a”,”b”,”c”)</p>
-</blockquote>
-</blockquote>
+<p>同时在后面到的闭包里面提到：<br>在一个函数的内部定义一个函数，大的函数可以调用小的函数两个变量，一个是函数，，一个是函数名<br>函数表示可以直接调用这个函数，函数名标志可以调用小函数指向的指针。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">def fun1():</span><br><span class="line">    def fun2():</span><br><span class="line">        print(&quot;fun2&quot;)</span><br><span class="line">    return fun2</span><br><span class="line"></span><br><span class="line">使用:</span><br><span class="line">i=fun1()</span><br><span class="line">i()  #显示---fun2</span><br><span class="line"></span><br><span class="line">上面这个函数只要是返回在大函数里面的小函数的函数名，函数名表示指向小函数的指针，同时将这个指针 赋值给一个新的变量，如果想要调用小的函数，主要使用i()这样的形式调用小函数。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def fun1():</span><br><span class="line">    def fun2():</span><br><span class="line">        print(&quot;fun2&quot;)</span><br><span class="line">    fun2()</span><br><span class="line"></span><br><span class="line">上面这个函数主要返回在大函数里面小函数的函数，这个时候如果直接运行大函数，将返回小函数的结果。</span><br></pre></td></tr></table></figure></p>
+<p>同时上面所表述的，变量是在栈里面存储的，在大函数里面定义的变量在小函数里面不能直接修改，如果想要修改方法有两种：<br>1.将创建的变量变成列表或者元组，这样函数就可以调用元素了，因为列表和元组不是存储在栈里面的<br>2.使用nonlocal变量将在大函数里面创建的变量就可以在小函数里面使用了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def big_hanshu():</span><br><span class="line">    x=[1,2]</span><br><span class="line">    def small_hanshu():</span><br><span class="line">        x[0]=x[0]*2</span><br><span class="line">    return small_hanshu()</span><br><span class="line"></span><br><span class="line">def big_hanshu():</span><br><span class="line">    x=1</span><br><span class="line">    def small_hanshu():</span><br><span class="line">        nonlocal x</span><br><span class="line">        x=x*2</span><br><span class="line">    return small_hanshu()</span><br></pre></td></tr></table></figure></p>
+<h3 id="汉罗塔"><a href="#汉罗塔" class="headerlink" title="汉罗塔"></a>汉罗塔</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def hanluota(n,a,b,c):</span><br><span class="line">    if n==1:</span><br><span class="line">        print(&quot;%s-&gt;%s&quot; % (a,c))</span><br><span class="line">    else:</span><br><span class="line">        hanluota(n-1,a,c,b)</span><br><span class="line">        print(&quot;%s-&gt;%s&quot; % (a,c))</span><br><span class="line">        hanluota(n-1,b,a,c)</span><br><span class="line"></span><br><span class="line">&gt;&gt;hanluota(3,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;)</span><br></pre></td></tr></table></figure>
 <p><strong>简单的写一下汉罗塔，复习一下递归</strong></p>
-<h3 id="list和tuple可以切片，dict是不可以切片的"><a href="#list和tuple可以切片，dict是不可以切片的" class="headerlink" title="list和tuple可以切片，dict是不可以切片的"></a>list和tuple可以切片，dict是不可以切片的</h3><blockquote>
+<p><strong><em>list和tuple可以切片，dict是不可以切片的</em></strong></p>
+<blockquote>
 <p>切片的对象是list和tuple，使用方法是 （前包后不包原则）<br>变量[a：b：c]  (a为起始值，b为终止值，c为间距)</p>
 </blockquote>
 <h3 id="枚举enumerate"><a href="#枚举enumerate" class="headerlink" title="枚举enumerate"></a>枚举enumerate</h3><p>枚举是一个非常重要的内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; for i, value in enumerate([&apos;A&apos;, &apos;B&apos;, &apos;C&apos;]):</span><br><span class="line">...     print(i, value)</span><br><span class="line">...</span><br><span class="line">0 A</span><br><span class="line">1 B</span><br><span class="line">2 C</span><br><span class="line"></span><br><span class="line">其中这个时候枚举的作用和dict字典的作用是差不多的，只是查询enumerate的内容的时候它的类型是枚举</span><br><span class="line">可以通过枚举类型创建dict字典，非常方面</span><br></pre></td></tr></table></figure></p>
 <h3 id="列表生成式："><a href="#列表生成式：" class="headerlink" title="列表生成式："></a>列表生成式：</h3><blockquote>
 <p>[x*y for x in range(5) for y in range(10) if y&gt;2]</p>
 </blockquote>
-<p><strong>列表生成式里面可以有for循环，可以有if判断语句</strong></p>
-<blockquote>
-<p>d={‘x’:’A’,’y’:’B’,’z’:’C’}<br>for k,v in d.items():<br>    print(k,’=’,v)</p>
-</blockquote>
+<p><strong>列表生成式里面可以有for循环，可以有if判断语句</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d=&#123;&apos;x&apos;:&apos;A&apos;,&apos;y&apos;:&apos;B&apos;,&apos;z&apos;:&apos;C&apos;&#125;</span><br><span class="line">for k,v in d.items():</span><br><span class="line">    print(k,&apos;=&apos;,v)</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>可以试试列表里面既有字符串，又有整数，对于字符串，需要将所有的字符串就转变成小写形式</p>
 </blockquote>
@@ -416,12 +396,7 @@
 <p>生成器与列表生成器的区别在于，生成器生成的数据可以非常多，但是不会占用大量的内存，因为他是实时计算出来的，使用的时候才开始调用。</p>
 </blockquote>
 <blockquote>
-<p>生成器的使用方式不仅仅是像列表生成器那样通过一个[]，对于一个函数如果将函数里面的数据通过yield操作，这个函数就相当于一个生成器</p>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>def fib(max):<br>    n,a,b=0,0,1<br>    while n&lt;max:<br>        yield b<br>        a,b=b,a+b<br>        n+=1</p>
-</blockquote>
+<p>生成器的使用方式不仅仅是像列表生成器那样通过一个[]，对于一个函数如果将函数里面的数据通过yield操作，这个函数就相当于一个生成器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def fib(max):</span><br><span class="line">    n,a,b=0,0,1</span><br><span class="line">    while n&lt;max:</span><br><span class="line">        yield b</span><br><span class="line">        a,b=b,a+b</span><br><span class="line">        n+=1</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="迭代器-Iterable"><a href="#迭代器-Iterable" class="headerlink" title="迭代器 Iterable"></a>迭代器 Iterable</h3><blockquote>
 <p><strong>list</strong>,<strong>tuple</strong>,<strong>dict</strong>,<strong>set</strong>,<strong>str</strong></p>
@@ -439,121 +414,121 @@
 <p>函数本身也可以赋值给一个变量，变量可以指向函数<br>当一个变量指向一个函数的时候，可以通过这个变量调用这个函数<br>那么函数名就是指向函数的变量</p>
 </blockquote>
 <blockquote>
-<p>既然变量可以指向函数，函数的参数能接受变量，那么一个函数可以接收另一个函数作为参数，这种函数被称为高阶函数</p>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>def(x,y,f):<br>    return f(x)+f(y)</p>
-</blockquote>
+<p>既然变量可以指向函数，函数的参数能接受变量，那么一个函数可以接收另一个函数作为参数，这种函数被称为高阶函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def(x,y,f):</span><br><span class="line">    return f(x)+f(y)</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h3><blockquote>
-<p>map()接收两个参数，一个是函数，一个是iterable</p>
-<blockquote>
-<p>def f(x):<br>    return x*x</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>r=map(f,list(range(1,10)))</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>list(map(str,list(range(1,10))))</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>def fn(x,y):<br>    return x*10+y</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>def char2num(s):<br>    return {‘0’:0,’1’:1,’2’:2,’3’:3,’4’:4,’5’:5,’6’:6,’7’:7,’8’:8,’9’:9}</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>reduce(fn,map(char2num,’13579’))=13579</p>
-</blockquote>
+<p>map()接收两个参数，一个是函数，一个是iterable<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def f(x):</span><br><span class="line">    return x*x</span><br><span class="line"></span><br><span class="line">&gt;&gt;r=map(f,list(range(1,10)))</span><br><span class="line"></span><br><span class="line">&gt;&gt;list(map(str,list(range(1,10))))</span><br><span class="line"></span><br><span class="line">&gt;&gt;def fn(x,y):</span><br><span class="line">    return x*10+y</span><br><span class="line"></span><br><span class="line">&gt;&gt;def char2num(s):</span><br><span class="line">    return &#123;&apos;0&apos;:0,&apos;1&apos;:1,&apos;2&apos;:2,&apos;3&apos;:3,&apos;4&apos;:4,&apos;5&apos;:5,&apos;6&apos;:6,&apos;7&apos;:7,&apos;8&apos;:8,&apos;9&apos;:9&#125;</span><br><span class="line"></span><br><span class="line">&gt;&gt;reduce(fn,map(char2num,&apos;13579&apos;))=13579</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="filter函数用于过滤序列"><a href="#filter函数用于过滤序列" class="headerlink" title="filter函数用于过滤序列"></a>filter函数用于过滤序列</h3><blockquote>
 <p>filter函数接收一个函数和一个序列，filter把传入的函数作用于每一个元素，按照返回的阿寒湖是true还是false判断是否丢弃这个元素</p>
 </blockquote>
 <p><strong>就相当于在c++里面的谓词，通过这个谓词判断是否保留元素</strong></p>
 <blockquote>
-<p>高阶函数排序函数，排序函数可以接收三个元素，第一个是一个list/tuple,第一个是一个处理函数，第三个是reverse=True<br>正常情况下函数都是从小到大进行排序的</p>
-<blockquote>
-<p>k=[12,-34,31,432,-223,122]<br>sorted(k,abs,reverse=True)</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>def lazy_sum(*args):<br>    def sum():<br>        ax=0<br>        for n in args:<br>            ax=ax+n<br>        return ax<br>    return sum</p>
-</blockquote>
+<p>高阶函数排序函数，排序函数可以接收三个元素，第一个是一个list/tuple,第一个是一个处理函数，第三个是reverse=True<br>正常情况下函数都是从小到大进行排序的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;k=[12,-34,31,432,-223,122]</span><br><span class="line">sorted(k,abs,reverse=True)</span><br><span class="line"></span><br><span class="line">&gt;&gt;def lazy_sum(*args):</span><br><span class="line">    def sum():</span><br><span class="line">        ax=0</span><br><span class="line">        for n in args:</span><br><span class="line">            ax=ax+n</span><br><span class="line">        return ax</span><br><span class="line">    return sum</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
 <p>函数的返回结果是一个函数，然后运行函数就可以得到刚才的结果了<br>相关参数和变量都保存在返回的变量中，这种成为闭包</p>
 </blockquote>
-<p><strong>闭包：</strong></p>
-<blockquote>
-<p>def count():<br>    fs=[]<br>    for i in range(1,4):<br>        def f():<br>            return i*i<br>        fs.append(f)<br>    return fs<br>f1,f2,f3=count()</p>
-</blockquote>
+<p><strong>闭包：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;def count():</span><br><span class="line">    fs=[]</span><br><span class="line">    for i in range(1,4):</span><br><span class="line">        def f():</span><br><span class="line">            return i*i</span><br><span class="line">        fs.append(f)</span><br><span class="line">    return fs</span><br><span class="line">f1,f2,f3=count()</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>返回闭包的时候注意：返回函数不要引用任何循环变量，否则后续会发生变化的变量</p>
 </blockquote>
 <p><strong>匿名函数：</strong></p>
 <blockquote>
 <blockquote>
-<p>关键字lambda表示匿名函数<br>lambda x:x*x  匿名函数的特点是只有一个表达式，不需要写return，返回值就是该表达式的结果</p>
+<p>关键字lambda表示匿名函数<br>lambda x:x*x  匿名函数的特点是只有一个表达式，不需要写return，返回值就是该表达式的结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;f=lambda x:x*x</span><br><span class="line">f(5)=25</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 </blockquote>
 <blockquote>
-<blockquote>
-<p>f=lambda x:x*x<br>f(5)=25 </p>
-</blockquote>
-</blockquote>
 <p>可以把一个匿名函数赋值给一个变量，通过这个变量调用这个函数</p>
-<p><strong>装饰器：</strong></p>
-<blockquote>
-<p>def log(func):<br>    def wrapper(<em>args,**kw):<br>        print(‘call %s():’,func.<strong>name</strong>)<br>        return func(</em>args,**kw)<br>    return warpper</p>
 </blockquote>
-<p>@log<br>def now():<br>    print(‘2015-3-25’)</p>
+<p><strong>装饰器：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;def log(func):</span><br><span class="line">    def wrapper(*args,**kw):</span><br><span class="line">        print(&apos;call %s():&apos;,func.__name__)</span><br><span class="line">        return func(*args,**kw)</span><br><span class="line">    return warpper</span><br><span class="line"></span><br><span class="line">@log</span><br><span class="line">def now():</span><br><span class="line">    print(&apos;2015-3-25&apos;)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
 <p><strong>注意：</strong>这里首先定义了一个装饰器，这个装饰器需要输入一个函数，但是我们在创建新的函数的时候，在函数定义的开头创建一个@装饰器名称，相当于：装饰器函数(刚创建的函数)，就会在刚创建的函数运行之后返回一个调用装饰器函数的结果<br><a href="https://www.zhihu.com/question/26930016" title="知乎链接，解释有点风骚" target="_blank" rel="noopener">对于装饰器的理解，我百度了下</a></p>
+</blockquote>
+<blockquote>
 <p>理解：程序本身就像内裤，内裤非常重要，执行一些非常重要的操作，但是不能一直穿，至少冬天穿的时候非常冷，于是就有了裤子，裤子把内裤包裹在里面的同时，提供的避寒的功能，这个裤子就是装饰器，在不影响函数整体运行的同时创建装饰器，很方便。</p>
+</blockquote>
+<blockquote>
 <p><strong>注意：</strong>创建一个装饰器名称是log,创建一个函数是now()<br>执行now()函数相当于执行 log(now)()函数<br>上面两层装饰器</p>
-<p>三层装饰器：<br>def log(text):<br>    def decorate(func):<br>        def warpper(<em>args,**kw):<br>            print(“%s %s():”,%(test,func__name__))<br>            return func(</em>args,**kw)<br>        return warpper<br>    return decorator</p>
-<p>now()=log(‘execute’)(now)</p>
+</blockquote>
+<blockquote>
+<p>三层装饰器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def log(text):</span><br><span class="line">    def decorate(func):</span><br><span class="line">        def warpper(*args,**kw):</span><br><span class="line">            print(&quot;%s %s():&quot;,%(test,func__name__))</span><br><span class="line">            return func(*args,**kw)</span><br><span class="line">        return warpper</span><br><span class="line">    return decorator</span><br><span class="line"></span><br><span class="line">now()=log(&apos;execute&apos;)(now)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
 <p><strong>我个人的理解：</strong>形式只是理解的一种方式，编译器还是按照原本的方式运行程序，所以两层装饰器按理来说应该是:<br>装饰器名称(函数名称)(定义的一些参数)，当然可以不需要输入参数的。</p>
+</blockquote>
+<blockquote>
 <p>三层装饰器：装饰器名称(一些参数)(函数名称)(定义一些参数)</p>
-<p>###偏函数<br>int(‘12345’,base=2)//int(‘12345’,2)<br><strong>注意：</strong>将其他数据转换成int类型的数据，然后在转换成二进制数据</p>
-<p>functools.partial是用来创建偏函数的<br>int2=functool.partial(int,base=2)<br>//原函数是int(传入一个函数对象)，限制参数是base=2，创建了一个新的函数</p>
-<p>创建偏函数实际可以通过接收函数对象，*args,<strong>kw等3个参数<br>kw={‘base’:2}<br>int2=functools.partial(int,</strong>kw)<br><strong>将kw参数传进去方面方便理解</strong></p>
-<h3 id="模块-module"><a href="#模块-module" class="headerlink" title="模块 module"></a>模块 module</h3><p> 因为python的模块函数也是py函数，也是可以直接指向的。所以在编写python的模块函数的时候需要注意<br>python的模块函数里面必须有：<br>if <strong>name</strong>=’<strong>init</strong>‘<br>    test()<br>这样直接运行python的模块文件的时候就会调用test()函数<br>同时其他文件也可以import模块文件以及里面的函数</p>
+</blockquote>
+<p>###偏函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int(&apos;12345&apos;,base=2)//int(&apos;12345&apos;,2)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>注意：</strong>将其他数据转换成int类型的数据，然后在转换成二进制数据</p>
+</blockquote>
+<blockquote>
+<p>functools.partial是用来创建偏函数的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int2=functool.partial(int,base=2)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>原函数是int(传入一个函数对象)，限制参数是base=2，创建了一个新的函数</p>
+</blockquote>
+<blockquote>
+<p>创建偏函数实际可以通过接收函数对象，*args,**kw等3个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kw=&#123;&apos;base&apos;:2&#125;</span><br><span class="line">int2=functools.partial(int,**kw)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong><em>将kw参数传进去方面方便理解</em></strong></p>
+<h3 id="模块-module"><a href="#模块-module" class="headerlink" title="模块 module"></a>模块 module</h3><blockquote>
+<p>因为python的模块函数也是py函数，也是可以直接指向的。所以在编写python的模块函数的时候需要注意<br>python的模块函数里面必须有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if __name__=&apos;__init__&apos;</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>这样直接运行python的模块文件的时候就会调用test()函数<br>同时其他文件也可以import模块文件以及里面的函数</p>
+</blockquote>
 <p>###面向对象编程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#创建一个python的类：</span><br><span class="line">class student(object):</span><br><span class="line">    def __init__(self,name,score):</span><br><span class="line">        self.name=name</span><br><span class="line">        self.score=score</span><br><span class="line">    def print_information(self):</span><br><span class="line">        print(self.name,&quot;get&quot;,self.score)</span><br><span class="line"></span><br><span class="line">#之后在通过class创建类：</span><br><span class="line">xujiagen=student(&quot;xujiagen&quot;,95)</span><br></pre></td></tr></table></figure></p>
-<p><strong>在python的class中如果想要内部属性不被外部的所访问，可以在属性前面加上两个下划线，以两个下划线开头的变量名就是一个私有变量</strong></p>
+<p><strong><em>在python的class中如果想要内部属性不被外部的所访问，可以在属性前面加上两个下划线，以两个下划线开头的变量名就是一个私有变量</em></strong></p>
+<blockquote>
 <p>私有变量只能class内部进行访问，在外部是不能访问的</p>
-<p>所以可以将刚才的程序进行修改：</p>
-<p>class Student(object):<br>    def.<strong>init</strong>(self,name,score)<br>        self.<strong>name=name<br>        self.</strong>score=score</p>
-<pre><code>def print_score(self):
-    print(&apos;%s:%s&apos; %(self.__name,self.__score))
-</code></pre><p>这样class内部本来的两个共有变量就变成的私有变量</p>
+</blockquote>
+<blockquote>
+<p>所以可以将刚才的程序进行修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def.__init__(self,name,score)</span><br><span class="line">        self.__name=name</span><br><span class="line">        self.__score=score</span><br><span class="line">    </span><br><span class="line">    def print_score(self):</span><br><span class="line">        print(&apos;%s:%s&apos; %(self.__name,self.__score))</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>这样class内部本来的两个共有变量就变成的私有变量</p>
+</blockquote>
+<blockquote>
 <p>需要注意的是以双下划线开头并且以双下划线结束的变量是class内部的特殊变量，特殊变量是可以直接访问的。</p>
+</blockquote>
+<blockquote>
 <p>当看到单下划线开头的变量虽然可以直接访问，但是不建议随便访问，因为别人将名称修改成这样就是叫你不要求访问他</p>
+</blockquote>
 <p>###继承和多态</p>
+<blockquote>
 <p>在oop程序设计中，当我们定义一个class的时候，可以从某个现有的class继承，新的class称之为子类，这个和c++上面也是一样的，被继承的称之为基类或者说是父类</p>
-<p>首先我们创建一个class:</p>
-<p>class Animal(object):<br>    def run(self):<br>        print(“animal is running”)</p>
-<p>class Dog(Animal):<br>    pass</p>
-<p>class Cat(Animal):<br>    pass</p>
-<p>我们首先创建了一个对象class，然后创建两个class继承第一个class,他的好处在于可以直接继承第一个class上面所有的内容<br>dog Dog()<br>dog.run()<br>创建一个对象dog,因为Dog已经从Animal上面继承了所以直接运行dog.run()就可以运行Animal的子程序</p>
+</blockquote>
+<blockquote>
+<p>首先我们创建一个class:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Animal(object):</span><br><span class="line">    def run(self):</span><br><span class="line">        print(&quot;animal is running&quot;)</span><br><span class="line"></span><br><span class="line">class Dog(Animal):</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">class Cat(Animal):</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>我们首先创建了一个对象class，然后创建两个class继承第一个class,他的好处在于可以直接继承第一个class上面所有的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dog Dog()</span><br><span class="line">dog.run()</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>创建一个对象dog,因为Dog已经从Animal上面继承了所以直接运行dog.run()就可以运行Animal的子程序</p>
+</blockquote>
+<blockquote>
 <p>当子类和父类都存在相同的代码run()的时候，我们说子类run()覆盖了父类的run()，在代码运行的时候，总是会调用子类的run(),这样我们就获得的继承的另外一个好处，多态</p>
+</blockquote>
+<blockquote>
 <p>isinstance()函数可以判断一个数据类型是不是一样的，这样当我们创建一个cat的类，同时这个类是继承父类animal，这个时候，判断一个一个cat类型的对象是否与animal的数据类型相同的时候就会发现，cat的队形与animal的数据类型是一样的</p>
+</blockquote>
+<blockquote>
 <p>但是反过来就不可以</p>
-<p>我们创建一个函数调用animal对象</p>
-<p>def run_twice(Animal):<br>    Animal.run()<br>    Animal.sun()</p>
+</blockquote>
+<blockquote>
+<p>我们创建一个函数调用animal对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def run_twice(Animal):</span><br><span class="line">    Animal.run()</span><br><span class="line">    Animal.sun()</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
 <p>这个时候我们传入run_twice(Animal()) //注意传入的都是实例<br>都是调用各自的run函数，虽然都是从Animal继承run()函数，但是当继承的子类内部创建了run()函数，就会屏蔽父类的run()函数，体现class的多态</p>
+</blockquote>
+<blockquote>
 <p>这个时候其实是两种编程语言之间的区别：<br>静态语言和动态语言<br>静态语言：需要传入animal类型和animal类型的子类否则无法调用run函数<br>动态语言：不一定需要传入animal类型的语言，只要保证传入的对象有一个run()函数</p>
+</blockquote>
 
       
     </div>
@@ -777,7 +752,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python-函数复习，最近需要写一写python程序做毕设"><span class="nav-number">1.</span> <span class="nav-text">python 函数复习，最近需要写一写python程序做毕设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list和tuple"><span class="nav-number">3.</span> <span class="nav-text">list和tuple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dict-字典"><span class="nav-number">4.</span> <span class="nav-text">dict 字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set集合"><span class="nav-number">5.</span> <span class="nav-text">set集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的参数"><span class="nav-number">6.</span> <span class="nav-text">函数的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#汉罗塔"><span class="nav-number">7.</span> <span class="nav-text">汉罗塔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list和tuple可以切片，dict是不可以切片的"><span class="nav-number">8.</span> <span class="nav-text">list和tuple可以切片，dict是不可以切片的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举enumerate"><span class="nav-number">9.</span> <span class="nav-text">枚举enumerate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表生成式："><span class="nav-number">10.</span> <span class="nav-text">列表生成式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器"><span class="nav-number">11.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器-Iterable"><span class="nav-number">12.</span> <span class="nav-text">迭代器 Iterable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器-Iterator"><span class="nav-number">13.</span> <span class="nav-text">生成器 Iterator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-reduce"><span class="nav-number">14.</span> <span class="nav-text">map/reduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter函数用于过滤序列"><span class="nav-number">15.</span> <span class="nav-text">filter函数用于过滤序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块-module"><span class="nav-number">16.</span> <span class="nav-text">模块 module</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python-函数复习，最近需要写一写python程序做毕设"><span class="nav-number">1.</span> <span class="nav-text">python 函数复习，最近需要写一写python程序做毕设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list和tuple"><span class="nav-number">3.</span> <span class="nav-text">list和tuple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dict-字典"><span class="nav-number">4.</span> <span class="nav-text">dict 字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set集合"><span class="nav-number">5.</span> <span class="nav-text">set集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的参数"><span class="nav-number">6.</span> <span class="nav-text">函数的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">7.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#汉罗塔"><span class="nav-number">8.</span> <span class="nav-text">汉罗塔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举enumerate"><span class="nav-number">9.</span> <span class="nav-text">枚举enumerate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表生成式："><span class="nav-number">10.</span> <span class="nav-text">列表生成式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器"><span class="nav-number">11.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器-Iterable"><span class="nav-number">12.</span> <span class="nav-text">迭代器 Iterable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器-Iterator"><span class="nav-number">13.</span> <span class="nav-text">生成器 Iterator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-reduce"><span class="nav-number">14.</span> <span class="nav-text">map/reduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter函数用于过滤序列"><span class="nav-number">15.</span> <span class="nav-text">filter函数用于过滤序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块-module"><span class="nav-number">16.</span> <span class="nav-text">模块 module</span></a></li></ol></div>
             
 
           </div>

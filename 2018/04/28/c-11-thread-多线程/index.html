@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="c++多线程库thread  本身对多线程并不是非常了解，但是在学习车道线检测的过程中，接触到了多线程，需要了解一下多线程部分的一些知识。方便看懂一些程序。  进程、线程  进程：正在运行中的程序。是在内存中开辟的一段空间。线程：一个程序中负责程序执行的控制单元。一个进程可以有多个执行路径。称之为多线程。   一个进程中至少有一个线程。这一个线程称之为主线程。   每一个线程都有自己需要运行的内容">
+<meta name="description" content="c++多线程库thread  本身对多线程并不是非常了解，但是在学习车道线检测的过程中，接触到了多线程，需要了解一下多线程部分的一些知识。方便看懂一些程序。   多线程参考文章：相关博客博客里面主要是对c++多线程编程的一种讲解。但是在看这个博客之间建议看一些讲解多线程的视频，有助于理解多线程这个概念。  进程、线程  进程：正在运行中的程序。是在内存中开辟的一段空间。线程：一个程序中负责程序执行">
 <meta name="keywords" content="c++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++11 thread 多线程">
 <meta property="og:url" content="http://yoursite.com/2018/04/28/c-11-thread-多线程/index.html">
 <meta property="og:site_name" content="fighting!兽人永不为奴">
-<meta property="og:description" content="c++多线程库thread  本身对多线程并不是非常了解，但是在学习车道线检测的过程中，接触到了多线程，需要了解一下多线程部分的一些知识。方便看懂一些程序。  进程、线程  进程：正在运行中的程序。是在内存中开辟的一段空间。线程：一个程序中负责程序执行的控制单元。一个进程可以有多个执行路径。称之为多线程。   一个进程中至少有一个线程。这一个线程称之为主线程。   每一个线程都有自己需要运行的内容">
+<meta property="og:description" content="c++多线程库thread  本身对多线程并不是非常了解，但是在学习车道线检测的过程中，接触到了多线程，需要了解一下多线程部分的一些知识。方便看懂一些程序。   多线程参考文章：相关博客博客里面主要是对c++多线程编程的一种讲解。但是在看这个博客之间建议看一些讲解多线程的视频，有助于理解多线程这个概念。  进程、线程  进程：正在运行中的程序。是在内存中开辟的一段空间。线程：一个程序中负责程序执行">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-28T06:08:17.102Z">
+<meta property="og:updated_time" content="2018-04-28T13:57:50.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++11 thread 多线程">
-<meta name="twitter:description" content="c++多线程库thread  本身对多线程并不是非常了解，但是在学习车道线检测的过程中，接触到了多线程，需要了解一下多线程部分的一些知识。方便看懂一些程序。  进程、线程  进程：正在运行中的程序。是在内存中开辟的一段空间。线程：一个程序中负责程序执行的控制单元。一个进程可以有多个执行路径。称之为多线程。   一个进程中至少有一个线程。这一个线程称之为主线程。   每一个线程都有自己需要运行的内容">
+<meta name="twitter:description" content="c++多线程库thread  本身对多线程并不是非常了解，但是在学习车道线检测的过程中，接触到了多线程，需要了解一下多线程部分的一些知识。方便看懂一些程序。   多线程参考文章：相关博客博客里面主要是对c++多线程编程的一种讲解。但是在看这个博客之间建议看一些讲解多线程的视频，有助于理解多线程这个概念。  进程、线程  进程：正在运行中的程序。是在内存中开辟的一段空间。线程：一个程序中负责程序执行">
 
 
 
@@ -346,6 +346,9 @@
 <blockquote>
 <p>本身对多线程并不是非常了解，但是在学习车道线检测的过程中，接触到了多线程，需要了解一下多线程部分的一些知识。方便看懂一些程序。</p>
 </blockquote>
+<blockquote>
+<p>多线程参考文章：<a href="http://www.cnblogs.com/haippy/p/3235560.html" target="_blank" rel="noopener">相关博客</a><br>博客里面主要是对c++多线程编程的一种讲解。<br>但是在看这个博客之间建议看一些讲解多线程的视频，有助于理解多线程这个概念。</p>
+</blockquote>
 <h4 id="进程、线程"><a href="#进程、线程" class="headerlink" title="进程、线程"></a>进程、线程</h4><hr>
 <blockquote>
 <p>进程：正在运行中的程序。是在内存中开辟的一段空间。<br>线程：一个程序中负责程序执行的控制单元。一个进程可以有多个执行路径。称之为多线程。</p>
@@ -378,6 +381,14 @@
 <li><p>\<future>该头文件主要申明了std::promise,std::package_task两个provider类，以及std::future和std::shared_future两个类，另外一些与之相关的类型。std::async()函数申明在这个头文件中。</future></p>
 </li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;thread&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void thread_task()</span><br><span class="line">&#123;</span><br><span class="line">    std::cout&lt;&lt;&quot;hello thread&quot;&lt;&lt;std::endl;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    std::thread t(thread_task);</span><br><span class="line">    t.join()</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">该程序段里面创建了一个线程，也主要程序也是运行这个线程里面的内容，这个线程是该程序的主线程。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;thread&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void f1(int n)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i==0;i&lt;5;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout&lt;&lt;&quot;thread&quot;&lt;&lt;&quot;executing\n&quot;;</span><br><span class="line">        std::this_thread::sleep_for(std::chrono::milliseconds(10));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void f2(int&amp; n)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;5;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout&lt;&lt;&quot;thred 2 executing\n&quot;;</span><br><span class="line">        ++n;</span><br><span class="line">        std::this_thread::sleep_for(std::chrono::millseconds(10));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    std::thread t1;//创建一个空的线程</span><br><span class="line">    std::thread t2(f1,n+1);//传值创建一个矩阵</span><br><span class="line">    std::thread t3(f2,ref(n));//传递一个引用</span><br><span class="line">    std::thread t4(std::move(t3));</span><br><span class="line"></span><br><span class="line">    t2.join();</span><br><span class="line">    t4.join();</span><br><span class="line">    std::cout&lt;&lt;&quot;final value of n is&quot;&lt;&lt;n&lt;&lt;&apos;\n&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>简单说明一下thread和mutex在多线程上面的意义。<br>thread函数主要是为了创建一个线程，这个创建线程的方式很多，一般都在类里面定义了这个类的初始化形式。当使用创建对象的join()函数的时候，说明这个函数基本上已经开始被使用了。</p>
+</blockquote>
+<blockquote>
+<p>在创建一个线程之后，对于线程里面的对象，如果多个线程控制的对象是同一个对象。这个时候需要创建mutex互斥线程。因为这个线程在调用的时候需要检测这个对象是不是被锁起来了。同时在这个线程调用完这个数据之后，需要对这个线程进行解锁。保证这个线程能够被其他线程使用。同时这个数据在被锁起来的时候，其他线程是不能够对这个线程进行操作的。</p>
+</blockquote>
 
       
     </div>
